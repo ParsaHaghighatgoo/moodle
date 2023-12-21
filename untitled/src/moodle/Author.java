@@ -1,6 +1,5 @@
 package moodle;
 
-public class QuestionBank {
+public class Author {
     Question [] ListOfQuestion;
-    Course   [] Topic;
 }

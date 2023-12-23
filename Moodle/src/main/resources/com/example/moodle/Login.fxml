@@ -22,22 +22,22 @@
                   <Image url="@innner1.jpg" />
                </image>
             </ImageView>
-            <TextField layoutX="91.0" layoutY="184.0" prefHeight="36.0" prefWidth="219.0" promptText="Enter Your Usename" style="-fx-background-color: white; -fx-border-color: black; -fx-cursor: text; -fx-border-radius: 15px; -fx-background-radius: 15px;">
+            <TextField fx:id="usernameField" layoutX="91.0" layoutY="184.0" prefHeight="36.0" prefWidth="219.0" promptText="Enter Your Usename" style="-fx-background-color: white; -fx-border-color: black; -fx-cursor: text; -fx-border-radius: 15px; -fx-background-radius: 15px;">
                <font>
                   <Font name="A Shams" size="12.0" />
                </font>
             </TextField>
-            <Button layoutX="316.0" layoutY="14.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="74.0" style="-fx-background-color: #0F4A70; -fx-background-radius: 15px; -fx-cursor: hand;" text="signup" textFill="WHITE">
+            <Button layoutX="316.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleSignup" prefHeight="36.0" prefWidth="74.0" style="-fx-background-color: #0F4A70; -fx-background-radius: 15px; -fx-cursor: hand;" text="signup" textFill="WHITE">
                <font>
                   <Font name="Amiri Bold" size="14.0" />
                </font>
             </Button>
-            <Button layoutX="91.0" layoutY="289.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="219.0" style="-fx-background-radius: 15px; -fx-background-color: #0F4A70; -fx-cursor: hand;" text="Login" textFill="WHITE">
+            <Button fx:id="login" layoutX="91.0" layoutY="289.0" mnemonicParsing="false" onAction="#handleLogin" prefHeight="36.0" prefWidth="219.0" style="-fx-background-radius: 15px; -fx-background-color: #0F4A70; -fx-cursor: hand;" text="Login" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Button>
-            <PasswordField layoutX="91.0" layoutY="231.0" prefHeight="36.0" prefWidth="219.0" promptText="Enter Your Password" style="-fx-background-color: white; -fx-border-color: black; -fx-cursor: text; -fx-background-radius: 15px; -fx-border-radius: 15px;">
+            <PasswordField fx:id="passwordField" layoutX="91.0" layoutY="231.0" prefHeight="36.0" prefWidth="219.0" promptText="Enter Your Password" style="-fx-background-color: white; -fx-border-color: black; -fx-cursor: text; -fx-background-radius: 15px; -fx-border-radius: 15px;">
                <font>
                   <Font name="A Shams" size="12.0" />
                </font>

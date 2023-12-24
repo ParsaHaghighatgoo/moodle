@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
+import java.net.URL;
 
 public class Main extends Application {
 
@@ -13,8 +14,12 @@ public class Main extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Login.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("Black Moodle");
-        stage.getIcons().add(new Image("C:\\Users\\beta\\Desktop\\moodle\\Moodle\\src\\main\\resources\\com\\example\\moodle\\icon.jpg"));
+        String localDir = System.getProperty("user.dir");
+        localDir+="\\Moodle\\src\\main\\resources\\com\\example\\moodle\\icon.jpg"  ;
+        System.out.println(localDir);
+        stage.getIcons().add(new Image(localDir));
         stage.setScene(scene);
+        stage.setResizable(false);
         stage.show();
     }
 

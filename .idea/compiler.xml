@@ -9,5 +9,8 @@
         <module name="Moodle" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="Moodle" target="21" />
+    </bytecodeTargetLevel>
   </component>
 </project>

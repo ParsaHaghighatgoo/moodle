@@ -15,7 +15,7 @@ public class Main extends Application {
         Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("Black Moodle");
         String localDir = System.getProperty("user.dir");
-        localDir+="\\Moodle\\src\\main\\resources\\com\\example\\moodle\\icon.jpg"  ;
+        localDir+="\\src\\main\\resources\\com\\example\\moodle\\icon.jpg"  ;
         System.out.println(localDir);
         stage.getIcons().add(new Image(localDir));
         stage.setScene(scene);

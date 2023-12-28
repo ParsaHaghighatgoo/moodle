@@ -10,6 +10,7 @@
 
 <AnchorPane prefHeight="600.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.moodle.UserPage">
    <children>
+      <AnchorPane layoutX="-46.0" layoutY="-4.0" prefHeight="620.0" prefWidth="299.0" style="-fx-background-radius: 30px; -fx-background-color: black;">
       <AnchorPane layoutX="189.0" layoutY="-4.0" prefHeight="626.0" prefWidth="270.0" style="-fx-background-color: gray; -fx-background-radius: 50px;">
          <children>
             <Button layoutX="127.0" layoutY="286.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="64.0" text="Edit" />
@@ -47,5 +48,15 @@
             <Button layoutX="538.0" layoutY="561.0" mnemonicParsing="false" text="stop" />
          </children>
       </AnchorPane>
+      <ListView layoutX="271.0" layoutY="46.0" prefHeight="101.0" prefWidth="269.0" />
+      <ListView layoutX="271.0" layoutY="238.0" prefHeight="101.0" prefWidth="269.0" />
+      <TextField layoutX="271.0" layoutY="436.0" promptText="login activty" text="login activty" />
+      <TextArea fx:id="loginActivity" layoutX="271.0" layoutY="469.0" prefHeight="123.0" prefWidth="187.0" />
+      <TextField layoutX="271.0" layoutY="14.0" promptText="your courses as student" text="your courses as student" />
+      <TextField layoutX="271.0" layoutY="200.0" promptText="list of your coursers" text="your courses as professor" />
+      <Button layoutX="437.0" layoutY="160.0" mnemonicParsing="false" text="show all courses" />
+      <Button layoutX="437.0" layoutY="351.0" mnemonicParsing="false" text="show all courses" />
+      <Button layoutX="696.0" layoutY="567.0" mnemonicParsing="false" text="start" />
+      <Button layoutX="743.0" layoutY="567.0" mnemonicParsing="false" text="stop" />
    </children>
 </AnchorPane>

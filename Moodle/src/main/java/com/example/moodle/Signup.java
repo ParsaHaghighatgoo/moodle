@@ -18,8 +18,11 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.lang.reflect.Type;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.Date;
 
-public class Signup{
+public class Signup {
 
     @FXML
     private TextField usernameField;
@@ -44,11 +47,10 @@ public class Signup{
     private Button signupButton;
 
     public void initialize() {
-        combobox.setItems(FXCollections.observableArrayList(UserRole.STUDENT,UserRole.PROFESSOR));
-        comboboxg.setItems(FXCollections.observableArrayList(Gender.MALE,Gender.FEMALE,Gender.OTHERS));
+        combobox.setItems(FXCollections.observableArrayList(UserRole.STUDENT, UserRole.PROFESSOR));
+        comboboxg.setItems(FXCollections.observableArrayList(Gender.MALE, Gender.FEMALE, Gender.OTHERS));
         signupButton.setOnAction(this::handleSignupButtonAction);
     }
-
 
 
     @FXML
@@ -61,11 +63,11 @@ public class Signup{
         UserRole userRole = combobox.getValue();
         Gender gender = comboboxg.getValue();
 
-
-        if(email.isEmpty()){
+        if (email.isEmpty()) {
             email = "";
         }
-        User.addUser(2,username,password,name,lastname,2,email,userRole,gender);
+        ArrayList<String> newlogindates = new ArrayList<>();
+        User.addUser(2, username, password, name, lastname, 2, email, userRole, gender, newlogindates);
         System.out.println(":DDD");
         navigateToLoginPage(event);
     }
@@ -86,8 +88,6 @@ public class Signup{
             System.err.println("Error loading the signup page: " + e.getMessage());
         }
     }
-
-
 
 
 }

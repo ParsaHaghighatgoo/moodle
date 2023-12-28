@@ -13,6 +13,8 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.security.PrivateKey;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class Login {
 
@@ -26,6 +28,8 @@ public class Login {
     private Button login;
 
     private Button signupbutton;
+
+    private String newLogAct;
 
 
 
@@ -42,9 +46,14 @@ public class Login {
 
         for (User user : DataBase.users) {
             if (username.equals(user.username) && password.equals(user.password)) {
-                System.out.println("hello");
-                // Uncomment below code if you want to navigate to the AdminPage after successful login
-                // navigateToAdminPage(user);
+                DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+                LocalDateTime now = LocalDateTime.now();
+                //System.out.println(String.valueOf(now).substring(0,19));
+                user.logindates.add(dtf.format(now));
+                newLogAct = "your first login is : " + user.logindates.get(0) + "\n"
+                + "your last login is : " +  user.logindates.get(user.logindates.size()-1);
+                UserPage.updateLoginActivityBoxText(newLogAct);
+                navigateToUserPage(event);
                 return;
             }
         }
@@ -62,6 +71,22 @@ public class Login {
             currentStage.setScene(new Scene(root));
             currentStage.setTitle("Signup Form");
             currentStage.show();
+
+        } catch (IOException e) {
+            System.err.println("Error loading the signup page: " + e.getMessage());
+        }
+    }
+    @FXML
+    private void navigateToUserPage(ActionEvent event) {
+        Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(Signup.class.getResource("userPage.fxml"));
+            Parent root = fxmlLoader.load();
+            //Create a new stage
+            currentStage.setScene(new Scene(root));
+            currentStage.setTitle("User Page");
+            currentStage.show();
+
 
         } catch (IOException e) {
             System.err.println("Error loading the signup page: " + e.getMessage());

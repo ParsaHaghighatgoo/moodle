@@ -2,9 +2,17 @@ package com.example.moodle;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
+
+import java.io.IOException;
+import java.security.PrivateKey;
 
 public class Login {
 
@@ -16,6 +24,8 @@ public class Login {
 
     @FXML
     private Button login;
+
+    private Button signupbutton;
 
 
 
@@ -41,31 +51,22 @@ public class Login {
         System.out.println("no");
     }
 
-    private void navigateToAdminPage(User authenticatedUser) {
-        // This code is for navigating to the AdminPage after successful login
-        // Uncomment the code and make sure you have a reference to the current stage
-        /*
-        try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("AdminPage.fxml"));
-            Parent adminPageParent = fxmlLoader.load();
-            AdminPage adminPageController = fxmlLoader.getController();
-            adminPageController.setAuthenticatedUser(authenticatedUser);  // Pass the authenticated user
-
-            Scene adminScene = new Scene(adminPageParent);
-
-            Stage stage = (Stage) usernameField.getScene().getWindow();
-            stage.setScene(adminScene);
-            stage.setTitle("Admin Page");
-            stage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        */
-    }
-
     @FXML
-    void handleSignup(ActionEvent event) {
-        // Navigate to the signup page or perform other actions.
-        System.out.println("Signup button clicked!");
+    private void navigateToSignupPage(ActionEvent event) {
+        Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(Signup.class.getResource("signup.fxml"));
+            Parent root = fxmlLoader.load();
+
+            // Create a new stage
+            currentStage.setScene(new Scene(root));
+            currentStage.setTitle("Signup Form");
+            currentStage.show();
+
+        } catch (IOException e) {
+            System.err.println("Error loading the signup page: " + e.getMessage());
+        }
     }
+
+
 }

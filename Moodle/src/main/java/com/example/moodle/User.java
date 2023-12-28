@@ -11,7 +11,7 @@ public class User {
     UserRole userRole;
     Gender gender;
 
-    public User(int id, String username, String password, String firstName, String lastName,String email
+    public User(int id, String username, String password, String firstName, String lastName, String email
             , int age, UserRole userRole, Gender gender) {
         this.id = id;
         this.username = username;
@@ -101,4 +101,12 @@ public class User {
                 ", gender=" + gender +
                 '}';
     }
+
+    public static void addUser(int id, String username, String password, String firstName
+            , String lastName, int age, String email, UserRole userRole, Gender gender) {
+        User newUser = new User(id, username, password, firstName, lastName, email
+                , age, userRole, gender);
+        DataBase.users.add(newUser);
+    }
+
 }

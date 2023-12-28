@@ -1,5 +1,9 @@
 package com.example.moodle;
 
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.Date;
+
 public class User {
     int id;
     String username;
@@ -10,18 +14,20 @@ public class User {
     String email;
     UserRole userRole;
     Gender gender;
+    ArrayList<String> logindates;
 
     public User(int id, String username, String password, String firstName, String lastName, String email
-            , int age, UserRole userRole, Gender gender) {
+            , int age, UserRole userRole, Gender gender,ArrayList<String> logindates) {
         this.id = id;
         this.username = username;
         this.password = password;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
-        Age = age;
+        this.Age = age;
         this.userRole = userRole;
         this.gender = gender;
+        this.logindates = logindates;
     }
 
     public int getId() {
@@ -103,9 +109,9 @@ public class User {
     }
 
     public static void addUser(int id, String username, String password, String firstName
-            , String lastName, int age, String email, UserRole userRole, Gender gender) {
+            , String lastName, int age, String email, UserRole userRole, Gender gender,ArrayList<String> logindates) {
         User newUser = new User(id, username, password, firstName, lastName, email
-                , age, userRole, gender);
+                , age, userRole, gender,logindates);
         DataBase.users.add(newUser);
     }
 

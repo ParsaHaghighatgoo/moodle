@@ -52,7 +52,7 @@ public class Login {
                 user.logindates.add(dtf.format(now));
                 newLogAct = "your first login is : " + user.logindates.get(0) + "\n"
                 + "your last login is : " +  user.logindates.get(user.logindates.size()-1);
-                UserPage.updateLoginActivityBoxText(newLogAct);
+                //UserPage.updateLoginActivityBoxText(newLogAct);
                 navigateToUserPage(event);
                 return;
             }

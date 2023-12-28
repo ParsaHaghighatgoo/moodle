@@ -14,10 +14,10 @@ public class Main extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("Login.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("Black Moodle");
-        String localDir = System.getProperty("user.dir");
-        localDir+="\\src\\main\\resources\\com\\example\\moodle\\icon.jpg"  ;
-        System.out.println(localDir);
-        stage.getIcons().add(new Image(localDir));
+//        String localDir = System.getProperty("user.dir");
+////        localDir+="\\src\\main\\resources\\com\\example\\moodle\\icon.jpg"  ;
+////        System.out.println(localDir);
+        stage.getIcons().add(new Image("icon.jpg"));
         stage.setScene(scene);
         stage.setResizable(false);
         stage.show();

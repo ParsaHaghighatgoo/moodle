@@ -30,6 +30,7 @@ public class Login {
     private Button signupbutton;
 
     private String newLogAct;
+    private User logedInUser;
 
 
 
@@ -46,6 +47,7 @@ public class Login {
 
         for (User user : DataBase.users) {
             if (username.equals(user.username) && password.equals(user.password)) {
+                this.logedInUser = user;
                 DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
                 LocalDateTime now = LocalDateTime.now();
                 //System.out.println(String.valueOf(now).substring(0,19));
@@ -82,6 +84,9 @@ public class Login {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(Signup.class.getResource("userPage.fxml"));
             Parent root = fxmlLoader.load();
+            UserPage userPage = fxmlLoader.getController();
+            userPage.setLogedInUser(logedInUser);
+            userPage.updateLoginActivityBoxText(newLogAct);
             //Create a new stage
             currentStage.setScene(new Scene(root));
             currentStage.setTitle("User Page");

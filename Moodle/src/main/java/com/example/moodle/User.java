@@ -30,6 +30,9 @@ public class User {
         this.logindates = logindates;
     }
 
+    public User() {
+    }
+
     public int getId() {
         return id;
     }

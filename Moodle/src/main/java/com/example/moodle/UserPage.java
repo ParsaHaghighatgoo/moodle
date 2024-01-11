@@ -7,6 +7,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -30,11 +31,13 @@ public class UserPage {
     private Button profileButton;
 
 
-    public void initialize(){
+
+    public void initialize() {
         leftPane.setVisible(true);
         listPane.setVisible(true);
         profilePane.setVisible(false);
         profileButton.setText("Profile");
+
     }
 
     @FXML

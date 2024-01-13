@@ -1,6 +1,8 @@
 package com.example.moodle;
 
+import java.util.ArrayList;
+
 public class CoursePlan {
-    Student [] listOfStudent;
+    ArrayList<Student> students;
 
 }

@@ -17,7 +17,7 @@ public class DataBase {
         users.clear();
         User admin = new User(1, "admin", "admin", "admin", "admin", "admin@gmail.com", 2, UserRole.ADMIN, Gender.OTHERS, newLoginDates);
         users.add(admin);
-        Course course = new Course(null, "C:\\Users\\beta\\Desktop\\moodle\\moodle\\Moodle\\src\\main\\resources\\com\\example\\moodle\\in.jpg");
+        Course course = new Course(null, "download.jpg", null, null);
         courses.add(course);
 
         // Convert the users list to JSON and save it to a file

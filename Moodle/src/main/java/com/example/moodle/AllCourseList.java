@@ -2,8 +2,12 @@ package com.example.moodle;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -56,6 +60,21 @@ public class AllCourseList {
                     // Handle the course selection here
                     System.out.println("Selected course: " + course);
                     // TODO: Implement the selection logic
+                    Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                    try {
+                        FXMLLoader fxmlLoader2 = new FXMLLoader(Signup.class.getResource("TeacherCoursePage.fxml"));
+                        Parent root = fxmlLoader2.load();
+                        TeacherCoursePage teacherCoursePage = fxmlLoader2.getController();
+
+                        //Create a new stage
+                        currentStage.setScene(new Scene(root));
+                        currentStage.setTitle("Teacher Course Page");
+                        currentStage.show();
+
+
+                    } catch (IOException e) {
+                        System.err.println("Error loading the Teacher Course Page: " + e.getMessage());
+                    }
                 });
             }
         } catch (IOException e) {

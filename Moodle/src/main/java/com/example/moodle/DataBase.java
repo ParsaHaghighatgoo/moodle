@@ -9,6 +9,7 @@ import java.util.ArrayList;
 
 public class DataBase {
     static ArrayList<User> users = new ArrayList<>();
+    static ArrayList<Course> courses = new ArrayList<>();
 
     public void initializeDataBase() {
         // Your existing initialization code
@@ -16,10 +17,12 @@ public class DataBase {
         users.clear();
         User admin = new User(1, "admin", "admin", "admin", "admin", "admin@gmail.com", 2, UserRole.ADMIN, Gender.OTHERS, newLoginDates);
         users.add(admin);
-
+        Course course = new Course(null, "C:\\Users\\beta\\Desktop\\moodle\\moodle\\Moodle\\src\\main\\resources\\com\\example\\moodle\\in.jpg");
+        courses.add(course);
 
         // Convert the users list to JSON and save it to a file
         saveUsersToJson("sample.json");
+        saveCoursesToJson("course.json");
 
         // Read users from JSON during initialization
         readUsersFromJson("sample.json");
@@ -31,6 +34,20 @@ public class DataBase {
             String json = objectMapper.writeValueAsString(users);
             // Save the JSON string to a file
             objectMapper.writeValue(new File(fileName), users);
+            // For simplicity, let's just print it for now
+            System.out.println("Saved JSON: " + json);
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    private void saveCoursesToJson(String fileName) {
+        ObjectMapper objectMapper = new ObjectMapper();
+        try {
+            String json = objectMapper.writeValueAsString(courses);
+            // Save the JSON string to a file
+            objectMapper.writeValue(new File(fileName), courses);
             // For simplicity, let's just print it for now
             System.out.println("Saved JSON: " + json);
         } catch (JsonProcessingException e) {

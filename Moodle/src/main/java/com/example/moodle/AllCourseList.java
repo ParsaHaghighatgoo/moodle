@@ -146,17 +146,17 @@ public class AllCourseList {
                         // TODO: Implement the selection logic
                         Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                         try {
-                            FXMLLoader fxmlLoader2 = new FXMLLoader(Signup.class.getResource("TeacherCoursePage.fxml"));
+                            FXMLLoader fxmlLoader2 = new FXMLLoader(Signup.class.getResource("StudentCoursePage.fxml"));
                             Parent root = fxmlLoader2.load();
 
                             //Create a new stage
                             currentStage.setScene(new Scene(root));
-                            currentStage.setTitle("Teacher Course Page");
+                            currentStage.setTitle("Student Course Page");
                             currentStage.show();
 
 
                         } catch (IOException e) {
-                            System.err.println("Error loading the Teacher Course Page: " + e.getMessage());
+                            System.err.println("Error loading the Student Course Page: " + e.getMessage());
                         }
                     });
                 }

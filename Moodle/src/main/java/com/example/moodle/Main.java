@@ -17,6 +17,7 @@ public class Main extends Application {
 //        String localDir = System.getProperty("user.dir");
 ////        localDir+="\\src\\main\\resources\\com\\example\\moodle\\icon.jpg"  ;
 ////        System.out.println(localDir);
+        ///:D
         stage.getIcons().add(new Image("icon.jpg"));
         stage.setScene(scene);
         stage.setResizable(false);

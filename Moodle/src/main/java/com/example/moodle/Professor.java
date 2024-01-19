@@ -1,5 +1,5 @@
 package com.example.moodle;
 
-public class Professor {
-    CoursePlan [] ListOfCourse;
+public class Professor extends User{
+
 }

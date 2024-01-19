@@ -3,28 +3,38 @@ package com.example.moodle;
 import java.util.ArrayList;
 
 public class Course {
-    ArrayList<CoursePlan> coursePlans = new ArrayList<>();
+    ArrayList<User> users;
     String CourseImagePath;
     ArrayList<String> CourseVideos;
     ArrayList<String> CourseDocs;
+    boolean isTeacherCourse;
 
 
-    public Course(ArrayList<CoursePlan> coursePlans, String courseImagePath, ArrayList<String> courseVideos, ArrayList<String> courseDocs) {
-        this.coursePlans = coursePlans;
+    public Course(ArrayList<User> users, String courseImagePath, ArrayList<String> courseVideos, ArrayList<String> courseDocs, boolean isTeacherCourse) {
+        this.users = users;
         CourseImagePath = courseImagePath;
         CourseVideos = courseVideos;
         CourseDocs = courseDocs;
+        this.isTeacherCourse = isTeacherCourse;
     }
 
     public Course() {
     }
 
-    public ArrayList<CoursePlan> getCoursePlans() {
-        return coursePlans;
+    public boolean isTeacherCourse() {
+        return isTeacherCourse;
     }
 
-    public void setCoursePlans(ArrayList<CoursePlan> coursePlans) {
-        this.coursePlans = coursePlans;
+    public void setTeacherCourse(boolean teacherCourse) {
+        isTeacherCourse = teacherCourse;
+    }
+
+    public ArrayList<User> getUsers() {
+        return users;
+    }
+
+    public void setUsers(ArrayList<User> users) {
+        this.users = users;
     }
 
     public String getCourseImagePath() {
@@ -43,6 +53,7 @@ public class Course {
         return CourseDocs;
     }
 
+
     public void setCourseDocs(ArrayList<String> courseDocs) {
         CourseDocs = courseDocs;
     }
@@ -54,10 +65,11 @@ public class Course {
     @Override
     public String toString() {
         return "Course{" +
-                "coursePlans=" + coursePlans +
+                "users=" + users +
                 ", CourseImagePath='" + CourseImagePath + '\'' +
                 ", CourseVideos=" + CourseVideos +
                 ", CourseDocs=" + CourseDocs +
+                ", isTeacherCourse=" + isTeacherCourse +
                 '}';
     }
 }

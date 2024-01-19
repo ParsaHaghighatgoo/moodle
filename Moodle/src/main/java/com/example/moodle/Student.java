@@ -1,4 +1,5 @@
 package com.example.moodle;
 
-public class Student {
+public class Student extends User{
+
 }

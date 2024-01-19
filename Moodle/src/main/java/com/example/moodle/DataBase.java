@@ -14,11 +14,21 @@ public class DataBase {
     public void initializeDataBase() {
         // Your existing initialization code
         ArrayList<String> newLoginDates = new ArrayList<>();
-        users.clear();
-        User admin = new User(1, "admin", "admin", "admin", "admin", "admin@gmail.com", 2, UserRole.ADMIN, Gender.OTHERS, newLoginDates);
-        users.add(admin);
-        Course course = new Course(null, "download.jpg", null, null);
+        Course course = new Course(null, "download.jpg", null, null, false);
+        Course course2 = new Course(null, "icon.jpg", null, null, true);
         courses.add(course);
+        courses.add(course2);
+
+
+        users.clear();
+        ArrayList<Course> adminTeacherCourse= new ArrayList<>();
+        adminTeacherCourse.add(course);
+        ArrayList<Course> adminStdCourse= new ArrayList<>();
+        User admin = new User(1, "admin", "admin", "admin", "admin", 2,"admin@gmail.com", UserRole.ADMIN, Gender.OTHERS, newLoginDates,adminTeacherCourse
+        ,adminStdCourse);
+
+
+        users.add(admin);
 
         // Convert the users list to JSON and save it to a file
         saveUsersToJson("sample.json");

@@ -10,24 +10,30 @@ public class User {
     String password;
     String firstName;
     String lastName;
+    ArrayList<Course> teacherCourses = new ArrayList<>();
+    ArrayList<Course> stdCourses = new ArrayList<>();
     int Age;
     String email;
     UserRole userRole;
     Gender gender;
     ArrayList<String> logindates;
 
-    public User(int id, String username, String password, String firstName, String lastName, String email
-            , int age, UserRole userRole, Gender gender,ArrayList<String> logindates) {
+    public User(int id, String username, String password, String firstName,
+                String lastName, int age, String email,
+                UserRole userRole, Gender gender, ArrayList<String> logindates
+                ,ArrayList<Course> teacherCourses ,ArrayList<Course> stdCourses ) {
         this.id = id;
         this.username = username;
         this.password = password;
         this.firstName = firstName;
         this.lastName = lastName;
+        Age = age;
         this.email = email;
-        this.Age = age;
         this.userRole = userRole;
         this.gender = gender;
         this.logindates = logindates;
+        this.teacherCourses = teacherCourses;
+        this.stdCourses = stdCourses;
     }
 
     public User() {
@@ -112,9 +118,11 @@ public class User {
     }
 
     public static void addUser(int id, String username, String password, String firstName
-            , String lastName, int age, String email, UserRole userRole, Gender gender,ArrayList<String> logindates) {
-        User newUser = new User(id, username, password, firstName, lastName, email
-                , age, userRole, gender,logindates);
+            , String lastName, int age, String email, UserRole userRole, Gender gender, ArrayList<String> logindates,
+                               ArrayList<Course> teacherCourses,
+                               ArrayList<Course> stdCourses) {
+        User newUser = new User(id, username, password, firstName, lastName,age,email
+                 , userRole, gender, logindates,teacherCourses,stdCourses);
         DataBase.users.add(newUser);
     }
 

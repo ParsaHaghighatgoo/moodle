@@ -41,8 +41,8 @@
             <TextArea fx:id="loginActivity" layoutX="28.0" layoutY="463.0" prefHeight="123.0" prefWidth="187.0" />
             <TextField layoutX="55.0" layoutY="208.0" promptText="your courses as student" text="your courses as student" />
             <TextField layoutX="47.0" layoutY="13.0" promptText="list of your coursers" text="your courses as professor" />
-            <Button layoutX="211.0" layoutY="163.0" mnemonicParsing="false" text="show all courses" />
-            <Button layoutX="211.0" layoutY="349.0" mnemonicParsing="false" text="show all courses" />
+            <Button layoutX="211.0" layoutY="163.0" mnemonicParsing="false" onAction="#ShowTeacherCoursesButtonClick" text="show all courses" />
+            <Button layoutX="211.0" layoutY="349.0" mnemonicParsing="false" onAction="#ShowStudentCoursesButtonClick" text="show all courses" />
             <Button layoutX="481.0" layoutY="561.0" mnemonicParsing="false" text="start" />
             <Button layoutX="538.0" layoutY="561.0" mnemonicParsing="false" text="stop" />
          </children>

@@ -18,7 +18,7 @@
             <Label layoutX="92.0" layoutY="187.0" prefHeight="26.0" prefWidth="53.0" text="answer:" textFill="WHITE" />
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="test" layoutX="-6.0" layoutY="43.0" prefHeight="408.0" prefWidth="783.0" style="-fx-background-color: black;">
+      <AnchorPane fx:id="test" layoutX="-6.0" layoutY="43.0" prefHeight="408.0" prefWidth="800.0" style="-fx-background-color: black;">
          <children>
             <Label fx:id="question1" layoutX="22.0" layoutY="14.0" prefHeight="26.0" prefWidth="62.0" text="question:" textFill="WHITE" />
             <TextField layoutX="67.0" layoutY="40.0" prefHeight="90.0" prefWidth="631.0" />

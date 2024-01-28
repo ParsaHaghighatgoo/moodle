@@ -8,11 +8,14 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class UserPage {
 
@@ -32,14 +35,23 @@ public class UserPage {
     private AnchorPane leftPane;
     @FXML
     private Button profileButton;
+    @FXML
+    private ScrollPane scrollPane;
+    @FXML
+    private ScrollPane scrollPane2;
+    @FXML
+    private HBox hBox;
+    private ArrayList<Course> AllCourses;
 
 
 
-    public void initialize() {
+
+    public void initialize() throws IOException {
         leftPane.setVisible(true);
         listPane.setVisible(true);
         profilePane.setVisible(false);
         profileButton.setText("Profile");
+        ProfCoursesList();
 
     }
 
@@ -135,6 +147,27 @@ public class UserPage {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+    }
+
+
+    public void ProfCoursesList() throws IOException {
+        AllCourses = DataBase.courses;
+
+        for (Course course : AllCourses) {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("CourseCard.fxml"));
+            AnchorPane anchorPane = fxmlLoader.load();
+            CourseCard courseCard = fxmlLoader.getController();
+            if (course.isTeacherCourse()) {
+                courseCard.setData(course);
+                scrollPane.setContent(anchorPane);
+            }
+            else {
+                courseCard.setData(course);
+                scrollPane2.setContent(anchorPane);
+            }
+        }
+
+
     }
 
     public void updateLoginActivityBoxText(String dates) {

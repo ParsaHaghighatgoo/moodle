@@ -46,5 +46,13 @@ public class Quiz {
         this.time = time;
     }
 
-
+    @Override
+    public String toString() {
+        return "Quiz{" +
+                "questions=" + questions +
+                ", course=" + course +
+                ", name='" + name + '\'' +
+                ", time='" + time + '\'' +
+                '}';
+    }
 }

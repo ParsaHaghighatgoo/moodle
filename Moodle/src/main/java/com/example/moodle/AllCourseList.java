@@ -58,7 +58,7 @@ public class AllCourseList {
                 AnchorPane anchorPane = fxmlLoader.load();
                 CourseCard courseCard = fxmlLoader.getController();
 
-                if (!course.isTeacherCourse()){
+                if (course.isTeacherCourse()){
                     courseCard.setData(course);
                     // Set the top and left anchors for the current AnchorPane
                     AnchorPane.setTopAnchor(anchorPane, topAnchor);
@@ -130,7 +130,7 @@ public class AllCourseList {
                 AnchorPane anchorPane = fxmlLoader.load();
                 CourseCard courseCard = fxmlLoader.getController();
 
-                if (course.isTeacherCourse()){
+                if (!course.isTeacherCourse()){
                     courseCard.setData(course);
                     // Set the top and left anchors for the current AnchorPane
                     AnchorPane.setTopAnchor(anchorPane, topAnchor);

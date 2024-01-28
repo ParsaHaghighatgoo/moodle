@@ -253,15 +253,13 @@
             </AnchorPane>
         </content>
       </ScrollPane>
-      <AnchorPane fx:id="create_exam" layoutX="244.0" layoutY="111.0" prefHeight="278.0" prefWidth="325.0" style="-fx-background-color: black;" visible="false">
+      <AnchorPane fx:id="create_exam" layoutX="244.0" layoutY="111.0" prefHeight="228.0" prefWidth="325.0" style="-fx-background-color: black;" visible="false">
          <children>
             <TextField fx:id="name" layoutX="82.0" layoutY="51.0" style="-fx-background-color: white;" />
-            <TextField fx:id="course" layoutX="82.0" layoutY="113.0" style="-fx-background-color: white;" />
-            <TextField fx:id="time" layoutX="82.0" layoutY="175.0" style="-fx-background-color: white;" />
+            <TextField fx:id="time" layoutX="82.0" layoutY="109.0" style="-fx-background-color: white;" />
             <Label layoutX="82.0" layoutY="33.0" text="name of the exam:" textFill="#ffffffe3" />
-            <Label layoutX="82.0" layoutY="95.0" text="subject:" textFill="WHITE" />
-            <Label layoutX="82.0" layoutY="157.0" text="time of the exam" textFill="WHITE" />
-            <Button fx:id="create" layoutX="119.0" layoutY="224.0" mnemonicParsing="false" onAction="#handleCreateButton" prefHeight="30.0" prefWidth="68.0" text="create" />
+            <Label layoutX="82.0" layoutY="91.0" text="time of the exam" textFill="WHITE" />
+            <Button fx:id="create" layoutX="119.0" layoutY="158.0" mnemonicParsing="false" onAction="#handleCreateButton" prefHeight="30.0" prefWidth="68.0" text="create" />
          </children>
       </AnchorPane>
       <Button fx:id="backButton" layoutX="14.0" layoutY="452.0" mnemonicParsing="false" onAction="#ShowTeacherCoursesBackButtonClick" prefHeight="30.0" prefWidth="79.0" text="back" />

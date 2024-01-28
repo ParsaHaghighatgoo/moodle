@@ -79,6 +79,8 @@ public class AllCourseList {
                             FXMLLoader fxmlLoader2 = new FXMLLoader(Signup.class.getResource("TeacherCoursePage.fxml"));
                             Parent root = fxmlLoader2.load();
 
+                            TeacherCoursePage teacherCoursePage = fxmlLoader2.getController();
+                            teacherCoursePage.setCourse(course);
                             //Create a new stage
                             currentStage.setScene(new Scene(root));
                             currentStage.setTitle("Teacher Course Page");

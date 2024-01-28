@@ -18,7 +18,15 @@ public class TeacherCoursePage {
     private void initialize(){
         add_exam.setOnAction(this::add_new_exam);
     }
+    private Course course;
 
+    public Course getCourse() {
+        return course;
+    }
+
+    public void setCourse(Course course) {
+        this.course = course;
+    }
 
     @FXML
     private void add_new_exam(ActionEvent event){
@@ -27,6 +35,8 @@ public class TeacherCoursePage {
             Parent new_exam = fxmlLoader.load();
             Stage stage = (Stage) add_exam.getScene().getWindow();
             Scene newPage = new Scene(new_exam);
+            NewExam newExam = fxmlLoader.getController();
+            newExam.setCourse(course);
             stage.setScene(newPage);
             stage.setTitle("exam");
             stage.show();

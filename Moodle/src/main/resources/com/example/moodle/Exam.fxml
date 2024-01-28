@@ -57,7 +57,7 @@
                               <Insets top="20.0" />
                            </VBox.margin>
                            <children>
-                              <Button fx:id="show111" mnemonicParsing="false" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: green;" text="show">
+                              <Button fx:id="show111" mnemonicParsing="false" onAction="#navigateExaming" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: green;" text="show">
                                  <ellipsisString>%key.unspecified</ellipsisString>
                                  <cursor>
                                     <Cursor fx:constant="DEFAULT" />
@@ -253,11 +253,11 @@
             </AnchorPane>
         </content>
       </ScrollPane>
-      <AnchorPane fx:id="create_exam" layoutX="244.0" layoutY="111.0" prefHeight="278.0" prefWidth="325.0" style="-fx-background-color: black;" visible="false">
+      <AnchorPane layoutX="244.0" layoutY="111.0" prefHeight="278.0" prefWidth="325.0" style="-fx-background-color: black;">
          <children>
-            <TextField layoutX="82.0" layoutY="51.0" style="-fx-background-color: white;" />
-            <TextField layoutX="82.0" layoutY="113.0" style="-fx-background-color: white;" />
-            <TextField layoutX="82.0" layoutY="175.0" style="-fx-background-color: white;" />
+            <TextField fx:id="name" layoutX="82.0" layoutY="51.0" style="-fx-background-color: white;" />
+            <TextField fx:id="course" layoutX="82.0" layoutY="113.0" style="-fx-background-color: white;" />
+            <TextField fx:id="time" layoutX="82.0" layoutY="175.0" style="-fx-background-color: white;" />
             <Label layoutX="82.0" layoutY="33.0" text="name of the exam:" textFill="#ffffffe3" />
             <Label layoutX="82.0" layoutY="95.0" text="subject:" textFill="WHITE" />
             <Label layoutX="82.0" layoutY="157.0" text="time of the exam" textFill="WHITE" />

@@ -16,6 +16,13 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 public class Exam {
+
+    @FXML
+    private TextField name;
+    @FXML
+    private TextField course;
+    @FXML
+    private TextField time;
     private User logedInUser;
 
     @FXML
@@ -38,6 +45,15 @@ public class Exam {
 
     @FXML
     private Button backButton;
+    private Course selected_course;
+
+    public Course getCourse() {
+        return selected_course;
+    }
+
+    public void setCourse(Course selected_course) {
+        this.selected_course = selected_course;
+    }
 
     public void initialize(){
         create_exam.setVisible(false);
@@ -85,4 +101,25 @@ public class Exam {
             e.printStackTrace(); // Print the stack trace for detailed error logging
         }
     }
+
+    @FXML
+    private void navigateExaming(){
+        Quiz quiz = new Quiz(name.getText(),selected_course,time.getText());
+
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("examing.fxml"));
+        try {
+            Parent examPage = fxmlLoader.load();
+            NewExam newExam = fxmlLoader.getController();
+            newExam.setSelectedQuiz(quiz);
+            Stage stage = (Stage) create.getScene().getWindow();
+            Scene newPage = new Scene(examPage);
+            stage.setScene(newPage);
+            stage.setTitle("exam");
+            stage.show();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+
 }

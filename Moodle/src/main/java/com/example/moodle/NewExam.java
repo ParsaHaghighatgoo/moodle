@@ -16,4 +16,13 @@ import java.security.PrivateKey;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 public class NewExam {
+    Quiz selectedQuiz;
+
+    public Quiz getSelectedQuiz() {
+        return selectedQuiz;
+    }
+
+    public void setSelectedQuiz(Quiz selectedQuiz) {
+        this.selectedQuiz = selectedQuiz;
+    }
 }

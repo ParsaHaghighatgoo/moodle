@@ -66,7 +66,10 @@ public class Exam {
     @FXML
     private void handleCreateButton(){
         Quiz quiz = new Quiz(name.getText(),selected_course,time.getText());
-
+//<<<<<<< HEAD
+//
+//=======
+//>>>>>>> 7a9153b4380f56b4aa0acfb96548cd4a8ca2aae3
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("newExam.fxml"));
         try {
             Parent new_exam = fxmlLoader.load();
@@ -111,7 +114,10 @@ public class Exam {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("examing.fxml"));
         try {
             Parent examPage = fxmlLoader.load();
-
+//<<<<<<< HEAD
+//
+//=======
+//>>>>>>> 7a9153b4380f56b4aa0acfb96548cd4a8ca2aae3
             Stage stage = (Stage) create.getScene().getWindow();
             Scene newPage = new Scene(examPage);
             stage.setScene(newPage);

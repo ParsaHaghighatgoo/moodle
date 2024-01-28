@@ -10,39 +10,39 @@
 
 <AnchorPane prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.moodle.NewExam">
    <children>
-      <AnchorPane fx:id="descriptive" layoutY="48.0" prefHeight="399.0" prefWidth="783.0" style="-fx-background-color: BLACK;" visible="false">
+      <AnchorPane fx:id="descriptive" layoutY="48.0" prefHeight="399.0" prefWidth="800.0" style="-fx-background-color: BLACK;">
          <children>
-            <TextField layoutX="92.0" layoutY="60.0" prefHeight="126.0" prefWidth="558.0" />
-            <TextField layoutX="92.0" layoutY="213.0" prefHeight="133.0" prefWidth="558.0" />
+            <TextField fx:id="descriptiveQuestion" layoutX="92.0" layoutY="60.0" prefHeight="126.0" prefWidth="558.0" />
+            <TextField fx:id="descriptiveAnswer" layoutX="92.0" layoutY="213.0" prefHeight="133.0" prefWidth="558.0" />
             <Label fx:id="question" layoutX="92.0" layoutY="34.0" prefHeight="26.0" prefWidth="62.0" text="question:" textFill="WHITE" />
             <Label layoutX="92.0" layoutY="187.0" prefHeight="26.0" prefWidth="53.0" text="answer:" textFill="WHITE" />
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="test" layoutX="-6.0" layoutY="43.0" prefHeight="408.0" prefWidth="820.0" style="-fx-background-color: black;">
+      <AnchorPane fx:id="test" layoutX="-6.0" layoutY="43.0" prefHeight="408.0" prefWidth="811.0" style="-fx-background-color: black;" visible="false">
          <children>
             <Label fx:id="question1" layoutX="22.0" layoutY="14.0" prefHeight="26.0" prefWidth="62.0" text="question:" textFill="WHITE" />
-            <TextField layoutX="67.0" layoutY="40.0" prefHeight="90.0" prefWidth="631.0" />
+            <TextField fx:id="testQuestion" layoutX="67.0" layoutY="40.0" prefHeight="90.0" prefWidth="631.0" />
             <Label layoutX="28.0" layoutY="131.0" prefHeight="26.0" prefWidth="53.0" text="answer:" textFill="#fffefe" />
-            <TextField layoutX="67.0" layoutY="157.0" prefHeight="26.0" prefWidth="631.0" />
-            <TextField layoutX="67.0" layoutY="204.0" prefHeight="26.0" prefWidth="631.0" />
-            <TextField layoutX="67.0" layoutY="250.0" prefHeight="26.0" prefWidth="631.0" />
-            <TextField layoutX="67.0" layoutY="294.0" prefHeight="26.0" prefWidth="631.0" />
+            <TextField fx:id="A" layoutX="67.0" layoutY="157.0" prefHeight="26.0" prefWidth="631.0" />
+            <TextField fx:id="B" layoutX="67.0" layoutY="204.0" prefHeight="26.0" prefWidth="631.0" />
+            <TextField fx:id="C" layoutX="67.0" layoutY="250.0" prefHeight="26.0" prefWidth="631.0" />
+            <TextField fx:id="D" layoutX="67.0" layoutY="294.0" prefHeight="26.0" prefWidth="631.0" />
             <Label layoutX="41.0" layoutY="161.0" text="A)" textFill="WHITE" />
             <Label layoutX="40.0" layoutY="208.0" text="B)" textFill="WHITE" />
             <Label layoutX="40.0" layoutY="261.0" text="C)" textFill="WHITE" />
             <Label layoutX="40.0" layoutY="298.0" text="D)" textFill="WHITE" />
             <Label layoutX="40.0" layoutY="353.0" prefHeight="26.0" prefWidth="95.0" text="correct answer:" textFill="WHITE" />
-            <CheckBox layoutX="176.0" layoutY="357.0" mnemonicParsing="false" text="A" textFill="WHITE" />
-            <CheckBox layoutX="280.0" layoutY="357.0" mnemonicParsing="false" text="B" textFill="WHITE" />
-            <CheckBox layoutX="375.0" layoutY="357.0" mnemonicParsing="false" text="C" textFill="WHITE" />
-            <CheckBox layoutX="469.0" layoutY="357.0" mnemonicParsing="false" text="D" textFill="WHITE" />
+            <CheckBox fx:id="correct_choiceA" layoutX="176.0" layoutY="357.0" mnemonicParsing="false" text="A" textFill="WHITE" />
+            <CheckBox fx:id="correct_choiceB" layoutX="280.0" layoutY="357.0" mnemonicParsing="false" text="B" textFill="WHITE" />
+            <CheckBox fx:id="correct_choiceC" layoutX="375.0" layoutY="357.0" mnemonicParsing="false" text="C" textFill="WHITE" />
+            <CheckBox fx:id="correct_choiceD" layoutX="469.0" layoutY="357.0" mnemonicParsing="false" text="D" textFill="WHITE" />
          </children>
       </AnchorPane>
-      <ButtonBar layoutX="5.0" layoutY="453.0" prefHeight="47.0" prefWidth="774.0">
+      <ButtonBar layoutX="5.0" layoutY="453.0" prefHeight="47.0" prefWidth="800.0">
         <buttons>
           <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="263.0" text="previous" />
             <Button mnemonicParsing="false" onAction="#submitTest" style="-fx-background-color: green;" text="submit" />
-            <Button layoutX="563.0" layoutY="17.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="224.0" text="next" />
+            <Button layoutX="563.0" layoutY="17.0" mnemonicParsing="false" onAction="#handleNextButton" prefHeight="26.0" prefWidth="224.0" text="next" />
         </buttons>
          <padding>
             <Insets right="17.0" />
@@ -51,10 +51,10 @@
             <Insets left="30.0" />
          </opaqueInsets>
       </ButtonBar>
-      <ButtonBar cache="true" cacheHint="QUALITY" layoutX="5.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="47.0" prefWidth="774.0">
+      <ButtonBar cache="true" cacheHint="QUALITY" layoutX="5.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="47.0" prefWidth="800.0">
          <buttons>
-            <Button mnemonicParsing="false" text="test" />
-            <Button mnemonicParsing="false" text="descriptive" />
+            <Button fx:id="test2" mnemonicParsing="false" onAction="#testSelected" text="test" />
+            <Button fx:id="descriptive2" mnemonicParsing="false" onAction="#DescriptiveSelected" text="descriptive" />
          </buttons>
          <padding>
             <Insets right="17.0" />

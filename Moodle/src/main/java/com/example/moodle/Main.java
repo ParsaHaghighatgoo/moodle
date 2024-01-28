@@ -13,12 +13,14 @@ public class Main extends Application {
     public void start(Stage stage) throws Exception {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("Login.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
+//        String css = this.getClass().getResource("application.css").toExternalForm();
+//        scene.getStylesheets().add(css);
         stage.setTitle("Black Moodle");
 //        String localDir = System.getProperty("user.dir");
 ////        localDir+="\\src\\main\\resources\\com\\example\\moodle\\icon.jpg"  ;
 ////        System.out.println(localDir);
         ///:D
-        stage.getIcons().add(new Image("icon.jpg"));
+        stage.getIcons().add(new Image("icon1.jpg"));
         stage.setScene(scene);
         stage.setResizable(false);
         stage.show();

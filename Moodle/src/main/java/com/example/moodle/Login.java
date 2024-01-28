@@ -9,6 +9,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -17,7 +18,8 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 public class Login {
-
+    @FXML
+    public AnchorPane loginBack;
     @FXML
     private TextField usernameField;
 
@@ -27,6 +29,7 @@ public class Login {
     @FXML
     private Button login;
 
+    @FXML
     private Button signupbutton;
 
     private String newLogAct;

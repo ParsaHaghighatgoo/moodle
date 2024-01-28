@@ -253,7 +253,7 @@
             </AnchorPane>
         </content>
       </ScrollPane>
-      <AnchorPane layoutX="244.0" layoutY="111.0" prefHeight="278.0" prefWidth="325.0" style="-fx-background-color: black;">
+      <AnchorPane fx:id="create_exam" layoutX="244.0" layoutY="111.0" prefHeight="278.0" prefWidth="325.0" style="-fx-background-color: black;" visible="false">
          <children>
             <TextField fx:id="name" layoutX="82.0" layoutY="51.0" style="-fx-background-color: white;" />
             <TextField fx:id="course" layoutX="82.0" layoutY="113.0" style="-fx-background-color: white;" />

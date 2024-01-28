@@ -56,7 +56,7 @@ public class Exam {
     }
 
     public void initialize(){
-        create_exam.setVisible(true);
+        create_exam.setVisible(false);
     }
     @FXML
     private void handleNewButton(){
@@ -65,9 +65,13 @@ public class Exam {
     }
     @FXML
     private void handleCreateButton(){
+        Quiz quiz = new Quiz(name.getText(),selected_course,time.getText());
+
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("newExam.fxml"));
         try {
             Parent new_exam = fxmlLoader.load();
+            NewExam newExam = fxmlLoader.getController();
+            newExam.setSelectedQuiz(quiz);
             Stage stage = (Stage) create.getScene().getWindow();
             Scene newPage = new Scene(new_exam);
             stage.setScene(newPage);
@@ -104,13 +108,10 @@ public class Exam {
 
     @FXML
     private void navigateExaming(){
-        Quiz quiz = new Quiz(name.getText(),selected_course,time.getText());
-
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("examing.fxml"));
         try {
             Parent examPage = fxmlLoader.load();
-            NewExam newExam = fxmlLoader.getController();
-            newExam.setSelectedQuiz(quiz);
+
             Stage stage = (Stage) create.getScene().getWindow();
             Scene newPage = new Scene(examPage);
             stage.setScene(newPage);

@@ -25,4 +25,7 @@ public class NewExam {
     public void setSelectedQuiz(Quiz selectedQuiz) {
         this.selectedQuiz = selectedQuiz;
     }
+    public void submitTest(){
+        System.out.println(selectedQuiz);
+    }
 }

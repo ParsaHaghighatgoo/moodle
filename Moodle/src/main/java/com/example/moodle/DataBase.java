@@ -14,8 +14,8 @@ public class DataBase {
     public void initializeDataBase() {
         // Your existing initialization code
         ArrayList<String> newLoginDates = new ArrayList<>();
-        Course course = new Course(null, "download.jpg", null, null, false);
-        Course course2 = new Course(null, "icon.jpg", null, null, true);
+        Course course = new Course(null, "download.jpg", null, null, true);
+        Course course2 = new Course(null, "icon.jpg", null, null, false);
         courses.add(course);
         courses.add(course2);
 

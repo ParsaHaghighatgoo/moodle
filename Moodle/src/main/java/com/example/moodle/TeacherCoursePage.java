@@ -37,8 +37,13 @@ public class TeacherCoursePage {
             Parent new_exam = fxmlLoader.load();
             Stage stage = (Stage) add_exam.getScene().getWindow();
             Scene newPage = new Scene(new_exam);
+//<<<<<<< HEAD
 //            Exam exam = fxmlLoader.getController();
 //            exam.setCourse(course);
+//=======
+            Exam Exam = fxmlLoader.getController();
+            Exam.setCourse(course);
+//>>>>>>> aa7aa44510916679540a4fa19e81f3c70d0b820c
             stage.setScene(newPage);
             stage.setTitle("exam");
             stage.show();

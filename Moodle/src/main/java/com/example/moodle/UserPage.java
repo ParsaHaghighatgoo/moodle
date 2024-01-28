@@ -30,6 +30,8 @@ public class UserPage {
     @FXML
     private AnchorPane profilePane;
     @FXML
+    private AnchorPane testPane;
+    @FXML
     private AnchorPane listPane;
     @FXML
     private AnchorPane leftPane;
@@ -151,24 +153,27 @@ public class UserPage {
 
 
     public void ProfCoursesList() throws IOException {
-        AllCourses = DataBase.courses;
+        double index1 = 0;
+        double index2 = 0;
 
-        for (Course course : AllCourses) {
+        for (Course course : DataBase.courses) {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("CourseCard.fxml"));
             AnchorPane anchorPane = fxmlLoader.load();
             CourseCard courseCard = fxmlLoader.getController();
+            courseCard.setData(course);
+
             if (course.isTeacherCourse()) {
-                courseCard.setData(course);
                 scrollPane.setContent(anchorPane);
-            }
-            else {
-                courseCard.setData(course);
+                AnchorPane.setLeftAnchor(anchorPane, index1);
+                index1 += anchorPane.getPrefWidth() + 30;
+            } else {
                 scrollPane2.setContent(anchorPane);
+                AnchorPane.setLeftAnchor(anchorPane, index2);
+                index2 += 100;
             }
         }
-
-
     }
+
 
     public void updateLoginActivityBoxText(String dates) {
         loginActivity.setText(dates);

@@ -11,6 +11,7 @@ public class DataBase {
     static ArrayList<User> users = new ArrayList<>();
     static ArrayList<Course> courses = new ArrayList<>();
 
+    static ArrayList<Quiz> quizzes = new ArrayList<>();
     public void initializeDataBase() {
         // Your existing initialization code
         ArrayList<String> newLoginDates = new ArrayList<>();

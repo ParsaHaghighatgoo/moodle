@@ -54,6 +54,9 @@ public class NewExam {
     private TextField descriptiveAnswer;
     public Quiz selectedQuiz;
 
+    @FXML
+    private Button prev;
+
     public Quiz getSelectedQuiz() {
         return selectedQuiz;
     }
@@ -105,15 +108,34 @@ public class NewExam {
             } else if (correct_choiceD.isSelected()) {
                 correctAnswer = correct_choiceD;
             }
+            Question testQuestion = new Question(testQ, a, b, c, d, correctAnswer, QuestionType.TEST);
+            selectedQuiz.addQuestion(testQuestion);
 
-
-            System.out.println(testQ + "  " + a + "  " + b + "  " + c + "  " + d + " " + correctAnswer);
+            System.out.println(selectedQuiz);
         }
         if(Objects.equals(QtypeFlag, "descriptive")){
             String descriptiveQ = descriptiveQuestion.getText();
             String descriptiveAns = descriptiveAnswer.getText();
 
-            System.out.println(descriptiveQ + "      " + descriptiveAns);
+            Question DecQuestion = new Question(descriptiveQ, descriptiveAns, QuestionType.DESCRIPTIVE);
+            selectedQuiz.addQuestion(DecQuestion);
+            System.out.println(selectedQuiz);
+        }
+        DataBase.quizzes.add(selectedQuiz);
+
+    }
+    @FXML
+    private void handle (){
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Exam.fxml"));
+        try {
+            Parent new_exam = fxmlLoader.load();
+            Stage stage = (Stage) prev.getScene().getWindow();
+            Scene newPage = new Scene(new_exam);
+            stage.setScene(newPage);
+            stage.setTitle("exam");
+            stage.show();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
     }
 }

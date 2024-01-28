@@ -22,15 +22,15 @@ public class ExamCard {
 
     @FXML
     private Button start;
+
+    private Quiz quiz;
     @FXML
     private void navigateExaming(){
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("examing.fxml"));
         try {
             Parent examPage = fxmlLoader.load();
-//<<<<<<< HEAD
-//
-//=======
-//>>>>>>> 7a9153b4380f56b4aa0acfb96548cd4a8ca2aae3
+            Examing examing = fxmlLoader.getController();
+            examing.setQuiz(quiz);
             Stage stage = (Stage) start.getScene().getWindow();
             Scene newPage = new Scene(examPage);
             stage.setScene(newPage);
@@ -44,6 +44,9 @@ public class ExamCard {
     public void setData(Quiz quiz){
         name.setText(quiz.getName());
         course.setText(quiz.getCourse().toString());
+    }
 
+    public void setQuiz(Quiz quiz) {
+        this.quiz = quiz;
     }
 }

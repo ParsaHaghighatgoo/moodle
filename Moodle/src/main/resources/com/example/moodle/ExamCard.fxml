@@ -11,7 +11,7 @@
 
 <AnchorPane fx:id="corseCard" prefHeight="167.0" prefWidth="239.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.moodle.ExamCard">
    <children>
-      <VBox alignment="TOP_CENTER" prefHeight="167.0" prefWidth="245.0" style="-fx-background-color: #1E90FF;">
+      <VBox alignment="TOP_CENTER" prefHeight="167.0" prefWidth="476.0" style="-fx-background-color: #1E90FF;">
          <children>
             <Label fx:id="name" alignment="CENTER" prefHeight="60.0" prefWidth="150.0" text="exam name">
                <VBox.margin>

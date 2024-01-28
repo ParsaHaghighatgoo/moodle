@@ -105,7 +105,6 @@ public class Exam {
     @FXML
     private void navigateExaming(){
         Quiz quiz = new Quiz(name.getText(),selected_course,time.getText());
-
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("examing.fxml"));
         try {
             Parent examPage = fxmlLoader.load();

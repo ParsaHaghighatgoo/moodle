@@ -45,6 +45,7 @@
             <Button layoutX="211.0" layoutY="349.0" mnemonicParsing="false" onAction="#ShowStudentCoursesButtonClick" text="show all courses" />
             <Button layoutX="481.0" layoutY="561.0" mnemonicParsing="false" text="start" />
             <Button layoutX="538.0" layoutY="561.0" mnemonicParsing="false" text="stop" />
+            <Button fx:id="exam" layoutX="254.0" layoutY="463.0" mnemonicParsing="false" onAction="#handleExamButton" prefHeight="123.0" prefWidth="187.0" style="-fx-background-color: red;" text="exams" />
          </children>
       </AnchorPane>
    </children>

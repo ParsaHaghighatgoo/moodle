@@ -17,6 +17,9 @@ import java.io.IOException;
 public class UserPage {
 
     @FXML
+    private Button exam;
+
+    @FXML
     private TextArea loginActivity;
 
     private User logedInUser;
@@ -116,6 +119,21 @@ public class UserPage {
             listPane.setVisible(true);
             profilePane.setVisible(false);
             profileButton.setText("Profile");
+        }
+    }
+
+    @FXML
+    private void handleExamButton(){
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Exam.fxml"));
+        try {
+            Parent new_exam = fxmlLoader.load();
+            Stage stage = (Stage) exam.getScene().getWindow();
+            Scene newPage = new Scene(new_exam);
+            stage.setScene(newPage);
+            stage.setTitle("exam");
+            stage.show();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
     }
 

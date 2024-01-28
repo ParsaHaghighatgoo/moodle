@@ -3,7 +3,7 @@ package com.example.moodle;
 import java.util.ArrayList;
 
 public class Quiz {
-    ArrayList<Question> questions;
+    ArrayList<Question> questions = new ArrayList<>();
     Course course;
     String name;
     String time;
@@ -46,13 +46,17 @@ public class Quiz {
         this.time = time;
     }
 
+    public void addQuestion(Question question){
+        this.questions.add(question);
+    }
     @Override
     public String toString() {
-        return "Quiz{" +
-                "questions=" + questions +
-                ", course=" + course +
-                ", name='" + name + '\'' +
-                ", time='" + time + '\'' +
-                '}';
+        return "Quiz {\n" +
+                "\tquestions=" + questions + ",\n" +
+                "\tcourse=" + course + ",\n" +
+                "\tname='" + name + '\'' + ",\n" +
+                "\ttime='" + time + '\'' + "\n" +
+                "}\n";
     }
+
 }

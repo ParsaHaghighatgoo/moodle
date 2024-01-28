@@ -105,15 +105,19 @@ public class NewExam {
             } else if (correct_choiceD.isSelected()) {
                 correctAnswer = correct_choiceD;
             }
+            Question testQuestion = new Question(testQ, a, b, c, d, correctAnswer, QuestionType.TEST);
+            selectedQuiz.addQuestion(testQuestion);
 
-
-            System.out.println(testQ + "  " + a + "  " + b + "  " + c + "  " + d + " " + correctAnswer);
+            System.out.println(selectedQuiz);
         }
         if(Objects.equals(QtypeFlag, "descriptive")){
             String descriptiveQ = descriptiveQuestion.getText();
             String descriptiveAns = descriptiveAnswer.getText();
 
-            System.out.println(descriptiveQ + "      " + descriptiveAns);
+            Question DecQuestion = new Question(descriptiveQ, descriptiveAns, QuestionType.DESCRIPTIVE);
+            selectedQuiz.addQuestion(DecQuestion);
+            System.out.println(selectedQuiz);
         }
+
     }
 }

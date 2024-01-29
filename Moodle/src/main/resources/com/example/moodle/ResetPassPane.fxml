@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="500.0" prefWidth="800.0" style="-fx-background-color: gray;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.moodle.ResetPassPane">
+   <children>
+      <AnchorPane fx:id="checkPane" layoutX="-28.0" prefHeight="577.0" prefWidth="304.0" style="-fx-background-radius: 30; -fx-background-color: black;">
+         <children>
+            <Label layoutX="70.0" layoutY="65.0" prefHeight="17.0" prefWidth="164.0" text="enter your username" />
+            <Label layoutX="70.0" layoutY="128.0" prefHeight="17.0" prefWidth="164.0" text="enter your token" />
+            <TextField fx:id="username" layoutX="68.0" layoutY="95.0" />
+            <TextField fx:id="token" layoutX="68.0" layoutY="158.0" />
+            <Button layoutX="70.0" layoutY="205.0" mnemonicParsing="false" onAction="#handleCheck" text="check" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="falsePane" layoutX="276.0" prefHeight="577.0" prefWidth="563.0" style="-fx-background-color: gray;">
+         <children>
+            <Label layoutX="85.0" layoutY="72.0" prefHeight="190.0" prefWidth="276.0" text="Token dosen't match to the username!" />
+            <AnchorPane fx:id="correctPane" layoutX="6.0" prefHeight="577.0" prefWidth="563.0" style="-fx-background-color: grey;">
+               <children>
+                  <Label layoutX="46.0" layoutY="77.0" prefHeight="17.0" prefWidth="256.0" text="enter your new password" />
+                  <TextField fx:id="NewPass" layoutX="46.0" layoutY="113.0" />
+                  <Button layoutX="61.0" layoutY="180.0" mnemonicParsing="false" onAction="#handleSubmit" text="submit" />
+                  <AnchorPane fx:id="BackPane" layoutX="-282.0" layoutY="-2.0" prefHeight="577.0" prefWidth="845.0" style="-fx-background-color: gray;">
+                     <children>
+                        <Label layoutX="203.0" layoutY="100.0" prefHeight="140.0" prefWidth="439.0" text="your password changed succesfully! :D" />
+                        <Button fx:id="loginButton" layoutX="203.0" layoutY="248.0" mnemonicParsing="false" onAction="#navigateToLogin" text="login" />
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

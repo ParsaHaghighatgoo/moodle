@@ -1,20 +1,13 @@
 package com.example.moodle;
 
-import java.util.UUID;
 import java.security.SecureRandom;
 import java.util.Base64;
 
 public class Security {
-//    public static String generateToken() {
-//        // Generate a random UUID
-//        UUID uuid = UUID.randomUUID();
-//        return uuid.toString();
-//    }
-
 
     public static String generateToken() {
         // Generate a secure random byte array
-        byte[] randomBytes = new byte[32]; // Adjust the size based on your requirements
+        byte[] randomBytes = new byte[8]; // Adjust the size based on your requirements
         new SecureRandom().nextBytes(randomBytes);
 
         // Encode the byte array to Base64 for a more human-readable format

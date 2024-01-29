@@ -47,6 +47,7 @@
                   <Image url="@icon.jpg" />
                </image>
             </ImageView>
+            <Button fx:id="resetPassButton" layoutX="27.0" layoutY="350.0" mnemonicParsing="false" onAction="#navigateToResetPasswordPage" prefHeight="25.0" prefWidth="96.0" text="reset password" />
          </children>
       </AnchorPane>
    </children>

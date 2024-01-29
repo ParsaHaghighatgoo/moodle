@@ -21,6 +21,7 @@ public class AllCourseList {
     private AnchorPane mainPane;
     private ArrayList<Course> AllCourses;
     private User logedInUser = Login.logedInUser;
+
     public void setLogedInUser(User logedInUser) {
         this.logedInUser = logedInUser;
     }
@@ -57,7 +58,7 @@ public class AllCourseList {
                 AnchorPane anchorPane = fxmlLoader.load();
                 CourseCard courseCard = fxmlLoader.getController();
 
-                if (course.isTeacherCourse()){
+                if (logedInUser.getTeacherCourses().contains(course)){
                     courseCard.setData(course);
                     // Set the top and left anchors for the current AnchorPane
                     AnchorPane.setTopAnchor(anchorPane, topAnchor);
@@ -129,7 +130,7 @@ public class AllCourseList {
                 AnchorPane anchorPane = fxmlLoader.load();
                 CourseCard courseCard = fxmlLoader.getController();
 
-                if (!course.isTeacherCourse()){
+                if (logedInUser.getStdCourses().contains(course)){
                     courseCard.setData(course);
                     // Set the top and left anchors for the current AnchorPane
                     AnchorPane.setTopAnchor(anchorPane, topAnchor);
@@ -183,7 +184,7 @@ public class AllCourseList {
             FXMLLoader fxmlLoader = new FXMLLoader(Signup.class.getResource("userPage.fxml"));
             Parent root = fxmlLoader.load();
             UserPage userPage = fxmlLoader.getController();
-            userPage.setLogedInUser(logedInUser);
+//            userPage.setLogedInUser(logedInUser);
 
             currentStage.setScene(new Scene(root));
             currentStage.setTitle("User Page");

@@ -81,7 +81,6 @@ public class NewExam {
             FXMLLoader fxmlLoader = new FXMLLoader(Signup.class.getResource("userPage.fxml"));
             Parent root = fxmlLoader.load();
             UserPage userPage = fxmlLoader.getController();
-            userPage.setLogedInUser(logedInUser);
 
             currentStage.setScene(new Scene(root));
             currentStage.setTitle("User Page");
@@ -160,7 +159,7 @@ public class NewExam {
             FXMLLoader fxmlLoader = new FXMLLoader(Signup.class.getResource("userPage.fxml"));
             Parent root = fxmlLoader.load();
             UserPage userPage = fxmlLoader.getController();
-            userPage.setLogedInUser(logedInUser);
+
 
             currentStage.setScene(new Scene(root));
             currentStage.setTitle("User Page");

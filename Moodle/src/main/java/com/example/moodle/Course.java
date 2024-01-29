@@ -7,27 +7,19 @@ public class Course {
     String CourseImagePath;
     ArrayList<String> CourseVideos;
     ArrayList<String> CourseDocs;
-    boolean isTeacherCourse;
 
 
-    public Course(ArrayList<User> users, String courseImagePath, ArrayList<String> courseVideos, ArrayList<String> courseDocs, boolean isTeacherCourse) {
+
+    public Course(ArrayList<User> users, String courseImagePath, ArrayList<String> courseVideos, ArrayList<String> courseDocs) {
         this.users = users;
         CourseImagePath = courseImagePath;
         CourseVideos = courseVideos;
         CourseDocs = courseDocs;
-        this.isTeacherCourse = isTeacherCourse;
     }
 
     public Course() {
     }
 
-    public boolean isTeacherCourse() {
-        return isTeacherCourse;
-    }
-
-    public void setTeacherCourse(boolean teacherCourse) {
-        isTeacherCourse = teacherCourse;
-    }
 
     public ArrayList<User> getUsers() {
         return users;
@@ -69,7 +61,6 @@ public class Course {
                 "\tCourseImagePath='" + CourseImagePath + "',\n" +
                 "\tCourseVideos=" + CourseVideos + ",\n" +
                 "\tCourseDocs=" + CourseDocs + ",\n" +
-                "\tisTeacherCourse=" + isTeacherCourse + "\n" +
                 "}";
     }
 

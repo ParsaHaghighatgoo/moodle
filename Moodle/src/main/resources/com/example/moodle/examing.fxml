@@ -7,17 +7,14 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="500.0" prefWidth="800.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.moodle.Examing">
    <children>
-      <ButtonBar layoutY="460.0" prefHeight="40.0" prefWidth="800.0" style="-fx-background-color: gray;">
+      <ButtonBar fx:id="buttonBar" layoutY="460.0" prefHeight="40.0" prefWidth="800.0" style="-fx-background-color: gray;">
         <buttons>
-          <Button fx:id="prev" mnemonicParsing="false" prefHeight="26.0" text="PREVIOUS" />
-            <Button fx:id="submit" layoutX="725.0" layoutY="17.0" mnemonicParsing="false" onAction="#submitTest" prefHeight="26.0" style="-fx-background-color: GREEN;" text="SUBMIT">
-               <padding>
-                  <Insets left="10.0" right="10.0" />
-               </padding>
-            </Button>
+          <Button fx:id="prev" mnemonicParsing="false" onAction="#handle_prev_button" prefHeight="26.0" prefWidth="390.0" text="PREVIOUS" />
+            <Button fx:id="finish" mnemonicParsing="false" onAction="#handle_finish_button" style="-fx-background-color: GREEN;" text="FINISH" />
             <Button fx:id="nextQuestion" layoutX="725.0" layoutY="17.0" mnemonicParsing="false" onAction="#show_questions" prefHeight="26.0" prefWidth="296.0" text="NEXT" />
         </buttons>
          <padding>
@@ -38,6 +35,25 @@
             <TextArea fx:id="descriptiveQuestion" editable="false" layoutX="36.0" layoutY="45.0" prefHeight="158.0" prefWidth="728.0" text="hello how are youu today?" />
             <TextArea fx:id="descriptiveAnswer" layoutX="36.0" layoutY="246.0" prefHeight="152.0" prefWidth="728.0" />
             <Label layoutX="36.0" layoutY="215.0" prefHeight="33.0" prefWidth="196.0" text="please write your answer here:" textFill="WHITE" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="finish_page" prefHeight="500.0" prefWidth="800.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Button fx:id="submit" layoutX="291.0" layoutY="250.0" mnemonicParsing="false" onAction="#submitTest" prefHeight="52.0" prefWidth="238.0" style="-fx-background-color: GREEN;" text="SUBMIT">
+               <padding>
+                  <Insets left="10.0" right="10.0" />
+               </padding>
+            </Button>
+            <Label alignment="CENTER" layoutX="43.0" layoutY="158.0" prefHeight="76.0" prefWidth="715.0" text="if you answer questions click on submit button" textFill="WHITE">
+               <font>
+                  <Font name="Timmana Regular" size="30.0" />
+               </font>
+            </Label>
+            <Button fx:id="cancel2" layoutX="309.0" layoutY="316.0" mnemonicParsing="false" onAction="#handle_cancel_button" prefHeight="33.0" prefWidth="202.0" style="-fx-background-color: red;" text="cancel">
+               <padding>
+                  <Insets left="10.0" right="10.0" />
+               </padding>
+            </Button>
          </children>
       </AnchorPane>
    </children>

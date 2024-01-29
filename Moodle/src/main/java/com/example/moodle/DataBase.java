@@ -38,7 +38,8 @@ public class DataBase {
         admin.stdCourses.add(course3);
         admin.stdCourses.add(course4);
 
-        User admin2 = new User(adminPersonalToken, "admin2", "admin2", "admin2", "admin2", 2,"admin2@gmail.com", UserRole.ADMIN, Gender.OTHERS, newLoginDates,adminTeacherCourse,adminStdCourse);
+        String admin2PersonalToken = "E0pCjzQS4zU=";
+        User admin2 = new User(admin2PersonalToken, "admin2", "admin2", "admin2", "admin2", 2,"admin2@gmail.com", UserRole.ADMIN, Gender.OTHERS, newLoginDates,adminTeacherCourse,adminStdCourse);
         admin2.teacherCourses.add(course3);
         admin2.teacherCourses.add(course2);
         admin2.stdCourses.add(course);

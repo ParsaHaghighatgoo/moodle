@@ -54,6 +54,9 @@ public class NewExam {
     private TextField descriptiveAnswer;
     public Quiz selectedQuiz;
 
+    @FXML
+    private Button prev;
+
     public Quiz getSelectedQuiz() {
         return selectedQuiz;
     }
@@ -118,6 +121,21 @@ public class NewExam {
             selectedQuiz.addQuestion(DecQuestion);
             System.out.println(selectedQuiz);
         }
+        DataBase.quizzes.add(selectedQuiz);
 
+    }
+    @FXML
+    private void handle (){
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Exam.fxml"));
+        try {
+            Parent new_exam = fxmlLoader.load();
+            Stage stage = (Stage) prev.getScene().getWindow();
+            Scene newPage = new Scene(new_exam);
+            stage.setScene(newPage);
+            stage.setTitle("exam");
+            stage.show();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

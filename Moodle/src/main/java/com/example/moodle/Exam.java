@@ -14,6 +14,7 @@ import java.io.IOException;
 import java.security.PrivateKey;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 
 public class Exam {
 
@@ -32,20 +33,15 @@ public class Exam {
     private AnchorPane root;
 
     @FXML
-    private ButtonBar button_bar;
-
-    @FXML
     private ScrollPane exam_list;
 
-    @FXML
-    private AnchorPane create_exam;
-
-    @FXML
-    private Button newButton;
 
     @FXML
     private Button backButton;
     private Course selected_course;
+
+    private ArrayList<Quiz> allQuizzes;
+
 
     public Course getCourse() {
         return selected_course;
@@ -55,17 +51,26 @@ public class Exam {
         this.selected_course = selected_course;
     }
 
-    public void initialize(){
-        create_exam.setVisible(false);
-    }
-    @FXML
-    private void handleNewButton(){
-        exam_list.setVisible(false);
-        create_exam.setVisible(true);
+
+
+
+    public void initialize() throws IOException {
+        double top = 0;
+        allQuizzes = DataBase.quizzes;
+        for (Quiz quiz:allQuizzes){
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ExamCard.fxml"));
+            AnchorPane anchorPane = fxmlLoader.load();
+            ExamCard examCard = fxmlLoader.getController();
+            examCard.setData(quiz);
+            exam_list.setContent(anchorPane);
+            AnchorPane.setRightAnchor(anchorPane,top);
+            top += anchorPane.getPrefWidth() + 20;
+        }
     }
     @FXML
     private void handleCreateButton(){
         Quiz quiz = new Quiz(name.getText(),selected_course,time.getText());
+
 //<<<<<<< HEAD
 //
 //=======
@@ -127,6 +132,5 @@ public class Exam {
             throw new RuntimeException(e);
         }
     }
-
 
 }

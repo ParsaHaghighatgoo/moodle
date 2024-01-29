@@ -4,6 +4,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
@@ -38,8 +39,17 @@
             <Font size="24.0" />
          </font>
       </Label>
-      <Button fx:id="add_exam" layoutX="875.0" layoutY="193.0" mnemonicParsing="false" onAction="#add_new_exam" prefHeight="26.0" prefWidth="64.0" text="ADD" />
+      <Button fx:id="add_exam" layoutX="875.0" layoutY="193.0" mnemonicParsing="false" onAction="#handle_add_button" prefHeight="26.0" prefWidth="64.0" text="ADD" />
       <Button layoutX="875.0" layoutY="237.0" mnemonicParsing="false" text="DELETE" />
       <Button layoutX="875.0" layoutY="282.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="64.0" text="EDIT" />
+      <AnchorPane fx:id="create_exam" layoutX="406.0" layoutY="116.0" prefHeight="228.0" prefWidth="325.0" style="-fx-background-color: black;" visible="false">
+         <children>
+            <TextField fx:id="name" layoutX="82.0" layoutY="51.0" style="-fx-background-color: white;" />
+            <TextField fx:id="time" layoutX="82.0" layoutY="109.0" style="-fx-background-color: white;" />
+            <Label layoutX="82.0" layoutY="33.0" text="name of the exam:" textFill="#ffffffe3" />
+            <Label layoutX="82.0" layoutY="91.0" text="time of the exam" textFill="WHITE" />
+            <Button fx:id="create" layoutX="119.0" layoutY="158.0" mnemonicParsing="false" onAction="#add_new_exam" prefHeight="30.0" prefWidth="68.0" text="create" />
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>

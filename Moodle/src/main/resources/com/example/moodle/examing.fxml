@@ -12,7 +12,7 @@
    <children>
       <ButtonBar layoutY="460.0" prefHeight="40.0" prefWidth="800.0" style="-fx-background-color: gray;">
         <buttons>
-          <Button mnemonicParsing="false" prefHeight="26.0" text="PREVIOUS" />
+          <Button fx:id="prev" mnemonicParsing="false" prefHeight="26.0" text="PREVIOUS" />
             <Button layoutX="725.0" layoutY="17.0" mnemonicParsing="false" prefHeight="26.0" style="-fx-background-color: GREEN;" text="SUBMIT">
                <padding>
                   <Insets left="10.0" right="10.0" />
@@ -24,19 +24,19 @@
             <Insets right="10.0" />
          </padding>
       </ButtonBar>
-      <AnchorPane fx:id="test" prefHeight="460.0" prefWidth="786.0" visible="false">
+      <AnchorPane fx:id="test" prefHeight="460.0" prefWidth="786.0">
          <children>
-            <TextArea editable="false" layoutX="29.0" layoutY="36.0" prefHeight="200.0" prefWidth="728.0" text="hello how are youu today?" />
-            <CheckBox layoutX="29.0" layoutY="250.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="728.0" text="A)" textFill="WHITE" />
-            <CheckBox layoutX="29.0" layoutY="293.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="728.0" text="B)" textFill="WHITE" />
-            <CheckBox layoutX="29.0" layoutY="335.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="728.0" text="C)" textFill="WHITE" />
-            <CheckBox layoutX="29.0" layoutY="381.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="728.0" text="D)" textFill="WHITE" />
+            <TextArea fx:id="testQuestion" editable="false" layoutX="29.0" layoutY="36.0" prefHeight="200.0" prefWidth="728.0" text="hello how are youu today?" />
+            <CheckBox fx:id="tcheckA" layoutX="29.0" layoutY="250.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="728.0" text="A)" textFill="WHITE" />
+            <CheckBox fx:id="tcheckB" layoutX="29.0" layoutY="293.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="728.0" text="B)" textFill="WHITE" />
+            <CheckBox fx:id="tcheckC" layoutX="29.0" layoutY="335.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="728.0" text="C)" textFill="WHITE" />
+            <CheckBox fx:id="tcheckD" layoutX="29.0" layoutY="381.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="728.0" text="D)" textFill="WHITE" />
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="descriptive" prefHeight="460.0" prefWidth="800.0">
+      <AnchorPane fx:id="descriptive" prefHeight="460.0" prefWidth="800.0" visible="false">
          <children>
-            <TextArea editable="false" layoutX="36.0" layoutY="45.0" prefHeight="158.0" prefWidth="728.0" text="hello how are youu today?" />
-            <TextArea layoutX="36.0" layoutY="246.0" prefHeight="152.0" prefWidth="728.0" />
+            <TextArea fx:id="descriptiveQuestion" editable="false" layoutX="36.0" layoutY="45.0" prefHeight="158.0" prefWidth="728.0" text="hello how are youu today?" />
+            <TextArea fx:id="descriptiveAnswer" layoutX="36.0" layoutY="246.0" prefHeight="152.0" prefWidth="728.0" />
             <Label layoutX="36.0" layoutY="215.0" prefHeight="33.0" prefWidth="196.0" text="please write your answer here:" textFill="WHITE" />
          </children>
       </AnchorPane>

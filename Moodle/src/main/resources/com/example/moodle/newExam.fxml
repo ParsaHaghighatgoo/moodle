@@ -40,7 +40,7 @@
       </AnchorPane>
       <ButtonBar layoutX="5.0" layoutY="453.0" prefHeight="47.0" prefWidth="800.0">
         <buttons>
-          <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="263.0" text="previous" />
+          <Button fx:id="prev" mnemonicParsing="false" onAction="#handle" prefHeight="26.0" prefWidth="263.0" text="previous" />
             <Button mnemonicParsing="false" onAction="#submitTest" style="-fx-background-color: green;" text="submit" />
             <Button layoutX="563.0" layoutY="17.0" mnemonicParsing="false" onAction="#handleNextButton" prefHeight="26.0" prefWidth="224.0" text="next" />
         </buttons>

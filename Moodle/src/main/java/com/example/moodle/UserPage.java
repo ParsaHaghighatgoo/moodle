@@ -3,18 +3,25 @@ package com.example.moodle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class UserPage {
+
+    @FXML
+    private Button exam;
 
     @FXML
     private TextArea loginActivity;
@@ -24,19 +31,30 @@ public class UserPage {
     @FXML
     private AnchorPane profilePane;
     @FXML
+    private AnchorPane testPane;
+    @FXML
     private AnchorPane listPane;
     @FXML
     private AnchorPane leftPane;
     @FXML
     private Button profileButton;
+    @FXML
+    private ScrollPane scrollPane;
+    @FXML
+    private ScrollPane scrollPane2;
+    @FXML
+    private HBox hBox;
+    private ArrayList<Course> AllCourses;
 
 
 
-    public void initialize() {
+
+    public void initialize() throws IOException {
         leftPane.setVisible(true);
         listPane.setVisible(true);
         profilePane.setVisible(false);
         profileButton.setText("Profile");
+        ProfCoursesList();
 
     }
 
@@ -118,6 +136,49 @@ public class UserPage {
             profileButton.setText("Profile");
         }
     }
+
+    @FXML
+    private void handleExamButton(){
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Exam.fxml"));
+        try {
+            Parent new_exam = fxmlLoader.load();
+            Stage stage = (Stage) exam.getScene().getWindow();
+            Scene newPage = new Scene(new_exam);
+            stage.setScene(newPage);
+            stage.setTitle("exam");
+            stage.show();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+
+    public void ProfCoursesList() throws IOException {
+//        double index1 = 0;
+//        double index2 = 0;
+        HBox hBox1 = new HBox();
+        HBox hBox2 = new HBox();
+
+        for (Course course : DataBase.courses) {
+            double index1 = 25;
+            double index2 = 25;
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("CourseCard.fxml"));
+            AnchorPane anchorPane = fxmlLoader.load();
+            CourseCard courseCard = fxmlLoader.getController();
+            courseCard.setData(course);
+
+            if (course.isTeacherCourse()) {
+                hBox1.getChildren().add(anchorPane);
+                HBox.setMargin(anchorPane, new Insets(0, 0, 0, index1));
+            } else {
+                hBox2.getChildren().add(anchorPane);
+                HBox.setMargin(anchorPane, new Insets(0, 0, 0, index2));
+            }
+        }
+        scrollPane.setContent(hBox1);
+        scrollPane2.setContent(hBox2);
+    }
+
 
     public void updateLoginActivityBoxText(String dates) {
         loginActivity.setText(dates);

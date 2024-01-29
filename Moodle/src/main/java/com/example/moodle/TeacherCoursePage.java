@@ -1,4 +1,70 @@
 package com.example.moodle;
 
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
+
+import java.io.IOException;
+
 public class TeacherCoursePage {
+
+    @FXML
+    private AnchorPane create_exam;
+
+    @FXML
+    private Button create;
+
+    @FXML
+    private TextField name;
+
+    @FXML
+    private TextField time;
+
+    @FXML
+    private Button add_exam;
+
+
+    private void initialize(){
+        add_exam.setOnAction(this::add_new_exam);
+        create_exam.setVisible(false);
+    }
+    private Course course;
+
+    public Course getCourse() {
+        return course;
+    }
+
+    public void setCourse(Course course) {
+        this.course = course;
+    }
+
+
+    @FXML
+    private void add_new_exam(ActionEvent event){
+        Quiz quiz = new Quiz(name.getText(),course,time.getText());
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("newExam.fxml"));
+        try {
+            Parent new_exam = fxmlLoader.load();
+            NewExam newExam = fxmlLoader.getController();
+            newExam.setSelectedQuiz(quiz);
+            Stage stage = (Stage) create.getScene().getWindow();
+            Scene newPage = new Scene(new_exam);
+            stage.setScene(newPage);
+            stage.setTitle("exam");
+            stage.show();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @FXML
+    private void handle_add_button(){
+        create_exam.setVisible(true);
+    }
 }

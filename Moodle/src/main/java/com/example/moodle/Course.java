@@ -64,12 +64,13 @@ public class Course {
 
     @Override
     public String toString() {
-        return "Course{" +
-                "users=" + users +
-                ", CourseImagePath='" + CourseImagePath + '\'' +
-                ", CourseVideos=" + CourseVideos +
-                ", CourseDocs=" + CourseDocs +
-                ", isTeacherCourse=" + isTeacherCourse +
-                '}';
+        return "Course {\n" +
+                "\tusers=" + users + ",\n" +
+                "\tCourseImagePath='" + CourseImagePath + "',\n" +
+                "\tCourseVideos=" + CourseVideos + ",\n" +
+                "\tCourseDocs=" + CourseDocs + ",\n" +
+                "\tisTeacherCourse=" + isTeacherCourse + "\n" +
+                "}";
     }
+
 }

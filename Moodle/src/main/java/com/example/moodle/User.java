@@ -20,8 +20,7 @@ public class User {
 
     public User(int id, String username, String password, String firstName,
                 String lastName, int age, String email,
-                UserRole userRole, Gender gender, ArrayList<String> logindates
-                ,ArrayList<Course> teacherCourses ,ArrayList<Course> stdCourses ) {
+                UserRole userRole, Gender gender, ArrayList<String> logindates) {
         this.id = id;
         this.username = username;
         this.password = password;
@@ -32,8 +31,7 @@ public class User {
         this.userRole = userRole;
         this.gender = gender;
         this.logindates = logindates;
-        this.teacherCourses = teacherCourses;
-        this.stdCourses = stdCourses;
+
     }
 
     public User() {
@@ -103,6 +101,22 @@ public class User {
         this.gender = gender;
     }
 
+    public ArrayList<Course> getTeacherCourses() {
+        return teacherCourses;
+    }
+
+    public void setTeacherCourses(ArrayList<Course> teacherCourses) {
+        this.teacherCourses = teacherCourses;
+    }
+
+    public ArrayList<Course> getStdCourses() {
+        return stdCourses;
+    }
+
+    public void setStdCourses(ArrayList<Course> stdCourses) {
+        this.stdCourses = stdCourses;
+    }
+
     @Override
     public String toString() {
         return "User{" +
@@ -122,7 +136,7 @@ public class User {
                                ArrayList<Course> teacherCourses,
                                ArrayList<Course> stdCourses) {
         User newUser = new User(id, username, password, firstName, lastName,age,email
-                 , userRole, gender, logindates,teacherCourses,stdCourses);
+                 , userRole, gender, logindates);
         DataBase.users.add(newUser);
     }
 

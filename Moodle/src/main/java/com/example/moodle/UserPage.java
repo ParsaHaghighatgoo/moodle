@@ -26,12 +26,10 @@ public class UserPage {
     @FXML
     private TextArea loginActivity;
 
-    private User logedInUser;
+    public User logedInUser = Login.logedInUser;
 
     @FXML
     private AnchorPane profilePane;
-    @FXML
-    private AnchorPane testPane;
     @FXML
     private AnchorPane listPane;
     @FXML
@@ -47,9 +45,12 @@ public class UserPage {
     private ArrayList<Course> AllCourses;
 
 
-
+//    public void setLogedInUser(User logedInUser) {
+//        this.logedInUser = logedInUser;
+//    }
 
     public void initialize() throws IOException {
+
         leftPane.setVisible(true);
         listPane.setVisible(true);
         profilePane.setVisible(false);
@@ -65,7 +66,7 @@ public class UserPage {
             Parent courseListsParent = fxmlLoader.load();
 
             AllCourseList courseListsController = fxmlLoader.getController();
-            courseListsController.setLogedInUser(logedInUser);
+
             courseListsController.initializeView(); // Initialize the CourseLists view
 
             // Get the current stage from the welcomeText label (or any other node in the scene graph)
@@ -89,7 +90,6 @@ public class UserPage {
             Parent courseListsParent = fxmlLoader.load();
 
             AllCourseList courseListsController = fxmlLoader.getController();
-            courseListsController.setLogedInUser(logedInUser);
             courseListsController.initializeView2(); // Initialize the CourseLists view
 
             // Get the current stage from the welcomeText label (or any other node in the scene graph)
@@ -121,7 +121,6 @@ public class UserPage {
             System.err.println("Error loading login page : " + e.getMessage());
         }
     }
-
 
     @FXML
     private void handleProfileButton(){
@@ -158,22 +157,32 @@ public class UserPage {
 //        double index2 = 0;
         HBox hBox1 = new HBox();
         HBox hBox2 = new HBox();
+        System.out.println(logedInUser);
 
-        for (Course course : DataBase.courses) {
+        for (Course course : logedInUser.getTeacherCourses()) {
+//            System.out.println(course);
             double index1 = 25;
+
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("CourseCard.fxml"));
+            AnchorPane anchorPane = fxmlLoader.load();
+            CourseCard courseCard = fxmlLoader.getController();
+            courseCard.setData(course);
+
+            hBox1.getChildren().add(anchorPane);
+            HBox.setMargin(anchorPane, new Insets(0, 0, 0, index1));
+
+        }
+        for (Course course : logedInUser.getStdCourses()) {
+
             double index2 = 25;
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("CourseCard.fxml"));
             AnchorPane anchorPane = fxmlLoader.load();
             CourseCard courseCard = fxmlLoader.getController();
             courseCard.setData(course);
 
-            if (course.isTeacherCourse()) {
-                hBox1.getChildren().add(anchorPane);
-                HBox.setMargin(anchorPane, new Insets(0, 0, 0, index1));
-            } else {
-                hBox2.getChildren().add(anchorPane);
-                HBox.setMargin(anchorPane, new Insets(0, 0, 0, index2));
-            }
+            hBox2.getChildren().add(anchorPane);
+            HBox.setMargin(anchorPane, new Insets(0, 0, 0, index2));
+
         }
         scrollPane.setContent(hBox1);
         scrollPane2.setContent(hBox2);
@@ -184,9 +193,7 @@ public class UserPage {
         loginActivity.setText(dates);
     }
 
-    public void setLogedInUser(User logedInUser) {
-        this.logedInUser = logedInUser;
-    }
+
 
 
 }

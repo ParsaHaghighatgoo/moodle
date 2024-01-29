@@ -3,6 +3,7 @@ package com.example.moodle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -153,25 +154,29 @@ public class UserPage {
 
 
     public void ProfCoursesList() throws IOException {
-        double index1 = 0;
-        double index2 = 0;
+//        double index1 = 0;
+//        double index2 = 0;
+        HBox hBox1 = new HBox();
+        HBox hBox2 = new HBox();
 
         for (Course course : DataBase.courses) {
+            double index1 = 25;
+            double index2 = 25;
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("CourseCard.fxml"));
             AnchorPane anchorPane = fxmlLoader.load();
             CourseCard courseCard = fxmlLoader.getController();
             courseCard.setData(course);
 
             if (course.isTeacherCourse()) {
-                scrollPane.setContent(anchorPane);
-                AnchorPane.setLeftAnchor(anchorPane, index1);
-                index1 += anchorPane.getPrefWidth() + 30;
+                hBox1.getChildren().add(anchorPane);
+                HBox.setMargin(anchorPane, new Insets(0, 0, 0, index1));
             } else {
-                scrollPane2.setContent(anchorPane);
-                AnchorPane.setLeftAnchor(anchorPane, index2);
-                index2 += 100;
+                hBox2.getChildren().add(anchorPane);
+                HBox.setMargin(anchorPane, new Insets(0, 0, 0, index2));
             }
         }
+        scrollPane.setContent(hBox1);
+        scrollPane2.setContent(hBox2);
     }
 
 

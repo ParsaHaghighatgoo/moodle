@@ -17,8 +17,14 @@ public class DataBase {
         ArrayList<String> newLoginDates = new ArrayList<>();
         Course course = new Course(null, "download.jpg", null, null, true);
         Course course2 = new Course(null, "icon.jpg", null, null, true);
+        Course course3 = new Course(null, "in.jpg", null, null, false);
+        Course course4 = new Course(null, "innner1.jpg", null, null, false);
+
         courses.add(course);
         courses.add(course2);
+        courses.add(course3);
+        courses.add(course4);
+
 
         users.clear();
         ArrayList<Course> adminTeacherCourse= new ArrayList<>();

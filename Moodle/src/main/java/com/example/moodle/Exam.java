@@ -8,6 +8,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -53,42 +55,48 @@ public class Exam {
 
 
 
+    public void initialize() {
+        ScrollPane scrollPane = new ScrollPane();
+        scrollPane.setFitToWidth(true); // Make the ScrollPane fit its content width
 
-    public void initialize() throws IOException {
-        double top = 0;
-        allQuizzes = DataBase.quizzes;
-        for (Quiz quiz:allQuizzes){
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ExamCard.fxml"));
-            AnchorPane anchorPane = fxmlLoader.load();
-            ExamCard examCard = fxmlLoader.getController();
-            examCard.setData(quiz);
-            exam_list.setContent(anchorPane);
-            AnchorPane.setRightAnchor(anchorPane,top);
-            top += anchorPane.getPrefWidth() + 20;
-        }
-    }
-    @FXML
-    private void handleCreateButton(){
-        Quiz quiz = new Quiz(name.getText(),selected_course,time.getText());
+// Create a VBox to hold the AnchorPanes
+        AnchorPane contentPane = new AnchorPane();
+        scrollPane.setContent(contentPane);
 
-//<<<<<<< HEAD
-//
-//=======
-//>>>>>>> 7a9153b4380f56b4aa0acfb96548cd4a8ca2aae3
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("newExam.fxml"));
+// Create an HBox to hold the ScrollPane and the back button
+        VBox hbox = new VBox(scrollPane, backButton);
+
+// Add the HBox to the mainPane
+        root.getChildren().add(hbox);
+        AnchorPane.setTopAnchor(hbox, 0.0);
+        AnchorPane.setRightAnchor(hbox, 0.0);
+        AnchorPane.setBottomAnchor(hbox, 0.0);
+        AnchorPane.setLeftAnchor(hbox, 0.0);
+        // Initialize the course cards
         try {
-            Parent new_exam = fxmlLoader.load();
-            NewExam newExam = fxmlLoader.getController();
-            newExam.setSelectedQuiz(quiz);
-            Stage stage = (Stage) create.getScene().getWindow();
-            Scene newPage = new Scene(new_exam);
-            stage.setScene(newPage);
-            stage.setTitle("exam");
-            stage.show();
+            double topAnchor = 0; // Initial top anchor value
+            allQuizzes = DataBase.quizzes;
+            for (Quiz quiz : allQuizzes) {
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ExamCard.fxml"));
+                AnchorPane anchorPane = fxmlLoader.load();
+                ExamCard examCard = fxmlLoader.getController();
+                AnchorPane.setTopAnchor(anchorPane, topAnchor);
+                examCard.setData(quiz);
+                examCard.setQuiz(quiz);
+                exam_list.setContent(anchorPane);
+                // Update the top anchor value for the next AnchorPane
+                topAnchor += anchorPane.getPrefHeight() + 20; // Assuming a spacing of 30 between AnchorPanes
+
+                // Add the AnchorPane to the contentPane
+                contentPane.getChildren().add(anchorPane);
+            }
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
         }
     }
+
+
+
     @FXML
     protected void ShowTeacherCoursesBackButtonClick() {
         try {
@@ -111,25 +119,6 @@ public class Exam {
         } catch (IOException e) {
             System.err.println("Error loading the CourseLists page: " + e.getMessage());
             e.printStackTrace(); // Print the stack trace for detailed error logging
-        }
-    }
-
-    @FXML
-    private void navigateExaming(){
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("examing.fxml"));
-        try {
-            Parent examPage = fxmlLoader.load();
-//<<<<<<< HEAD
-//
-//=======
-//>>>>>>> 7a9153b4380f56b4aa0acfb96548cd4a8ca2aae3
-            Stage stage = (Stage) create.getScene().getWindow();
-            Scene newPage = new Scene(examPage);
-            stage.setScene(newPage);
-            stage.setTitle("exam");
-            stage.show();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
         }
     }
 

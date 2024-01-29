@@ -82,6 +82,7 @@ public class UserPage {
             e.printStackTrace(); // Print the stack trace for detailed error logging
         }
     }
+
     @FXML
     protected void ShowStudentCoursesButtonClick() {
         try {
@@ -105,6 +106,7 @@ public class UserPage {
             e.printStackTrace(); // Print the stack trace for detailed error logging
         }
     }
+
     @FXML
     private void handleSignoutButton(ActionEvent event) {
         Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -122,13 +124,12 @@ public class UserPage {
     }
 
     @FXML
-    private void handleProfileButton(){
-        if (profileButton.getText().equals("Profile")){
+    private void handleProfileButton() {
+        if (profileButton.getText().equals("Profile")) {
             listPane.setVisible(false);
             profilePane.setVisible(true);
             profileButton.setText("Dashboard");
-        }
-        else {
+        } else {
             listPane.setVisible(true);
             profilePane.setVisible(false);
             profileButton.setText("Profile");
@@ -136,7 +137,7 @@ public class UserPage {
     }
 
     @FXML
-    private void handleExamButton(){
+    private void handleExamButton() {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Exam.fxml"));
         try {
             Parent new_exam = fxmlLoader.load();
@@ -191,11 +192,10 @@ public class UserPage {
     public void updateLoginActivityBoxText(String dates) {
         loginActivity.setText(dates);
     }
-    public void updateTokenLable(String token){
+
+    public void updateTokenLable(String token) {
         tokenLabel.setText(token);
     }
-
-
 
 
 }

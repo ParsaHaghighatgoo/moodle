@@ -33,7 +33,7 @@ public class Login {
 
     private String newLogAct;
     private String personalTokenString;
-    private User logedInUser;
+    public static User logedInUser;
 
 
 
@@ -89,17 +89,23 @@ public class Login {
             FXMLLoader fxmlLoader = new FXMLLoader(Signup.class.getResource("userPage.fxml"));
             Parent root = fxmlLoader.load();
             UserPage userPage = fxmlLoader.getController();
-            userPage.setLogedInUser(logedInUser);
+            System.out.println(logedInUser); // Print loggedInUser for debugging
+//            userPage.setLogedInUser(logedInUser);
             userPage.updateLoginActivityBoxText(newLogAct);
             userPage.updateTokenLable(personalTokenString);
             //Create a new stage
+
+            // Create a new stage
+
             currentStage.setScene(new Scene(root));
             currentStage.setTitle("User Page");
             currentStage.show();
-
-
         } catch (IOException e) {
-            System.err.println("Error loading the signup page: " + e.getMessage());
+            System.err.println("Error loading the user page: " + e.getMessage());
+            e.printStackTrace(); // Print stack trace for debugging
+        } catch (Exception ex) {
+            System.err.println("Error navigating to user page: " + ex.getMessage());
+            ex.printStackTrace(); // Print stack trace for debugging
         }
     }
 

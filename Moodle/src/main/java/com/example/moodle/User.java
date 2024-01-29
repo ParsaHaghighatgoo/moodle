@@ -35,8 +35,7 @@ public class User {
         this.userRole = userRole;
         this.gender = gender;
         this.logindates = logindates;
-        this.teacherCourses = teacherCourses;
-        this.stdCourses = stdCourses;
+
     }
 
     public User() {
@@ -104,6 +103,22 @@ public class User {
 
     public void setGender(Gender gender) {
         this.gender = gender;
+    }
+
+    public ArrayList<Course> getTeacherCourses() {
+        return teacherCourses;
+    }
+
+    public void setTeacherCourses(ArrayList<Course> teacherCourses) {
+        this.teacherCourses = teacherCourses;
+    }
+
+    public ArrayList<Course> getStdCourses() {
+        return stdCourses;
+    }
+
+    public void setStdCourses(ArrayList<Course> stdCourses) {
+        this.stdCourses = stdCourses;
     }
 
     @Override

@@ -104,7 +104,7 @@ public class Exam {
             Parent courseListsParent = fxmlLoader.load();
 
             AllCourseList courseListsController = fxmlLoader.getController();
-            courseListsController.setLogedInUser(logedInUser);
+
             courseListsController.initializeView(); // Initialize the CourseLists view
 
             // Get the current stage from the welcomeText label (or any other node in the scene graph)

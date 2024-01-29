@@ -15,6 +15,9 @@ import java.io.IOException;
 public class TeacherCoursePage {
 
     @FXML
+    private Button back;
+
+    @FXML
     private AnchorPane create_exam;
 
     @FXML
@@ -29,6 +32,7 @@ public class TeacherCoursePage {
     @FXML
     private Button add_exam;
 
+    private final User logedInUser = Login.logedInUser;
 
     private void initialize(){
         add_exam.setOnAction(this::add_new_exam);
@@ -66,5 +70,30 @@ public class TeacherCoursePage {
     @FXML
     private void handle_add_button(){
         create_exam.setVisible(true);
+    }
+
+    @FXML
+    protected void ShowTeacherCoursesButtonClick() {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("AllCourseList.fxml"));
+            Parent courseListsParent = fxmlLoader.load();
+
+            AllCourseList courseListsController = fxmlLoader.getController();
+            courseListsController.setLogedInUser(logedInUser);
+            courseListsController.initializeView(); // Initialize the CourseLists view
+
+            // Get the current stage from the welcomeText label (or any other node in the scene graph)
+            Stage stage = (Stage) back.getScene().getWindow();
+
+            Scene courseListsScene = new Scene(courseListsParent);
+
+            // Set the scene on the current stage
+            stage.setScene(courseListsScene);
+            stage.setTitle("Courses");
+            stage.show();
+        } catch (IOException e) {
+            System.err.println("Error loading the CourseLists page: " + e.getMessage());
+            e.printStackTrace(); // Print the stack trace for detailed error logging
+        }
     }
 }

@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="500.0" prefWidth="483.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.moodle.TeacherCoursePage">
+<AnchorPane fx:id="page" prefHeight="500.0" prefWidth="483.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.moodle.TeacherCoursePage">
    <children>
       <ListView layoutX="28.0" layoutY="44.0" prefHeight="410.0" prefWidth="226.0" style="-fx-background-color: orange;" />
       <Button layoutX="293.0" layoutY="193.0" mnemonicParsing="false" text="ADD" />
@@ -51,5 +51,6 @@
             <Button fx:id="create" layoutX="119.0" layoutY="158.0" mnemonicParsing="false" onAction="#add_new_exam" prefHeight="30.0" prefWidth="68.0" text="create" />
          </children>
       </AnchorPane>
+      <Button fx:id="back" layoutX="28.0" layoutY="467.0" mnemonicParsing="false" onAction="#ShowTeacherCoursesButtonClick" text="back" />
    </children>
 </AnchorPane>

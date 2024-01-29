@@ -10,21 +10,19 @@ import java.util.ArrayList;
 public class DataBase {
     static ArrayList<User> users = new ArrayList<>();
     static ArrayList<Course> courses = new ArrayList<>();
-
     static ArrayList<Quiz> quizzes = new ArrayList<>();
     public void initializeDataBase() {
         // Your existing initialization code
         ArrayList<String> newLoginDates = new ArrayList<>();
-        Course course = new Course(null, "download.jpg", null, null, true);
-        Course course2 = new Course(null, "icon.jpg", null, null, true);
-        Course course3 = new Course(null, "in.jpg", null, null, false);
-        Course course4 = new Course(null, "innner1.jpg", null, null, false);
+        Course course = new Course(null, "download.jpg", null, null);
+        Course course2 = new Course(null, "icon.jpg", null, null);
+        Course course3 = new Course(null, "in.jpg", null, null);
+        Course course4 = new Course(null, "innner1.jpg", null, null);
 
         courses.add(course);
         courses.add(course2);
         courses.add(course3);
         courses.add(course4);
-
 
         users.clear();
         ArrayList<Course> adminTeacherCourse= new ArrayList<>();
@@ -35,8 +33,19 @@ public class DataBase {
         User admin = new User(adminPersonalToken, "admin", "admin", "admin", "admin", 2,"admin@gmail.com", UserRole.ADMIN, Gender.OTHERS, newLoginDates,adminTeacherCourse
         ,adminStdCourse);
 
+        admin.teacherCourses.add(course);
+        admin.teacherCourses.add(course2);
+        admin.stdCourses.add(course3);
+        admin.stdCourses.add(course4);
+
+        User admin2 = new User(adminPersonalToken, "admin2", "admin2", "admin2", "admin2", 2,"admin2@gmail.com", UserRole.ADMIN, Gender.OTHERS, newLoginDates,adminTeacherCourse,adminStdCourse);
+        admin2.teacherCourses.add(course3);
+        admin2.teacherCourses.add(course2);
+        admin2.stdCourses.add(course);
+        admin2.stdCourses.add(course4);
 
         users.add(admin);
+        users.add(admin2);
 
         // Convert the users list to JSON and save it to a file
         saveUsersToJson("sample.json");

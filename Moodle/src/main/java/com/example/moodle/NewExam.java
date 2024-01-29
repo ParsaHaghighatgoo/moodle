@@ -18,6 +18,7 @@ import java.util.Objects;
 
 public class NewExam {
 
+    private Button submit;
     @FXML
     private AnchorPane descriptive;
 
@@ -30,7 +31,7 @@ public class NewExam {
     @FXML
     private Button descriptive2;
     @FXML
-    private TextField testQuestion;
+    private TextField testQuestion1;
     @FXML
     private TextField A;
     @FXML
@@ -54,6 +55,8 @@ public class NewExam {
     private TextField descriptiveAnswer;
     public Quiz selectedQuiz;
 
+    private final User logedInUser = Login.logedInUser;
+
     @FXML
     private Button prev;
 
@@ -68,11 +71,26 @@ public class NewExam {
     public void setSelectedQuiz(Quiz selectedQuiz) {
         this.selectedQuiz = selectedQuiz;
     }
-//<<<<<<< HEAD
-    public void submitTest() {
-        System.out.println(selectedQuiz);
-//=======
+
+    @FXML
+    public void submitTest(ActionEvent event) {
+        DataBase.quizzes.add(selectedQuiz);
+        Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(Signup.class.getResource("userPage.fxml"));
+            Parent root = fxmlLoader.load();
+            UserPage userPage = fxmlLoader.getController();
+
+            currentStage.setScene(new Scene(root));
+            currentStage.setTitle("User Page");
+            currentStage.show();
+        } catch (IOException e) {
+            System.err.println("Error loading the user page: " + e.getMessage());
+        }
     }
+
+
     @FXML
     private void testSelected(){
         QtypeFlag = "test";
@@ -87,13 +105,12 @@ public class NewExam {
         test.setVisible(false);
         descriptive.setVisible(true);
         descriptive2.defaultButtonProperty();
-//>>>>>>> 7a9153b4380f56b4aa0acfb96548cd4a8ca2aae3
     }
 
     @FXML
     private void handleNextButton(){
         if(Objects.equals(QtypeFlag, "test")) {
-            String testQ = testQuestion.getText();
+            String testQ = testQuestion1.getText();
             String a = A.getText();
             String b = B.getText();
             String c = C.getText();
@@ -110,32 +127,46 @@ public class NewExam {
             }
             Question testQuestion = new Question(testQ, a, b, c, d, correctAnswer, QuestionType.TEST);
             selectedQuiz.addQuestion(testQuestion);
-
             System.out.println(selectedQuiz);
+            testQuestion1.clear();
+            A.clear();
+            B.clear();
+            C.clear();
+            D.clear();
+            correct_choiceA.setSelected(false);
+            correct_choiceB.setSelected(false);
+            correct_choiceC.setSelected(false);
+            correct_choiceD.setSelected(false);
         }
         if(Objects.equals(QtypeFlag, "descriptive")){
             String descriptiveQ = descriptiveQuestion.getText();
             String descriptiveAns = descriptiveAnswer.getText();
-
             Question DecQuestion = new Question(descriptiveQ, descriptiveAns, QuestionType.DESCRIPTIVE);
             selectedQuiz.addQuestion(DecQuestion);
             System.out.println(selectedQuiz);
+            descriptiveAnswer.clear();
+            descriptiveQuestion.clear();
         }
-        DataBase.quizzes.add(selectedQuiz);
+
 
     }
+
     @FXML
-    private void handle (){
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Exam.fxml"));
+    private void handle_cancel_button(ActionEvent event){
+        Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
         try {
-            Parent new_exam = fxmlLoader.load();
-            Stage stage = (Stage) prev.getScene().getWindow();
-            Scene newPage = new Scene(new_exam);
-            stage.setScene(newPage);
-            stage.setTitle("exam");
-            stage.show();
+            FXMLLoader fxmlLoader = new FXMLLoader(Signup.class.getResource("userPage.fxml"));
+            Parent root = fxmlLoader.load();
+            UserPage userPage = fxmlLoader.getController();
+
+
+            currentStage.setScene(new Scene(root));
+            currentStage.setTitle("User Page");
+            currentStage.show();
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            System.err.println("Error loading the user page: " + e.getMessage());
         }
     }
+
 }

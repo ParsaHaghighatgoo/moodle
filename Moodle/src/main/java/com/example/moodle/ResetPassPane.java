@@ -31,7 +31,8 @@ public class ResetPassPane {
     private TextField username;
     @FXML
     private TextField token;
-    private User loggedInUser;
+    private User loggedInUser = Login.logedInUser;
+
 
     public void initialize() throws IOException {
         checkPane.setVisible(true);

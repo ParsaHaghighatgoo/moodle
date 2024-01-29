@@ -2,10 +2,13 @@ package com.example.moodle;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Date;
+import java.util.*;
+
 
 public class User {
-    int id;
+    public static Random randomIdGen = new Random();
+
+    int personalToken;
     String username;
     String password;
     String firstName;
@@ -18,11 +21,12 @@ public class User {
     Gender gender;
     ArrayList<String> logindates;
 
+
     public User(int id, String username, String password, String firstName,
                 String lastName, int age, String email,
                 UserRole userRole, Gender gender, ArrayList<String> logindates
                 ,ArrayList<Course> teacherCourses ,ArrayList<Course> stdCourses ) {
-        this.id = id;
+        this.personalToken = id;
         this.username = username;
         this.password = password;
         this.firstName = firstName;
@@ -40,11 +44,11 @@ public class User {
     }
 
     public int getId() {
-        return id;
+        return personalToken;
     }
 
     public void setId(int id) {
-        this.id = id;
+        this.personalToken = id;
     }
 
     public String getUsername() {
@@ -106,7 +110,7 @@ public class User {
     @Override
     public String toString() {
         return "User{" +
-                "id=" + id +
+                "personalToken=" + personalToken +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
                 ", firstName='" + firstName + '\'' +
@@ -125,5 +129,6 @@ public class User {
                  , userRole, gender, logindates,teacherCourses,stdCourses);
         DataBase.users.add(newUser);
     }
+
 
 }

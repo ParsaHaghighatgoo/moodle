@@ -22,6 +22,9 @@ public class AllCourseList {
     private ArrayList<Course> AllCourses;
     private User logedInUser = Login.logedInUser;
 
+    public void setLogedInUser(User logedInUser) {
+        this.logedInUser = logedInUser;
+    }
 
     public void initialize() {
 

@@ -111,5 +111,13 @@ public class Question {
     public void setQtype(QuestionType qtype) {
         Qtype = qtype;
     }
+
+    public String getQuestionDes() {
+        return questionDes;
+    }
+
+    public String getAnswerDes() {
+        return answerDes;
+    }
 }
 

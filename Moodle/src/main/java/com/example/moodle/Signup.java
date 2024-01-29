@@ -69,7 +69,8 @@ public class Signup {
         ArrayList<String> newlogindates = new ArrayList<>();
         ArrayList<Course> teacherCourses = new ArrayList<>();
         ArrayList<Course> stdCourses = new ArrayList<>();
-        User.addUser(2, username, password, name, lastname, 2, email, userRole, gender, newlogindates,teacherCourses,stdCourses);
+        String personalToken = Security.generateToken();
+        User.addUser(personalToken, username, password, name, lastname, 2, email, userRole, gender, newlogindates,teacherCourses,stdCourses);
         System.out.println(":DDD");
         navigateToLoginPage(event);
     }

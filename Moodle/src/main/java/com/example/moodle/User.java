@@ -6,9 +6,8 @@ import java.util.*;
 
 
 public class User {
-    public static Random randomIdGen = new Random();
 
-    int personalToken;
+    String personalToken;
     String username;
     String password;
     String firstName;
@@ -22,11 +21,11 @@ public class User {
     ArrayList<String> logindates;
 
 
-    public User(int id, String username, String password, String firstName,
+    public User(String personalToken, String username, String password, String firstName,
                 String lastName, int age, String email,
                 UserRole userRole, Gender gender, ArrayList<String> logindates
                 ,ArrayList<Course> teacherCourses ,ArrayList<Course> stdCourses ) {
-        this.personalToken = id;
+        this.personalToken = personalToken;
         this.username = username;
         this.password = password;
         this.firstName = firstName;
@@ -43,11 +42,11 @@ public class User {
     public User() {
     }
 
-    public int getId() {
+    public String getId() {
         return personalToken;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.personalToken = id;
     }
 
@@ -121,11 +120,11 @@ public class User {
                 '}';
     }
 
-    public static void addUser(int id, String username, String password, String firstName
+    public static void addUser(String personalToken, String username, String password, String firstName
             , String lastName, int age, String email, UserRole userRole, Gender gender, ArrayList<String> logindates,
                                ArrayList<Course> teacherCourses,
                                ArrayList<Course> stdCourses) {
-        User newUser = new User(id, username, password, firstName, lastName,age,email
+        User newUser = new User(personalToken, username, password, firstName, lastName,age,email
                  , userRole, gender, logindates,teacherCourses,stdCourses);
         DataBase.users.add(newUser);
     }

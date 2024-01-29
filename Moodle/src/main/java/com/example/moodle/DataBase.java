@@ -24,7 +24,8 @@ public class DataBase {
         ArrayList<Course> adminTeacherCourse= new ArrayList<>();
         adminTeacherCourse.add(course);
         ArrayList<Course> adminStdCourse= new ArrayList<>();
-        User admin = new User(1, "admin", "admin", "admin", "admin", 2,"admin@gmail.com", UserRole.ADMIN, Gender.OTHERS, newLoginDates,adminTeacherCourse
+        String adminPersonalToken = "8zxAgLJ5WWwANfrILT7TUuVeB6MkD0F0f73fUYsIRag=";
+        User admin = new User(adminPersonalToken, "admin", "admin", "admin", "admin", 2,"admin@gmail.com", UserRole.ADMIN, Gender.OTHERS, newLoginDates,adminTeacherCourse
         ,adminStdCourse);
 
 

@@ -5,10 +5,20 @@ import java.security.SecureRandom;
 import java.util.Base64;
 
 public class Security {
+//    public static String generateToken() {
+//        // Generate a random UUID
+//        UUID uuid = UUID.randomUUID();
+//        return uuid.toString();
+//    }
+
+
     public static String generateToken() {
-        // Generate a random UUID
-        UUID uuid = UUID.randomUUID();
-        return uuid.toString();
+        // Generate a secure random byte array
+        byte[] randomBytes = new byte[32]; // Adjust the size based on your requirements
+        new SecureRandom().nextBytes(randomBytes);
+
+        // Encode the byte array to Base64 for a more human-readable format
+        return Base64.getEncoder().encodeToString(randomBytes);
     }
 
     public static void main(String[] args) {

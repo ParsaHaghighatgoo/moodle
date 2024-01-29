@@ -20,7 +20,7 @@ public class AllCourseList {
     @FXML
     private AnchorPane mainPane;
     private ArrayList<Course> AllCourses;
-    private User logedInUser;
+    private User logedInUser = Login.logedInUser;
     public void setLogedInUser(User logedInUser) {
         this.logedInUser = logedInUser;
     }

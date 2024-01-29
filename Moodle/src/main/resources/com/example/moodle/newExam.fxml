@@ -10,7 +10,7 @@
 
 <AnchorPane prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.moodle.NewExam">
    <children>
-      <AnchorPane fx:id="descriptive" layoutY="48.0" prefHeight="399.0" prefWidth="800.0" style="-fx-background-color: BLACK;">
+      <AnchorPane fx:id="descriptive" layoutY="48.0" prefHeight="399.0" prefWidth="800.0" style="-fx-background-color: BLACK;" visible="false">
          <children>
             <TextField fx:id="descriptiveQuestion" layoutX="92.0" layoutY="60.0" prefHeight="126.0" prefWidth="558.0" />
             <TextField fx:id="descriptiveAnswer" layoutX="92.0" layoutY="213.0" prefHeight="133.0" prefWidth="558.0" />
@@ -18,10 +18,10 @@
             <Label layoutX="92.0" layoutY="187.0" prefHeight="26.0" prefWidth="53.0" text="answer:" textFill="WHITE" />
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="test" layoutX="-6.0" layoutY="43.0" prefHeight="408.0" prefWidth="811.0" style="-fx-background-color: black;" visible="false">
+      <AnchorPane fx:id="test" layoutX="-6.0" layoutY="43.0" prefHeight="408.0" prefWidth="811.0" style="-fx-background-color: black;">
          <children>
             <Label fx:id="question1" layoutX="22.0" layoutY="14.0" prefHeight="26.0" prefWidth="62.0" text="question:" textFill="WHITE" />
-            <TextField fx:id="testQuestion" layoutX="67.0" layoutY="40.0" prefHeight="90.0" prefWidth="631.0" />
+            <TextField fx:id="testQuestion1" layoutX="67.0" layoutY="40.0" prefHeight="90.0" prefWidth="631.0" />
             <Label layoutX="28.0" layoutY="131.0" prefHeight="26.0" prefWidth="53.0" text="answer:" textFill="#fffefe" />
             <TextField fx:id="A" layoutX="67.0" layoutY="157.0" prefHeight="26.0" prefWidth="631.0" />
             <TextField fx:id="B" layoutX="67.0" layoutY="204.0" prefHeight="26.0" prefWidth="631.0" />
@@ -40,8 +40,8 @@
       </AnchorPane>
       <ButtonBar layoutX="5.0" layoutY="453.0" prefHeight="47.0" prefWidth="800.0">
         <buttons>
-          <Button fx:id="prev" mnemonicParsing="false" onAction="#handle" prefHeight="26.0" prefWidth="263.0" text="previous" />
-            <Button mnemonicParsing="false" onAction="#submitTest" style="-fx-background-color: green;" text="submit" />
+          <Button fx:id="prev" mnemonicParsing="false" onAction="#handle_cancel_button" prefHeight="26.0" prefWidth="263.0" text="cancel" />
+            <Button fx:id="submit" mnemonicParsing="false" onAction="#submitTest" style="-fx-background-color: green;" text="submit" />
             <Button layoutX="563.0" layoutY="17.0" mnemonicParsing="false" onAction="#handleNextButton" prefHeight="26.0" prefWidth="224.0" text="next" />
         </buttons>
          <padding>

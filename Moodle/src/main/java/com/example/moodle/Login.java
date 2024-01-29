@@ -30,7 +30,7 @@ public class Login {
     private Button signupbutton;
 
     private String newLogAct;
-    private User logedInUser;
+    public static User logedInUser;
 
 
 

@@ -13,12 +13,12 @@
       <ButtonBar layoutY="460.0" prefHeight="40.0" prefWidth="800.0" style="-fx-background-color: gray;">
         <buttons>
           <Button fx:id="prev" mnemonicParsing="false" prefHeight="26.0" text="PREVIOUS" />
-            <Button layoutX="725.0" layoutY="17.0" mnemonicParsing="false" prefHeight="26.0" style="-fx-background-color: GREEN;" text="SUBMIT">
+            <Button fx:id="submit" layoutX="725.0" layoutY="17.0" mnemonicParsing="false" onAction="#submitTest" prefHeight="26.0" style="-fx-background-color: GREEN;" text="SUBMIT">
                <padding>
                   <Insets left="10.0" right="10.0" />
                </padding>
             </Button>
-            <Button layoutX="725.0" layoutY="17.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="296.0" text="NEXT" />
+            <Button fx:id="nextQuestion" layoutX="725.0" layoutY="17.0" mnemonicParsing="false" onAction="#show_questions" prefHeight="26.0" prefWidth="296.0" text="NEXT" />
         </buttons>
          <padding>
             <Insets right="10.0" />

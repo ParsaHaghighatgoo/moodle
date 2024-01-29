@@ -24,6 +24,8 @@ import java.io.IOException;
 public class UserPage {
 
     @FXML
+    private Slider VolumeSlider;
+    @FXML
     private TextArea loginActivity;
     @FXML
     private Label ChooseMusic;
@@ -37,44 +39,44 @@ public class UserPage {
     private AnchorPane leftPane;
     @FXML
     private Button profileButton;
-    @FXML
-    private MediaPlayer mediaPlayer;
-    @FXML
-    private Media media;
-    @FXML
-    private Slider volumeSlider;
+
+    private static MediaPlayer mediaPlayer;
+
+    private static Media media;
+
+
     @FXML
     void Reset(MouseEvent event) {
-        mediaPlayer.seek(Duration.seconds(0));
+        UserPage.mediaPlayer.seek(Duration.seconds(0));
     }
     @FXML
     void Start(MouseEvent event) {
-        mediaPlayer.play();
+        UserPage.mediaPlayer.play();
     }
     @FXML
     void Stop(MouseEvent event) {
-        mediaPlayer.pause();
+        UserPage.mediaPlayer.pause();
     }
 
     @FXML
     void Volume(MouseEvent event) {
-        volumeSlider.valueProperty().addListener(new ChangeListener<Number>() {
+        VolumeSlider.valueProperty().addListener(new ChangeListener<Number>() {
             @Override
             public void changed(ObservableValue<? extends Number> observableValue, Number number, Number t1) {
-                mediaPlayer.setVolume(volumeSlider.getValue() * 0.01);
+                UserPage.mediaPlayer.setVolume(VolumeSlider.getValue() * 0.01);
             }
         });
     }
     @FXML
-    void Choose(MouseEvent event) {
+    void chooseMusic(MouseEvent event) {
         FileChooser chooser = new FileChooser();
         chooser.setTitle("Select you Music");
         File file = chooser.showOpenDialog(null);
         if (file != null){
             String selectedfile = file.toURI().toString();
-            media = new Media(selectedfile);
-            mediaPlayer = new MediaPlayer(media);
-            mediaPlayer.setOnReady(() -> {
+            UserPage.media = new Media(selectedfile);
+            UserPage.mediaPlayer = new MediaPlayer(UserPage.media);
+            UserPage.mediaPlayer.setOnReady(() -> {
                 ChooseMusic.setText(file.getName());
             });
         }

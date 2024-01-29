@@ -59,8 +59,8 @@
                   <Font name="Times New Roman Bold Italic" size="13.0" />
                </font>
             </Button>
-            <Slider layoutX="595.0" layoutY="525.0" onMouseClicked="#Volume" orientation="VERTICAL" prefHeight="86.0" prefWidth="19.0" />
-            <Label fx:id="ChooseMusic" layoutX="470.0" layoutY="568.0" onMouseClicked="#Choose" prefHeight="18.0" prefWidth="80.0" text="Choose Music" />
+            <Slider fx:id="VolumeSlider" layoutX="595.0" layoutY="525.0" onMouseClicked="#Volume" orientation="VERTICAL" prefHeight="86.0" prefWidth="19.0" value="50.0" />
+            <Label fx:id="ChooseMusic" layoutX="470.0" layoutY="568.0" onMouseClicked="#chooseMusic" prefHeight="18.0" prefWidth="80.0" text="Choose Music" />
          </children>
       </AnchorPane>
    </children>

@@ -31,34 +31,33 @@
             </ImageView>
             <Button fx:id="profileButton" layoutX="88.0" layoutY="211.0" mnemonicParsing="false" onAction="#handleProfileButton" prefHeight="30.0" prefWidth="187.0" text="profile" />
             <Button layoutX="88.0" layoutY="253.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="187.0" text="notifications" />
-            <TextArea layoutX="88.0" layoutY="296.0" prefHeight="114.0" prefWidth="179.0" />
+            <TextArea fx:id="tokenLabel" layoutX="88.0" layoutY="296.0" prefHeight="90.0" prefWidth="187.0" />
             <Button layoutX="71.0" layoutY="565.0" mnemonicParsing="false" onAction="#handleSignoutButton" text="signout" />
-            <Label fx:id="tokenLabel" layoutX="88.0" layoutY="459.0" prefHeight="58.0" prefWidth="170.0" text="TokenLabel" />
          </children>
       </AnchorPane>
       <AnchorPane fx:id="listPane" layoutX="236.0" prefHeight="612.0" prefWidth="614.0">
          <children>
-            <Button layoutX="487.0" layoutY="211.0" mnemonicParsing="false" onAction="#ShowTeacherCoursesButtonClick" text="show all courses" />
-            <Button layoutX="487.0" layoutY="416.0" mnemonicParsing="false" onAction="#ShowStudentCoursesButtonClick" text="show all courses" />
-            <Button layoutX="481.0" layoutY="561.0" mnemonicParsing="false" text="start" />
-            <Button layoutX="538.0" layoutY="561.0" mnemonicParsing="false" text="stop" />
-            <HBox fx:id="hBox" layoutX="35.0" layoutY="51.0" prefHeight="136.0" prefWidth="547.0">
+            <Button layoutX="487.0" layoutY="233.0" mnemonicParsing="false" onAction="#ShowTeacherCoursesButtonClick" text="show all courses" />
+            <Button layoutX="487.0" layoutY="467.0" mnemonicParsing="false" onAction="#ShowStudentCoursesButtonClick" text="show all courses" />
+            <Button layoutX="467.0" layoutY="574.0" mnemonicParsing="false" text="start" />
+            <Button layoutX="549.0" layoutY="574.0" mnemonicParsing="false" text="stop" />
+            <HBox fx:id="hBox" layoutX="35.0" layoutY="51.0" prefHeight="171.0" prefWidth="547.0">
                <children>
-                  <ScrollPane fx:id="scrollPane" prefHeight="100.0" prefWidth="547.0">
+                  <ScrollPane fx:id="scrollPane" prefHeight="171.0" prefWidth="547.0">
                      <content>
                         <HBox prefHeight="100.0" prefWidth="200.0" />
                      </content>
                   </ScrollPane>
                </children>
             </HBox>
-            <HBox layoutX="30.0" layoutY="266.0" prefHeight="136.0" prefWidth="547.0">
+            <HBox layoutX="35.0" layoutY="287.0" prefHeight="171.0" prefWidth="547.0">
                <children>
-                  <ScrollPane fx:id="scrollPane2" prefHeight="100.0" prefWidth="547.0" />
+                  <ScrollPane fx:id="scrollPane2" prefHeight="171.0" prefWidth="547.0" />
                </children>
             </HBox>
             <Label layoutX="30.0" layoutY="503.0" text="Login Activity" />
             <Label layoutX="35.0" layoutY="26.0" prefHeight="18.0" prefWidth="118.0" text="Courses as Professor" />
-            <Label layoutX="30.0" layoutY="237.0" prefHeight="18.0" prefWidth="110.0" text="Courses as Student" />
+            <Label layoutX="30.0" layoutY="259.0" prefHeight="18.0" prefWidth="110.0" text="Courses as Student" />
             <Label fx:id="loginActivity" layoutX="33.0" layoutY="530.0" prefHeight="38.0" prefWidth="230.0" text="Label" />
          </children>
       </AnchorPane>

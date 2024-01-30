@@ -18,11 +18,17 @@ public class DataBase {
         Course course2 = new Course("second", "secondCourse.png", null, null);
         Course course3 = new Course("third", "thirdCourse.png", null, null);
         Course course4 = new Course("fourth", "fourseCourse.png", null, null);
+        Course course5 = new Course("Fifth", "fourseCourse.png", null, null);
+        Course course6 = new Course("Sixth", "fourseCourse.png", null, null);
+        Course course7 = new Course("Seventh", "fourseCourse.png", null, null);
 
         courses.add(course);
         courses.add(course2);
         courses.add(course3);
         courses.add(course4);
+        courses.add(course5);
+        courses.add(course6);
+        courses.add(course7);
 
         users.clear();
         ArrayList<Course> adminTeacherCourse= new ArrayList<>();

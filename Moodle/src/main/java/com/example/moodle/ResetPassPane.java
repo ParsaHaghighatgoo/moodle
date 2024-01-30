@@ -83,4 +83,20 @@ public class ResetPassPane {
         }
     }
 
+    @FXML
+    private void handleBackButton(ActionEvent event) {
+        Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Login.fxml"));
+            Parent loginPageParent = fxmlLoader.load();
+            Scene loginScene = new Scene(loginPageParent);
+            currentStage.setScene(loginScene);
+            currentStage.setTitle("Login page!");
+            currentStage.show();
+
+        } catch (IOException e) {
+            System.err.println("Error loading login page : " + e.getMessage());
+        }
+    }
+
 }

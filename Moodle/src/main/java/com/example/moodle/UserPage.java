@@ -106,6 +106,30 @@ public class UserPage {
             e.printStackTrace(); // Print the stack trace for detailed error logging
         }
     }
+
+    @FXML
+    protected void ShowGottenCoursesButtonClick() {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("AllCourseList.fxml"));
+            Parent courseListsParent = fxmlLoader.load();
+
+            AllCourseList courseListsController = fxmlLoader.getController();
+            courseListsController.initialize3(); // Initialize the CourseLists view
+
+            // Get the current stage from the welcomeText label (or any other node in the scene graph)
+            Stage stage = (Stage) profilePane.getScene().getWindow();
+
+            Scene courseListsScene = new Scene(courseListsParent);
+
+            // Set the scene on the current stage
+            stage.setScene(courseListsScene);
+            stage.setTitle("Courses");
+            stage.show();
+        } catch (IOException e) {
+            System.err.println("Error loading the CourseLists page: " + e.getMessage());
+            e.printStackTrace(); // Print the stack trace for detailed error logging
+        }
+    }
     @FXML
     private void handleSignoutButton(ActionEvent event) {
         Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();

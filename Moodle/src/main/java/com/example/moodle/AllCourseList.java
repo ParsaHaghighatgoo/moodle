@@ -114,6 +114,30 @@ public void initialize() throws IOException {
         scrollPane.setContent(hBox1);
     }
 
+    public void initialize3() throws IOException {
+        VBox hBox1 = new VBox();
+
+        for (Course course : DataBase.courses) {
+            if (!logedInUser.stdCourses.contains(course)) {
+                double index1 = 25;
+
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("CourseCard.fxml"));
+                AnchorPane anchorPane = fxmlLoader.load();
+                CourseCard courseCard = fxmlLoader.getController();
+                courseCard.setData(course);
+
+                anchorPane.setOnMouseClicked(event -> {
+                    logedInUser.stdCourses.add(course);
+                    // Handle the course selection here
+                });
+
+                hBox1.getChildren().add(anchorPane);
+                HBox.setMargin(anchorPane, new Insets(0, 0, 0, index1));
+            }
+        }
+
+        scrollPane.setContent(hBox1);
+    }
 
     @FXML
     private void backToUserPage(ActionEvent event) {

@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 [{"users":null,"courseVideos":null,"courseDocs":null,"courseImagePath":"download.jpg"},{"users":null,"courseVideos":null,"courseDocs":null,"courseImagePath":"icon.jpg"},{"users":null,"courseVideos":null,"courseDocs":null,"courseImagePath":"in.jpg"},{"users":null,"courseVideos":null,"courseDocs":null,"courseImagePath":"innner1.jpg"}]
+=======
+[{"users":null,"courseDocs":null,"courseImagePath":"download.jpg","teacherCourse":false,"courseVideos":null},{"users":null,"courseDocs":null,"courseImagePath":"icon.jpg","teacherCourse":true,"courseVideos":null}]
+>>>>>>> origin/CSS-Fuck

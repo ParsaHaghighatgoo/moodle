@@ -79,7 +79,7 @@ public class Signup {
     private void navigateToLoginPage(ActionEvent event) {
         Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(Signup.class.getResource("login.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(Signup.class.getResource("Login.fxml"));
             Parent root = fxmlLoader.load();
 
             // Create a new stage

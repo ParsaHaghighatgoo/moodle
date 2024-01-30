@@ -3,52 +3,63 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.effect.InnerShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="500.0" prefWidth="800.0" style="-fx-background-image: &quot;icon.jpg;;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.moodle.Login">
+<AnchorPane fx:id="LoginMain" prefHeight="500.0" prefWidth="800.0" styleClass="backgroundColor" stylesheets="@application.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.moodle.Login">
    <children>
-      <ImageView fitHeight="500.0" fitWidth="800.0">
-         <image>
-            <Image url="@in.jpg" />
-         </image>
-      </ImageView>
-      <AnchorPane layoutX="199.0" layoutY="49.0" prefHeight="400.0" prefWidth="401.0">
+      <AnchorPane fx:id="loginBack" layoutX="199.0" layoutY="49.0" prefHeight="400.0" prefWidth="401.0" styleClass="backgroundColor2">
          <children>
-            <ImageView fitHeight="408.0" fitWidth="401.0" layoutY="-4.0">
-               <image>
-                  <Image url="@innner1.jpg" />
-               </image>
-            </ImageView>
-            <TextField fx:id="usernameField" layoutX="91.0" layoutY="184.0" prefHeight="36.0" prefWidth="219.0" promptText="Enter Your Usename" style="-fx-background-color: white; -fx-border-color: black; -fx-cursor: text; -fx-border-radius: 15px; -fx-background-radius: 15px;">
+            <TextField fx:id="usernameField" layoutX="91.0" layoutY="184.0" prefHeight="36.0" prefWidth="219.0" promptText="Username" style="-fx-border-color: black; -fx-cursor: text; -fx-border-radius: 20px; -fx-background-radius: 22px;">
                <font>
-                  <Font name="A Shams" size="12.0" />
+                  <Font name="Times New Roman Italic" size="14.0" />
                </font>
+               <effect>
+                  <DropShadow />
+               </effect>
             </TextField>
-            <Button fx:id="signupbutton" layoutX="316.0" layoutY="14.0" mnemonicParsing="false" onAction="#navigateToSignupPage" prefHeight="36.0" prefWidth="74.0" style="-fx-background-color: #0F4A70; -fx-background-radius: 15px; -fx-cursor: hand;" text="signup" textFill="WHITE">
+            <Button fx:id="signupbutton" layoutX="316.0" layoutY="14.0" mnemonicParsing="false" onAction="#navigateToSignupPage" prefHeight="24.0" prefWidth="74.0" style="-fx-background-color: #21233b; -fx-background-radius: 20px; -fx-cursor: hand;" text="Sign up" textFill="#fffcfc">
                <font>
-                  <Font name="Amiri Bold" size="14.0" />
+                  <Font name="Times New Roman Bold" size="12.0" />
                </font>
+               <effect>
+                  <InnerShadow blurType="TWO_PASS_BOX" height="15.73" radius="5.1725" width="6.96" />
+               </effect>
             </Button>
-            <Button fx:id="login" layoutX="91.0" layoutY="289.0" mnemonicParsing="false" onAction="#handleLogin" prefHeight="36.0" prefWidth="219.0" style="-fx-background-radius: 15px; -fx-background-color: #0F4A70; -fx-cursor: hand;" text="Login" textFill="WHITE">
+            <Button fx:id="login" layoutX="91.0" layoutY="289.0" mnemonicParsing="false" onAction="#handleLogin" prefHeight="36.0" prefWidth="219.0" style="-fx-background-radius: 17px; -fx-background-color: #070d38; -fx-cursor: hand;" text="Login" textFill="WHITE">
                <font>
-                  <Font name="System Bold" size="12.0" />
+                  <Font name="Times New Roman Bold" size="17.0" />
                </font>
+               <effect>
+                  <DropShadow />
+               </effect>
             </Button>
-            <PasswordField fx:id="passwordField" layoutX="91.0" layoutY="231.0" prefHeight="36.0" prefWidth="219.0" promptText="Enter Your Password" style="-fx-background-color: white; -fx-border-color: black; -fx-cursor: text; -fx-background-radius: 15px; -fx-border-radius: 15px;">
+            <PasswordField fx:id="passwordField" layoutX="91.0" layoutY="231.0" prefHeight="36.0" prefWidth="219.0" promptText="Password" style="-fx-background-color: white; -fx-border-color: black; -fx-cursor: text; -fx-background-radius: 20px; -fx-border-radius: 22px;">
                <font>
-                  <Font name="A Shams" size="12.0" />
+                  <Font name="Times New Roman Italic" size="14.0" />
                </font>
+               <effect>
+                  <DropShadow />
+               </effect>
             </PasswordField>
             <ImageView fitHeight="122.0" fitWidth="128.0" layoutX="140.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@icon.jpg" />
+                  <Image url="@../../../icon.png" />
                </image>
+               <effect>
+                  <Glow />
+               </effect>
             </ImageView>
             <Button fx:id="resetPassButton" layoutX="27.0" layoutY="350.0" mnemonicParsing="false" onAction="#navigateToResetPasswordPage" prefHeight="25.0" prefWidth="96.0" text="reset password" />
          </children>
+         <effect>
+            <DropShadow />
+         </effect>
       </AnchorPane>
    </children>
 </AnchorPane>

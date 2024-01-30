@@ -146,6 +146,7 @@ public class UserPage {
         }
     }
 
+
     @FXML
     private void handleProfileButton(){
         if (profileButton.getText().equals("Profile")){

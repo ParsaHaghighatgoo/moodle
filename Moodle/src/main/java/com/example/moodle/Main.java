@@ -10,7 +10,6 @@ import java.net.URL;
 
 public class Main extends Application {
 
-
     @Override
     public void start(Stage stage) throws Exception {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("Login.fxml"));
@@ -18,6 +17,7 @@ public class Main extends Application {
 //        String css = this.getClass().getResource("application.css").toExternalForm();
 //        scene.getStylesheets().add(css);
         stage.setTitle("Black Moodle");
+
 //        String localDir = System.getProperty("user.dir");
 ////        localDir+="\\src\\main\\resources\\com\\example\\moodle\\icon.jpg"  ;
 ////        System.out.println(localDir);

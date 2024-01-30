@@ -59,8 +59,6 @@
             <Label layoutX="35.0" layoutY="26.0" prefHeight="18.0" prefWidth="118.0" text="Courses as Professor" />
             <Label layoutX="30.0" layoutY="259.0" prefHeight="18.0" prefWidth="110.0" text="Courses as Student" />
             <Label fx:id="loginActivity" layoutX="33.0" layoutY="530.0" prefHeight="38.0" prefWidth="230.0" text="Label" />
-            <Button layoutX="384.0" layoutY="233.0" mnemonicParsing="false" onAction="#navigateToAddingCoursePage" prefHeight="26.0" prefWidth="102.0" text="Adding Course" />
-            <Button layoutX="385.0" layoutY="467.0" mnemonicParsing="false" onAction="#ShowGottenCoursesButtonClick" prefHeight="26.0" prefWidth="102.0" text="GotCourse" />
          </children>
       </AnchorPane>
    </children>

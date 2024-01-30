@@ -55,7 +55,13 @@
                   <Glow />
                </effect>
             </ImageView>
-            <Button fx:id="resetPassButton" layoutX="27.0" layoutY="350.0" mnemonicParsing="false" onAction="#navigateToResetPasswordPage" prefHeight="25.0" prefWidth="96.0" text="reset password" />
+            <Button fx:id="resetPassButton" layoutX="14.0" layoutY="360.0" mnemonicParsing="false" onAction="#navigateToResetPasswordPage" prefHeight="10.0" prefWidth="115.0" style="-fx-background-color: no-color;" stylesheets="@application.css" text="Reset Password" textFill="WHITE">
+               <font>
+                  <Font name="Times New Roman Bold Italic" size="13.0" />
+               </font>
+               <effect>
+                  <Glow />
+               </effect></Button>
          </children>
          <effect>
             <DropShadow />

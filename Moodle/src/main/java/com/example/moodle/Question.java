@@ -14,6 +14,8 @@ public class Question {
     private String answerDes;
     private QuestionType Qtype;
 
+    private String user_answer;
+
     public Question(String questionTest, String option1, String option2, String option3, String option4, CheckBox correct, QuestionType qtype) {
         this.questionTest = questionTest;
         Option1 = option1;
@@ -131,6 +133,14 @@ public class Question {
 
     public String getCorrect_answer() {
         return correct_answer;
+    }
+
+    public String getUser_answer() {
+        return user_answer;
+    }
+
+    public void setUser_answer(String user_answer) {
+        this.user_answer = user_answer;
     }
 }
 

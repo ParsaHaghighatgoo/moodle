@@ -299,4 +299,16 @@ public class Examing {
             return true;
         }
     }
+
+    private void check_choose_user(Question question,CheckBox a,CheckBox b,CheckBox c,CheckBox d){
+        if (a.isSelected()){question.setUser_answer(a.getText());}
+        else if (b.isSelected()){
+            question.setUser_answer(b.getText());
+        }else if (c.isSelected()){
+            question.setUser_answer(c.getText());
+        }else if (d.isSelected()){
+            question.setUser_answer(d.getText());
+        }
+
+    }
 }

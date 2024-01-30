@@ -23,7 +23,7 @@ public class UserPage {
     private Button exam;
 
     @FXML
-    private TextArea loginActivity;
+    private Label loginActivity;
 
     public User logedInUser = Login.logedInUser;
 
@@ -162,9 +162,9 @@ public class UserPage {
 //            System.out.println(course);
             double index1 = 25;
 
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("CourseCard.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("CourseCardUserPage.fxml"));
             AnchorPane anchorPane = fxmlLoader.load();
-            CourseCard courseCard = fxmlLoader.getController();
+            CourseCardUserPage courseCard = fxmlLoader.getController();
             courseCard.setData(course);
 
             hBox1.getChildren().add(anchorPane);
@@ -174,9 +174,9 @@ public class UserPage {
         for (Course course : logedInUser.getStdCourses()) {
 
             double index2 = 25;
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("CourseCard.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("CourseCardUserPage.fxml"));
             AnchorPane anchorPane = fxmlLoader.load();
-            CourseCard courseCard = fxmlLoader.getController();
+            CourseCardUserPage courseCard = fxmlLoader.getController();
             courseCard.setData(course);
 
             hBox2.getChildren().add(anchorPane);

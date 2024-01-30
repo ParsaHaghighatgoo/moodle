@@ -64,10 +64,11 @@ public class Examing {
 
     private Quiz quiz;
 
-    int grade;
+    static int grade;
     ArrayList<Question> correct_answer = new ArrayList<>();
     ArrayList<Question> no_answer = new ArrayList<>();
     ArrayList<Question> wrong_answer = new ArrayList<>();
+
 
     ArrayList<Question> answer_question = new ArrayList<>();
     private static int counter;
@@ -160,13 +161,17 @@ public class Examing {
         System.out.println(grade);
         Stage currentStage = (Stage) submit.getScene().getWindow();
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(Signup.class.getResource("userPage.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(Signup.class.getResource("ExamReasult.fxml"));
             Parent root = fxmlLoader.load();
+
+
+
+
             currentStage.setScene(new Scene(root));
-            currentStage.setTitle("User Page");
+            currentStage.setTitle("Exam Result Page");
             currentStage.show();
         } catch (IOException e) {
-            System.err.println("Error loading the user page: " + e.getMessage());
+            System.err.println("Error loading the Exam Result: " + e.getMessage());
         }
     }
 

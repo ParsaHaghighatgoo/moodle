@@ -59,6 +59,7 @@ public class NewExam {
 
     @FXML
     private Button prev;
+    Course selectedCourse;
 
     public Quiz getSelectedQuiz() {
         return selectedQuiz;

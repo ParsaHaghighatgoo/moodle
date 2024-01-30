@@ -18,7 +18,7 @@ import java.util.ArrayList;
 public class UserPage {
 
     @FXML
-    private Label tokenLabel;
+    private TextArea tokenLabel;
     @FXML
     private Button exam;
 

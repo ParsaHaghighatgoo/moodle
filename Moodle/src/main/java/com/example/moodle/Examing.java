@@ -115,12 +115,16 @@ public class Examing {
 
     @FXML
     private void show_questions(){
+        if (counter == 1){
+        Question previousQ = quiz.questions.get(0);
+        check_choose_user(previousQ,tcheckA,tcheckB,tcheckC,tcheckD);
+        }
         Question question = quiz.questions.get(counter);
         if (question.getQtype().equals(QuestionType.TEST)){
-            counter ++;
             if (counter == quiz.questions.size()){
                 handle_finish_button();
             }
+            counter ++;
             test.setVisible(true);
             descriptive.setVisible(false);
             finish_page.setVisible(false);
@@ -130,7 +134,6 @@ public class Examing {
             tcheckB.setText(question.getOption2());
             tcheckC.setText(question.getOption3());
             tcheckD.setText(question.getOption4());
-            check_exam(question,tcheckA,tcheckB,tcheckC,tcheckD);
             tcheckA.setSelected(false);
             tcheckB.setSelected(false);
             tcheckC.setSelected(false);

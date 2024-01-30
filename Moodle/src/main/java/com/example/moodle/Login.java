@@ -58,7 +58,7 @@ public class Login {
                 LocalDateTime now = LocalDateTime.now();
                 //System.out.println(String.valueOf(now).substring(0,19));
                 user.logindates.add(dtf.format(now));
-                personalTokenString = "Save this token for Authentications:\n"+user.personalToken;
+                personalTokenString = "Personal Token: "+user.personalToken;
                 newLogAct = "your first login is : " + user.logindates.get(0) + "\n"
                 + "your last login is : " +  user.logindates.get(user.logindates.size()-1);
                 //UserPage.updateLoginActivityBoxText(newLogAct);

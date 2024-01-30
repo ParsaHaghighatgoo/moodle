@@ -134,15 +134,16 @@ public class Examing {
             tcheckB.setText(question.getOption2());
             tcheckC.setText(question.getOption3());
             tcheckD.setText(question.getOption4());
+            check_choose_user(question,tcheckA,tcheckB,tcheckC,tcheckD);
             tcheckA.setSelected(false);
             tcheckB.setSelected(false);
             tcheckC.setSelected(false);
             tcheckD.setSelected(false);
         } else if (question.getQtype().equals(QuestionType.DESCRIPTIVE)){
-            counter++;
             if (counter == quiz.questions.size()){
                 handle_finish_button();
             }
+            counter++;
             test.setVisible(false);
             descriptive.setVisible(true);
             finish_page.setVisible(false);
@@ -155,6 +156,7 @@ public class Examing {
     @FXML
     public void submitTest() {
         quiz.user_done_exam.add(logedInUser);
+        calculate_grade(quiz.questions);
         System.out.println(grade);
         Stage currentStage = (Stage) submit.getScene().getWindow();
         try {
@@ -177,7 +179,7 @@ public class Examing {
     @FXML
     private void handle_finish_button(){
         Question now = quiz.questions.get(counter-1);
-        check_exam(now,tcheckA,tcheckB,tcheckC,tcheckD);
+        check_choose_user(now,tcheckA,tcheckB,tcheckC,tcheckD);
         test.setVisible(false);
         descriptive.setVisible(false);
         finish_page.setVisible(true);
@@ -186,112 +188,27 @@ public class Examing {
 
     @FXML
     private void handle_prev_button(){
-        Question now = quiz.questions.get(counter);
-        check_exam(now,tcheckA,tcheckB,tcheckC,tcheckD);
+        Question now = quiz.questions.get(counter-1);
+        check_choose_user(now,tcheckA,tcheckB,tcheckC,tcheckD);
         counter -= 2;
         show_questions();
     }
 
-    private void check_exam(Question question,CheckBox a,CheckBox b,CheckBox c,CheckBox d) {
-        if (search_question(question,answer_question)){
-            if (question.getCorrect_answer().equals(a.getText()) && a.isSelected()){
-                grade++;
-                correct_answer.add(question);
-            }else if (question.getCorrect_answer().equals(b.getText()) && b.isSelected()){
-                grade++;
-                correct_answer.add(question);
-            }else if (question.getCorrect_answer().equals(c.getText()) && c.isSelected()){
-                grade++;
-                correct_answer.add(question);
-            }else if (question.getCorrect_answer().equals(d.getText()) && d.isSelected()){
-                grade++;
-                correct_answer.add(question);
-            }
-        }else {
-            if (search_question(question,correct_answer)){
-                if (question.getCorrect_answer().equals(a.getText()) && !a.isSelected()){
-                    grade--;
-                    correct_answer.remove(question);
-                    if (a.isSelected() || b.isSelected() || c.isSelected() || d.isSelected()){
-                        wrong_answer.add(question);
-                    } else {
-                        no_answer.add(question);
-                    }
-                }else if (question.getCorrect_answer().equals(b.getText()) && !b.isSelected()){
-                    grade--;
-                    correct_answer.remove(question);
-                    if (a.isSelected() || b.isSelected() || c.isSelected() || d.isSelected()){
-                        wrong_answer.add(question);
-                    } else {
-                        no_answer.add(question);
-                    }
-                }else if (question.getCorrect_answer().equals(c.getText()) && !c.isSelected()){
-                    grade--;
-                    correct_answer.remove(question);
-                    if (a.isSelected() || b.isSelected() || c.isSelected() || d.isSelected()){
-                        wrong_answer.add(question);
-                    } else {
-                        no_answer.add(question);
-                    }
-                }else if (question.getCorrect_answer().equals(d.getText()) && !d.isSelected()){
-                    grade--;
-                    correct_answer.remove(question);
-                    if (a.isSelected() || b.isSelected() || c.isSelected() || d.isSelected()){
-                        wrong_answer.add(question);
-                    } else {
-                        no_answer.add(question);
-                    }
-                }
-            } else if (search_question(question,no_answer)){
-                if (question.getCorrect_answer().equals(a.getText()) && a.isSelected()){
-                    grade++;
+    private void calculate_grade(ArrayList<Question> questions){
+        for (Question question:questions){
+            if (question.getQtype().equals(QuestionType.TEST)){
+                if (question.getUser_answer().isEmpty()){
+                    no_answer.add(question);
+                } else if (question.getUser_answer().equals(question.getCorrect_answer())) {
                     correct_answer.add(question);
-                    no_answer.remove(question);
-                }else if (question.getCorrect_answer().equals(b.getText()) && b.isSelected()){
                     grade++;
-                    correct_answer.add(question);
-                    no_answer.remove(question);
-                }else if (question.getCorrect_answer().equals(c.getText()) && c.isSelected()){
-                    grade++;
-                    correct_answer.add(question);
-                    no_answer.remove(question);
-                }else if (question.getCorrect_answer().equals(d.getText()) && d.isSelected()){
-                    grade++;
-                    correct_answer.add(question);
-                    no_answer.remove(question);
-                } else{
-                    if (a.isSelected() || b.isSelected() || c.isSelected() || d.isSelected()){
-                        wrong_answer.add(question);
-                        no_answer.remove(question);
-                    }
-                }
-            } else {
-                if (question.getCorrect_answer().equals(a.getText()) && a.isSelected()){
-                    grade++;
-                    correct_answer.add(question);
-                    wrong_answer.remove(question);
-                }else if (question.getCorrect_answer().equals(b.getText()) && b.isSelected()){
-                    grade++;
-                    correct_answer.add(question);
-                    wrong_answer.remove(question);
-                }else if (question.getCorrect_answer().equals(c.getText()) && c.isSelected()){
-                    grade++;
-                    correct_answer.add(question);
-                    wrong_answer.remove(question);
-                }else if (question.getCorrect_answer().equals(d.getText()) && d.isSelected()){
-                    grade++;
-                    correct_answer.add(question);
-                    wrong_answer.remove(question);
-                }else {
-                    if (!(a.isSelected() || b.isSelected() || c.isSelected() || d.isSelected())){
-                        wrong_answer.remove(question);
-                        no_answer.add(question);
-                    }
+                } else {
+                    wrong_answer.add(question);
                 }
             }
-            answer_question.add(question);
         }
     }
+
 
     private boolean search_question(Question question,ArrayList<Question> answer_question){
         if (answer_question.isEmpty()) {return true;}

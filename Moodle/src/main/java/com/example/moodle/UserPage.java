@@ -67,7 +67,7 @@ public class UserPage {
 
             AllCourseList courseListsController = fxmlLoader.getController();
 
-            courseListsController.initializeView(); // Initialize the CourseLists view
+            courseListsController.initialize(); // Initialize the CourseLists view
 
             // Get the current stage from the welcomeText label (or any other node in the scene graph)
             Stage stage = (Stage) profilePane.getScene().getWindow();
@@ -90,7 +90,7 @@ public class UserPage {
             Parent courseListsParent = fxmlLoader.load();
 
             AllCourseList courseListsController = fxmlLoader.getController();
-            courseListsController.initializeView2(); // Initialize the CourseLists view
+            courseListsController.initialize2(); // Initialize the CourseLists view
 
             // Get the current stage from the welcomeText label (or any other node in the scene graph)
             Stage stage = (Stage) profilePane.getScene().getWindow();

@@ -80,7 +80,7 @@ public class TeacherCoursePage {
 
             AllCourseList courseListsController = fxmlLoader.getController();
             courseListsController.setLogedInUser(logedInUser);
-            courseListsController.initializeView(); // Initialize the CourseLists view
+            courseListsController.initialize(); // Initialize the CourseLists view
 
             // Get the current stage from the welcomeText label (or any other node in the scene graph)
             Stage stage = (Stage) back.getScene().getWindow();

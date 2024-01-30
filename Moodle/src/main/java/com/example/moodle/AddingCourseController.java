@@ -2,6 +2,7 @@ package com.example.moodle;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class AddingCourseController {
@@ -15,7 +16,7 @@ public class AddingCourseController {
     }
 
     @FXML
-    private void addCourse() {
+    private void addCourse() throws IOException {
         // Get user input from the text fields
         String courseName = CourseName.getText();
         // Get more details as needed

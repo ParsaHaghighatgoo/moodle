@@ -11,10 +11,10 @@ import java.net.URL;
 public class Main extends Application {
 
 
-    @Override
-    public void start(Stage stage) throws Exception {
-        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("Login.fxml"));
-        Scene scene = new Scene(fxmlLoader.load());
+        @Override
+        public void start(Stage stage) throws Exception {
+            FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("Login.fxml"));
+            Scene scene = new Scene(fxmlLoader.load());
 //        String css = this.getClass().getResource("application.css").toExternalForm();
 //        scene.getStylesheets().add(css);
         stage.setTitle("Black Moodle");

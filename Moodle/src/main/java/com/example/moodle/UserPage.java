@@ -1,5 +1,7 @@
 package com.example.moodle;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -8,12 +10,20 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
+import java.io.File;
 import java.io.IOException;
+import java.net.URL;
 import java.util.ArrayList;
+import java.util.ResourceBundle;
 
 public class UserPage {
 
@@ -41,20 +51,69 @@ public class UserPage {
     private ScrollPane scrollPane2;
     @FXML
     private HBox hBox;
+    @FXML
+    private Button Startmusic;
+    @FXML
+    private Label ChooseMusic;
+    @FXML
+    private Slider VolumeSlider;
     private ArrayList<Course> AllCourses;
+    private static MediaPlayer mediaPlayer;
+    private Media media;
+
+    @FXML
+    void Volume(MouseEvent event) {
+        VolumeSlider.valueProperty().addListener(new ChangeListener<Number>() {
+            @Override
+            public void changed(ObservableValue<? extends Number> observableValue, Number number, Number t1) {
+                UserPage.mediaPlayer.setVolume(VolumeSlider.getValue() * 0.01);
+            }
+        });
+    }
+    @FXML
+    void ChooseMusic(MouseEvent event) {
+        FileChooser chooser = new FileChooser();
+        chooser.setTitle("Choose The Music");
+        File file = chooser.showOpenDialog(null);
+        if(file != null){
+            String selectedfile = file.toURI().toString();
+            media = new Media(selectedfile);
+            UserPage.mediaPlayer = new MediaPlayer(media);
+            UserPage.mediaPlayer.setOnReady(() -> {
+                ChooseMusic.setText(file.getName());
+            });
+        }
+
+    }
+
+    @FXML
+    void Pause(MouseEvent event) {
+        UserPage.mediaPlayer.pause();
+
+    }
+
+    @FXML
+    void Reset(MouseEvent event) {
+        UserPage.mediaPlayer.seek(Duration.seconds(0));
+    }
+    @FXML
+    void Start(MouseEvent event) {
+        UserPage.mediaPlayer.play();
+    }
 
 
 //    public void setLogedInUser(User logedInUser) {
 //        this.logedInUser = logedInUser;
 //    }
 
-    public void initialize() throws IOException {
+    public void initialize(URL arg0, ResourceBundle arg1) throws IOException {
 
         leftPane.setVisible(true);
         listPane.setVisible(true);
         profilePane.setVisible(false);
         profileButton.setText("Profile");
         ProfCoursesList();
+
 
     }
 

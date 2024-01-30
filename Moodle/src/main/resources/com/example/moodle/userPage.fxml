@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Slider?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<AnchorPane prefHeight="600.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.moodle.UserPage">
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="600.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.moodle.UserPage">
    <children>
       <AnchorPane fx:id="profilePane" layoutX="189.0" layoutY="-4.0" prefHeight="626.0" prefWidth="270.0" style="-fx-background-color: gray; -fx-background-radius: 50px;" visible="false">
          <children>
@@ -39,11 +40,22 @@
       </AnchorPane>
       <AnchorPane fx:id="listPane" layoutX="236.0" prefHeight="612.0" prefWidth="614.0">
          <children>
+            <Button layoutX="543.0" layoutY="585.0" mnemonicParsing="false" onMouseClicked="#Reset" prefHeight="26.0" prefWidth="56.0" text="Reset">
+               <font>
+                  <Font name="Times New Roman Bold Italic" size="13.0" />
+               </font>
+            </Button>
             <TextArea fx:id="loginActivity" editable="false" layoutX="30.0" layoutY="528.0" prefHeight="58.0" prefWidth="237.0" />
             <Button layoutX="487.0" layoutY="160.0" mnemonicParsing="false" onAction="#ShowTeacherCoursesButtonClick" text="show all courses" />
             <Button layoutX="487.0" layoutY="360.0" mnemonicParsing="false" onAction="#ShowStudentCoursesButtonClick" text="show all courses" />
-            <Button layoutX="481.0" layoutY="561.0" mnemonicParsing="false" text="start" />
-            <Button layoutX="538.0" layoutY="561.0" mnemonicParsing="false" text="stop" />
+            <Button fx:id="Startmusic" layoutX="431.0" layoutY="585.0" mnemonicParsing="false" onMouseClicked="#Start" prefHeight="26.0" prefWidth="56.0" text="Play">
+               <font>
+                  <Font name="Times New Roman Bold Italic" size="13.0" />
+               </font></Button>
+            <Button layoutX="487.0" layoutY="585.0" mnemonicParsing="false" onMouseClicked="#Pause" prefHeight="26.0" prefWidth="56.0" text="Pause">
+               <font>
+                  <Font name="Times New Roman Bold Italic" size="13.0" />
+               </font></Button>
             <Button fx:id="exam" layoutX="207.0" layoutY="373.0" mnemonicParsing="false" onAction="#handleExamButton" prefHeight="123.0" prefWidth="187.0" style="-fx-background-color: red;" text="exams" />
             <HBox fx:id="hBox" layoutX="35.0" layoutY="51.0" prefHeight="100.0" prefWidth="544.0">
                <children>
@@ -62,6 +74,12 @@
             <Label layoutX="30.0" layoutY="503.0" text="Login Activity" />
             <Label layoutX="47.0" layoutY="22.0" text="Courses as Professor" />
             <Label layoutX="47.0" layoutY="215.0" text="Courses as Student" />
+            <Slider fx:id="VolumeSlider" layoutX="600.0" layoutY="521.0" onMouseClicked="#Volume" orientation="VERTICAL" prefHeight="92.0" prefWidth="14.0" value="50.0" />
+            <Label fx:id="ChooseMusic" layoutX="473.0" layoutY="567.0" onMouseClicked="#ChooseMusic" prefHeight="18.0" prefWidth="94.0" text="Choose Your Music">
+               <font>
+                  <Font name="Times New Roman Bold Italic" size="11.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
    </children>

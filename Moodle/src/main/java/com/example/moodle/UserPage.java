@@ -10,6 +10,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -194,6 +195,35 @@ public class UserPage {
     public void updateTokenLable(String token){
         tokenLabel.setText(token);
     }
+
+
+
+
+
+
+
+    @FXML
+
+    private void navigateToAddingCoursePage(ActionEvent event) {
+        Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(UserPage.class.getResource("AddingCourse.fxml"));
+            Parent root = fxmlLoader.load();
+
+            // Create a new stage
+            currentStage.setScene(new Scene(root));
+            currentStage.setTitle("AddCourse");
+            currentStage.show();
+
+        } catch (IOException e) {
+            System.err.println("Error loading the ADdingCourse page: " + e.getMessage());
+        }
+    }
+
+
+
+
+
 
 
 

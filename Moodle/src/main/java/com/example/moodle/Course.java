@@ -4,15 +4,14 @@ import java.util.ArrayList;
 
 public class Course {
     String name;
-    ArrayList<User> users;
+
     String CourseImagePath;
     ArrayList<String> CourseVideos;
     ArrayList<String> CourseDocs;
 
 
-    public Course(String name, ArrayList<User> users, String courseImagePath, ArrayList<String> courseVideos, ArrayList<String> courseDocs) {
+    public Course(String name, String courseImagePath, ArrayList<String> courseVideos, ArrayList<String> courseDocs) {
         this.name = name;
-        this.users = users;
         CourseImagePath = courseImagePath;
         CourseVideos = courseVideos;
         CourseDocs = courseDocs;
@@ -30,13 +29,7 @@ public class Course {
     }
 
 
-    public ArrayList<User> getUsers() {
-        return users;
-    }
 
-    public void setUsers(ArrayList<User> users) {
-        this.users = users;
-    }
 
     public String getCourseImagePath() {
         return CourseImagePath;
@@ -66,7 +59,6 @@ public class Course {
     @Override
     public String toString() {
         return "Course {\n" +
-                "\tusers=" + users + ",\n" +
                 "\tCourseImagePath='" + CourseImagePath + "',\n" +
                 "\tCourseVideos=" + CourseVideos + ",\n" +
                 "\tCourseDocs=" + CourseDocs + ",\n" +

@@ -8,8 +8,10 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -21,6 +23,8 @@ import java.util.Date;
 public class AllCourseList {
     @FXML
     private AnchorPane mainPane;
+    @FXML
+    private Button AddingCourse;
     private ArrayList<Course> AllCourses;
     private User logedInUser = Login.logedInUser;
 
@@ -114,7 +118,7 @@ public class AllCourseList {
         backButton.setOnAction(this::backToUserPage); // Assuming handleBackButton is your back button logic
 
 // Create an HBox to hold the ScrollPane and the back button
-        HBox hbox = new HBox(scrollPane, backButton);
+        HBox hbox = new HBox(scrollPane, backButton );
 
 // Add the HBox to the mainPane
         mainPane.getChildren().add(hbox);
@@ -147,7 +151,6 @@ public class AllCourseList {
                     anchorPane.setOnMouseClicked(event -> {
                         // Handle the course selection here
                         System.out.println("Selected course: " + course);
-                        // TODO: Implement the selection logic
                         Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                         try {
                             FXMLLoader fxmlLoader2 = new FXMLLoader(Signup.class.getResource("StudentCoursePage.fxml"));
@@ -203,5 +206,6 @@ public class AllCourseList {
             System.err.println("Error loading the user page: " + e.getMessage());
         }
     }
+
 
 }

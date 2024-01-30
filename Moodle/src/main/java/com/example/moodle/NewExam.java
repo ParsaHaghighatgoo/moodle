@@ -126,7 +126,6 @@ public class NewExam {
             }
             Question testQuestion = new Question(testQ, a, b, c, d, correctAnswer, QuestionType.TEST);
             selectedQuiz.addQuestion(testQuestion);
-            System.out.println(selectedQuiz);
             testQuestion1.clear();
             A.clear();
             B.clear();
@@ -142,7 +141,6 @@ public class NewExam {
             String descriptiveAns = descriptiveAnswer.getText();
             Question DecQuestion = new Question(descriptiveQ, descriptiveAns, QuestionType.DESCRIPTIVE);
             selectedQuiz.addQuestion(DecQuestion);
-            System.out.println(selectedQuiz);
             descriptiveAnswer.clear();
             descriptiveQuestion.clear();
         }

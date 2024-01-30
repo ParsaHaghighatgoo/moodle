@@ -73,6 +73,7 @@ public class Examing {
     private static int counter;
 
     public void setQuiz(Quiz quiz) {
+        System.out.println(quiz);
         this.quiz = quiz;
         counter = 0;
         for (User user:quiz.user_done_exam){

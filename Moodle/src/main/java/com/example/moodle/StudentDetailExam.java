@@ -1,86 +1,82 @@
 package com.example.moodle;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.image.ImageView;
+import javafx.stage.Stage;
+
+import java.io.IOException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 
 public class StudentDetailExam {
+    @FXML
     private ImageView courseImage;
+    @FXML
     private Label name;
+    @FXML
     private Label course;
+    @FXML
     private Label teacher;
+    @FXML
     private Label Lgrade;
-    private ListView correct;
-    private ListView noAnswer;
-    private ListView wrong;
-
+    @FXML
+    private ListView<Question> correct;
+    @FXML
+    private ListView<Question> noAnswer;
+    @FXML
+    private ListView<Question> wrong;
+    @FXML
+    private Quiz quiz;
     @FXML
     private Button back;
 
 
-    public void setCourseImage(ImageView courseImage) {
-        this.courseImage = courseImage;
+    public void initialize(){
+        name.setText(quiz.getName());
+        course.setText(quiz.getCourse().toString());
+        teacher.setText("nothing now");
     }
 
-    public void setName(Label name) {
-        this.name = name;
+    public void setQuiz(Quiz quiz) {
+        this.quiz = quiz;
     }
 
-    public void setCourse(Label course) {
-        this.course = course;
+    public StudentDetailExam(int text_grade ) {
+        Lgrade.setText(String.valueOf(text_grade));
     }
 
-    public void setTeacher(Label teacher) {
-        this.teacher = teacher;
-    }
-
-    public void setLgrade(Label lgrade) {
-        Lgrade = lgrade;
-    }
-
-    public void setCorrect(ListView correct) {
-        this.correct = correct;
-    }
-
-    public void setNoAnswer(ListView noAnswer) {
-        this.noAnswer = noAnswer;
-    }
-
-    public void setWrong(ListView wrong) {
-        this.wrong = wrong;
-    }
-
-    public ImageView getCourseImage() {
-        return courseImage;
-    }
-
-    public Label getName() {
-        return name;
-    }
-
-    public Label getCourse() {
-        return course;
-    }
-
-    public Label getTeacher() {
-        return teacher;
-    }
-
-    public Label getLgrade() {
-        return Lgrade;
-    }
-
-    public ListView getCorrect() {
-        return correct;
-    }
-
-    public ListView getNoAnswer() {
-        return noAnswer;
-    }
-
-    public ListView getWrong() {
-        return wrong;
-    }
+//    @FXML
+//    private void handle_back(){
+//        Stage currentStage = (Stage) back.getScene().getWindow();
+//        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+//        LocalDateTime now = LocalDateTime.now();
+//        //System.out.println(String.valueOf(now).substring(0,19));
+//        logedInUser.logindates.add(dtf.format(now));
+//        String personalTokenString = "Personal Token: "+logedInUser.personalToken;
+//        String newLogAct = "your first login is : " + logedInUser.logindates.get(0) + "\n"
+//                + "your last login is : " +  logedInUser.logindates.get(logedInUser.logindates.size()-1);
+//
+//        try {
+//            FXMLLoader fxmlLoader = new FXMLLoader(Signup.class.getResource("userPage.fxml"));
+//            Parent root = fxmlLoader.load();
+//            UserPage userPage = fxmlLoader.getController();
+////            userPage.setLogedInUser(logedInUser);
+//            userPage.updateLoginActivityBoxText(newLogAct);
+//            userPage.updateTokenLable(personalTokenString);
+//            currentStage.setScene(new Scene(root));
+//            currentStage.setTitle("User Page");
+//            currentStage.show();
+//        } catch (IOException e) {
+//            System.err.println("Error loading the user page: " + e.getMessage());
+//        }
+//    }
 }

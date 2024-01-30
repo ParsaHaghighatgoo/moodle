@@ -162,11 +162,8 @@ public class Examing {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(Signup.class.getResource("student_detail_exam.fxml"));
             Parent root = fxmlLoader.load();
-            StudentDetailExam studentDetailExam = new StudentDetailExam();
-            studentDetailExam.getName().setText(quiz.name);
-            studentDetailExam.getLgrade().setText(String.valueOf(grade));
-            studentDetailExam.getCourse().setText(quiz.getCourse().toString());
-            studentDetailExam.getTeacher().setText("nothing now");
+            StudentDetailExam studentDetailExam = new StudentDetailExam(grade);
+            studentDetailExam.setQuiz(quiz);
             currentStage.setScene(new Scene(root));
             currentStage.setTitle("exam detail");
             currentStage.show();

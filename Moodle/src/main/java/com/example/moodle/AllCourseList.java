@@ -13,6 +13,8 @@ import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -179,13 +181,21 @@ public class AllCourseList {
     @FXML
     private void backToUserPage(ActionEvent event) {
         Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+        LocalDateTime now = LocalDateTime.now();
+        //System.out.println(String.valueOf(now).substring(0,19));
+        logedInUser.logindates.add(dtf.format(now));
+        String personalTokenString = "Personal Token: "+logedInUser.personalToken;
+        String newLogAct = "your first login is : " + logedInUser.logindates.get(0) + "\n"
+                + "your last login is : " +  logedInUser.logindates.get(logedInUser.logindates.size()-1);
 
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(Signup.class.getResource("userPage.fxml"));
             Parent root = fxmlLoader.load();
             UserPage userPage = fxmlLoader.getController();
 //            userPage.setLogedInUser(logedInUser);
-
+            userPage.updateLoginActivityBoxText(newLogAct);
+            userPage.updateTokenLable(personalTokenString);
             currentStage.setScene(new Scene(root));
             currentStage.setTitle("User Page");
             currentStage.show();

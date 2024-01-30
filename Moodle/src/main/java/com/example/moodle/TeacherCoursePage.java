@@ -31,6 +31,8 @@ public class TeacherCoursePage {
 
     @FXML
     private Button add_exam;
+    Course selectedCourse;
+
 
     private final User logedInUser = Login.logedInUser;
 

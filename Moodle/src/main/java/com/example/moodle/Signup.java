@@ -42,14 +42,32 @@ public class Signup {
 
     @FXML
     private Button signupButton;
+    @FXML
+    private Button Back;
 
     public void initialize() {
-        combobox.setItems(FXCollections.observableArrayList(UserRole.STUDENT, UserRole.PROFESSOR));
+
         comboboxg.setItems(FXCollections.observableArrayList(Gender.MALE, Gender.FEMALE, Gender.OTHERS));
         signupButton.setOnAction(this::handleSignupButtonAction);
     }
 
 
+    @FXML
+    void navigateToLogin(ActionEvent event){
+        Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(Login.class.getResource("Login.fxml"));
+            Parent root = fxmlLoader.load();
+
+            // Create a new stage
+            currentStage.setScene(new Scene(root));
+            currentStage.setTitle("Black Moodle");
+            currentStage.show();
+
+        } catch (IOException e) {
+            System.err.println("Error loading the signup page: " + e.getMessage());
+        }
+    }
     @FXML
     private void handleSignupButtonAction(ActionEvent event) {
         String username = usernameField.getText();
@@ -57,11 +75,10 @@ public class Signup {
         String lastname = lastNameField.getText();
         String name = nameField.getText();
         String email = emailField.getText();
-        UserRole userRole = combobox.getValue();
         Gender gender = comboboxg.getValue();
 
         // Validate input fields
-        if (username.isEmpty() || password.isEmpty() || lastname.isEmpty() || name.isEmpty() || userRole == null || gender == null) {
+        if (username.isEmpty() || password.isEmpty() || lastname.isEmpty() || name.isEmpty() || gender == null) {
             showAlert(Alert.AlertType.ERROR, "Signup Failed", "Please fill in all the required fields.");
             return;
         }
@@ -76,7 +93,7 @@ public class Signup {
         ArrayList<Course> teacherCourses = new ArrayList<>();
         ArrayList<Course> stdCourses = new ArrayList<>();
         String personalToken = Security.generateToken();
-        User.addUser(personalToken, username, password, name, lastname, 2, email, userRole, gender, newlogindates,teacherCourses,stdCourses);
+        User.addUser(personalToken, username, password, name, lastname, 2, email, null, gender, newlogindates,teacherCourses,stdCourses);
         System.out.println(":DDD");
         navigateToLoginPage(event);
     }

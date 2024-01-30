@@ -16,14 +16,14 @@ public class User {
     ArrayList<Course> stdCourses = new ArrayList<>();
     int Age;
     String email;
-    UserRole userRole;
+
     Gender gender;
     ArrayList<String> logindates;
 
 
     public User(String personalToken, String username, String password, String firstName,
                 String lastName, int age, String email,
-                UserRole userRole, Gender gender, ArrayList<String> logindates
+                 Gender gender, ArrayList<String> logindates
                 ,ArrayList<Course> teacherCourses ,ArrayList<Course> stdCourses ) {
         this.personalToken = personalToken;
         this.username = username;
@@ -32,7 +32,6 @@ public class User {
         this.lastName = lastName;
         Age = age;
         this.email = email;
-        this.userRole = userRole;
         this.gender = gender;
         this.logindates = logindates;
 
@@ -89,13 +88,7 @@ public class User {
         Age = age;
     }
 
-    public UserRole getUserRole() {
-        return userRole;
-    }
 
-    public void setUserRole(UserRole userRole) {
-        this.userRole = userRole;
-    }
 
     public Gender getGender() {
         return gender;
@@ -130,7 +123,6 @@ public class User {
                 ", firstName='" + firstName + '\'' +
                 ", LastName='" + lastName + '\'' +
                 ", Age=" + Age +
-                ", userRole=" + userRole +
                 ", gender=" + gender +
                 '}';
     }
@@ -140,7 +132,7 @@ public class User {
                                ArrayList<Course> teacherCourses,
                                ArrayList<Course> stdCourses) {
         User newUser = new User(personalToken, username, password, firstName, lastName,age,email
-                 , userRole, gender, logindates,teacherCourses,stdCourses);
+                 , gender, logindates,teacherCourses,stdCourses);
         DataBase.users.add(newUser);
     }
 

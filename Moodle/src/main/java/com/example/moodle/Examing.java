@@ -14,9 +14,12 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class Examing {
 
+    @FXML
+    private Button submit;
     @FXML
     private ButtonBar buttonBar;
     @FXML
@@ -61,12 +64,32 @@ public class Examing {
 
     private Quiz quiz;
 
+    int grade;
+    ArrayList<Question> correct_answer = new ArrayList<>();
+    ArrayList<Question> no_answer = new ArrayList<>();
+    ArrayList<Question> wrong_answer = new ArrayList<>();
 
+    ArrayList<Question> answer_question = new ArrayList<>();
     private static int counter;
 
     public void setQuiz(Quiz quiz) {
         this.quiz = quiz;
         counter = 0;
+        for (User user:quiz.user_done_exam){
+            if (user.equals(logedInUser)){
+                System.out.println("you can't take this quiz again");
+                Stage currentStage = (Stage) submit.getScene().getWindow();
+                try {
+                    FXMLLoader fxmlLoader = new FXMLLoader(Signup.class.getResource("userPage.fxml"));
+                    Parent root = fxmlLoader.load();
+                    currentStage.setScene(new Scene(root));
+                    currentStage.setTitle("User Page");
+                    currentStage.show();
+                } catch (IOException e) {
+                    System.err.println("Error loading the user page: " + e.getMessage());
+                }
+            }
+        }
         Question question = quiz.questions.get(counter);
         if (question.getQtype().equals(QuestionType.TEST)){
             test.setVisible(true);
@@ -92,7 +115,11 @@ public class Examing {
     @FXML
     private void show_questions(){
         Question question = quiz.questions.get(counter);
-        if (question.getQtype().equals(QuestionType.TEST) && counter != quiz.questions.size()-1){
+        if (question.getQtype().equals(QuestionType.TEST)){
+            counter ++;
+            if (counter == quiz.questions.size()){
+                handle_finish_button();
+            }
             test.setVisible(true);
             descriptive.setVisible(false);
             finish_page.setVisible(false);
@@ -102,29 +129,30 @@ public class Examing {
             tcheckB.setText(question.getOption2());
             tcheckC.setText(question.getOption3());
             tcheckD.setText(question.getOption4());
-            counter ++;
+            check_exam(question,tcheckA,tcheckB,tcheckC,tcheckD);
             tcheckA.setSelected(false);
             tcheckB.setSelected(false);
             tcheckC.setSelected(false);
             tcheckD.setSelected(false);
-        } else if (counter != quiz.questions.size()-1 && question.getQtype().equals(QuestionType.DESCRIPTIVE)){
+        } else if (question.getQtype().equals(QuestionType.DESCRIPTIVE)){
+            counter++;
+            if (counter == quiz.questions.size()){
+                handle_finish_button();
+            }
             test.setVisible(false);
             descriptive.setVisible(true);
             finish_page.setVisible(false);
             buttonBar.setVisible(true);
             descriptiveQuestion.setText(question.getQuestionDes());
-            counter++;
-        } else {
-            test.setVisible(false);
-            descriptive.setVisible(false);
-            finish_page.setVisible(true);
-            buttonBar.setVisible(true);
+
         }
     }
 
     @FXML
-    public void submitTest(ActionEvent event) {
-        Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+    public void submitTest() {
+        quiz.user_done_exam.add(logedInUser);
+        System.out.println(grade);
+        Stage currentStage = (Stage) submit.getScene().getWindow();
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(Signup.class.getResource("userPage.fxml"));
             Parent root = fxmlLoader.load();
@@ -138,11 +166,14 @@ public class Examing {
 
     @FXML
     private void handle_cancel_button(){
-        setQuiz(quiz);
+        counter = 0;
+        show_questions();
     }
 
     @FXML
     private void handle_finish_button(){
+        Question now = quiz.questions.get(counter-1);
+        check_exam(now,tcheckA,tcheckB,tcheckC,tcheckD);
         test.setVisible(false);
         descriptive.setVisible(false);
         finish_page.setVisible(true);
@@ -151,7 +182,120 @@ public class Examing {
 
     @FXML
     private void handle_prev_button(){
+        Question now = quiz.questions.get(counter);
+        check_exam(now,tcheckA,tcheckB,tcheckC,tcheckD);
         counter -= 2;
         show_questions();
+    }
+
+    private void check_exam(Question question,CheckBox a,CheckBox b,CheckBox c,CheckBox d) {
+        if (search_question(question,answer_question)){
+            if (question.getCorrect_answer().equals(a.getText()) && a.isSelected()){
+                grade++;
+                correct_answer.add(question);
+            }else if (question.getCorrect_answer().equals(b.getText()) && b.isSelected()){
+                grade++;
+                correct_answer.add(question);
+            }else if (question.getCorrect_answer().equals(c.getText()) && c.isSelected()){
+                grade++;
+                correct_answer.add(question);
+            }else if (question.getCorrect_answer().equals(d.getText()) && d.isSelected()){
+                grade++;
+                correct_answer.add(question);
+            }
+        }else {
+            if (search_question(question,correct_answer)){
+                if (question.getCorrect_answer().equals(a.getText()) && !a.isSelected()){
+                    grade--;
+                    correct_answer.remove(question);
+                    if (a.isSelected() || b.isSelected() || c.isSelected() || d.isSelected()){
+                        wrong_answer.add(question);
+                    } else {
+                        no_answer.add(question);
+                    }
+                }else if (question.getCorrect_answer().equals(b.getText()) && !b.isSelected()){
+                    grade--;
+                    correct_answer.remove(question);
+                    if (a.isSelected() || b.isSelected() || c.isSelected() || d.isSelected()){
+                        wrong_answer.add(question);
+                    } else {
+                        no_answer.add(question);
+                    }
+                }else if (question.getCorrect_answer().equals(c.getText()) && !c.isSelected()){
+                    grade--;
+                    correct_answer.remove(question);
+                    if (a.isSelected() || b.isSelected() || c.isSelected() || d.isSelected()){
+                        wrong_answer.add(question);
+                    } else {
+                        no_answer.add(question);
+                    }
+                }else if (question.getCorrect_answer().equals(d.getText()) && !d.isSelected()){
+                    grade--;
+                    correct_answer.remove(question);
+                    if (a.isSelected() || b.isSelected() || c.isSelected() || d.isSelected()){
+                        wrong_answer.add(question);
+                    } else {
+                        no_answer.add(question);
+                    }
+                }
+            } else if (search_question(question,no_answer)){
+                if (question.getCorrect_answer().equals(a.getText()) && a.isSelected()){
+                    grade++;
+                    correct_answer.add(question);
+                    no_answer.remove(question);
+                }else if (question.getCorrect_answer().equals(b.getText()) && b.isSelected()){
+                    grade++;
+                    correct_answer.add(question);
+                    no_answer.remove(question);
+                }else if (question.getCorrect_answer().equals(c.getText()) && c.isSelected()){
+                    grade++;
+                    correct_answer.add(question);
+                    no_answer.remove(question);
+                }else if (question.getCorrect_answer().equals(d.getText()) && d.isSelected()){
+                    grade++;
+                    correct_answer.add(question);
+                    no_answer.remove(question);
+                } else{
+                    if (a.isSelected() || b.isSelected() || c.isSelected() || d.isSelected()){
+                        wrong_answer.add(question);
+                        no_answer.remove(question);
+                    }
+                }
+            } else {
+                if (question.getCorrect_answer().equals(a.getText()) && a.isSelected()){
+                    grade++;
+                    correct_answer.add(question);
+                    wrong_answer.remove(question);
+                }else if (question.getCorrect_answer().equals(b.getText()) && b.isSelected()){
+                    grade++;
+                    correct_answer.add(question);
+                    wrong_answer.remove(question);
+                }else if (question.getCorrect_answer().equals(c.getText()) && c.isSelected()){
+                    grade++;
+                    correct_answer.add(question);
+                    wrong_answer.remove(question);
+                }else if (question.getCorrect_answer().equals(d.getText()) && d.isSelected()){
+                    grade++;
+                    correct_answer.add(question);
+                    wrong_answer.remove(question);
+                }else {
+                    if (!(a.isSelected() || b.isSelected() || c.isSelected() || d.isSelected())){
+                        wrong_answer.remove(question);
+                        no_answer.add(question);
+                    }
+                }
+            }
+            answer_question.add(question);
+        }
+    }
+
+    private boolean search_question(Question question,ArrayList<Question> answer_question){
+        if (answer_question.isEmpty()) {return true;}
+        else {
+            for (Question question1:answer_question){
+                if (question1.equals(question)){return false;}
+            }
+            return true;
+        }
     }
 }

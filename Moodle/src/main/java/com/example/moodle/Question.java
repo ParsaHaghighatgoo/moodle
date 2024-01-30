@@ -9,6 +9,7 @@ public class Question {
     private String Option3;
     private String Option4;
     private CheckBox correct;
+    private String correct_answer;
     private String questionDes;
     private String answerDes;
     private QuestionType Qtype;
@@ -19,6 +20,14 @@ public class Question {
         Option2 = option2;
         Option3 = option3;
         Option4 = option4;
+        if (correct.getText().equals("A")){correct_answer = option1;}
+        else if (correct.getText().equals("B")) {
+            correct_answer = option2;
+        }else if (correct.getText().equals("C")) {
+            correct_answer = option3;
+        }else if (correct.getText().equals("D")) {
+            correct_answer = option4;
+        }
         this.correct = correct;
         Qtype = qtype;
     }
@@ -118,6 +127,10 @@ public class Question {
 
     public String getAnswerDes() {
         return answerDes;
+    }
+
+    public String getCorrect_answer() {
+        return correct_answer;
     }
 }
 

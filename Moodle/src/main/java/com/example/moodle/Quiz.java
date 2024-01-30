@@ -8,6 +8,8 @@ public class Quiz {
     String name;
     String time;
 
+    public ArrayList<User> user_done_exam = new ArrayList<>();
+
     public Quiz( String name,Course course, String time) {
         this.name = name;
         this.course = course;

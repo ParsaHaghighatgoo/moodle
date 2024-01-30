@@ -76,7 +76,6 @@ public class NewExam {
     public void submitTest(ActionEvent event) {
         DataBase.quizzes.add(selectedQuiz);
         Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(Signup.class.getResource("userPage.fxml"));
             Parent root = fxmlLoader.load();

@@ -160,10 +160,15 @@ public class Examing {
         System.out.println(grade);
         Stage currentStage = (Stage) submit.getScene().getWindow();
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(Signup.class.getResource("userPage.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(Signup.class.getResource("student_detail_exam.fxml"));
             Parent root = fxmlLoader.load();
+            StudentDetailExam studentDetailExam = new StudentDetailExam();
+            studentDetailExam.getName().setText(quiz.name);
+            studentDetailExam.getLgrade().setText(String.valueOf(grade));
+            studentDetailExam.getCourse().setText(quiz.getCourse().toString());
+            studentDetailExam.getTeacher().setText("nothing now");
             currentStage.setScene(new Scene(root));
-            currentStage.setTitle("User Page");
+            currentStage.setTitle("exam detail");
             currentStage.show();
         } catch (IOException e) {
             System.err.println("Error loading the user page: " + e.getMessage());

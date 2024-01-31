@@ -13,7 +13,14 @@
 
 <AnchorPane fx:id="page" prefHeight="500.0" prefWidth="1212.0" style="-fx-background-color: linear-gradient(to bottom, #ffffff 0%, #0a1c8f 100%);" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.moodle.TeacherCoursePage">
    <children>
-      <ListView fx:id="videosList" layoutX="28.0" layoutY="44.0" prefHeight="410.0" prefWidth="226.0" style="-fx-background-color: #8190d6;" />
+      <ListView fx:id="videosList" layoutX="28.0" layoutY="44.0" prefHeight="410.0" prefWidth="226.0" style="-fx-background-color: #8190d6;">
+         <effect>
+            <DropShadow>
+               <color>
+                  <Color red="0.03921568766236305" green="0.7019608020782471" blue="0.9215686321258545" />
+               </color>
+            </DropShadow>
+         </effect></ListView>
       <Button layoutX="267.0" layoutY="192.0" mnemonicParsing="false" onAction="#navigateToInputPanel" prefHeight="30.0" prefWidth="81.0" style="-fx-background-color: no-color;" text="ADD" textFill="WHITE">
          <font>
             <Font name="Times New Roman Bold Italic" size="18.0" />
@@ -55,7 +62,14 @@
             </DropShadow>
          </effect>
       </Label>
-      <ListView fx:id="DocsListView" layoutX="414.0" layoutY="44.0" prefHeight="124.0" prefWidth="398.0" style="-fx-background-color: #8190d6;" />
+      <ListView fx:id="DocsListView" layoutX="414.0" layoutY="44.0" prefHeight="124.0" prefWidth="398.0" style="-fx-background-color: #8190d6;">
+         <effect>
+            <DropShadow>
+               <color>
+                  <Color red="0.03921568766236305" green="0.7019608020782471" blue="0.9215686321258545" />
+               </color>
+            </DropShadow>
+         </effect></ListView>
       <Label layoutX="410.0" layoutY="14.0" prefHeight="35.0" prefWidth="81.0" text="Docs" textFill="#0a1c8f">
          <font>
             <Font name="Times New Roman Bold Italic" size="24.0" />
@@ -69,7 +83,14 @@
          </effect>
       </Label>
       <Separator layoutX="842.0" layoutY="65.0" orientation="VERTICAL" prefHeight="343.0" prefWidth="4.0" />
-      <ListView layoutX="950.0" layoutY="57.0" prefHeight="410.0" prefWidth="226.0" style="-fx-background-color: #8190d6;" />
+      <ListView layoutX="950.0" layoutY="57.0" prefHeight="410.0" prefWidth="226.0" style="-fx-background-color: #8190d6;">
+         <effect>
+            <DropShadow>
+               <color>
+                  <Color red="0.03921568766236305" green="0.7019608020782471" blue="0.9215686321258545" />
+               </color>
+            </DropShadow>
+         </effect></ListView>
       <Label alignment="CENTER" layoutX="944.0" layoutY="17.0" prefHeight="35.0" prefWidth="81.0" text="Exams" textFill="#0a1c8f">
          <font>
             <Font name="Times New Roman Bold Italic" size="24.0" />

@@ -51,7 +51,7 @@ public class Login {
 
         boolean found = false;
         for (User user : DataBase.users) {
-            if (username.equals(user.username) && password.equals(user.password)) {
+            if (username.equals(user.username) && Encryption.verifyPassword(password,user.password)) {
                 found = true;
                 this.logedInUser = user;
                 DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");

@@ -36,7 +36,8 @@ public class DataBase {
         ArrayList<Course> adminStdCourse= new ArrayList<>();
         //String adminPersonalToken = Security.generateToken();
         String adminPersonalToken = "E0eCjZqSVzU=";
-        User admin = new User(adminPersonalToken, "admin", "admin", "admin", "admin", 2,"admin@gmail.com", Gender.OTHERS, newLoginDates,adminTeacherCourse
+        String adminPassHash = Encryption.hashPassword("admin");
+        User admin = new User(adminPersonalToken, "admin", adminPassHash, "admin", "admin", 2,"admin@gmail.com", Gender.OTHERS, newLoginDates,adminTeacherCourse
         ,adminStdCourse);
 
         admin.teacherCourses.add(course);
@@ -44,7 +45,9 @@ public class DataBase {
         admin.stdCourses.add(course3);
         admin.stdCourses.add(course4);
 
-        User admin2 = new User(adminPersonalToken, "admin2", "admin2", "admin2", "admin2", 2,"admin2@gmail.com", Gender.OTHERS, newLoginDates,adminTeacherCourse,adminStdCourse);
+        String adminPersonalToken2 = "E4eokTqSo9U=";
+        String admin2PassHash = Encryption.hashPassword("admin2");
+        User admin2 = new User(adminPersonalToken2, "admin2", admin2PassHash, "admin2", "admin2", 2,"admin2@gmail.com", Gender.OTHERS, newLoginDates,adminTeacherCourse,adminStdCourse);
         admin2.teacherCourses.add(course3);
         admin2.teacherCourses.add(course2);
         admin2.stdCourses.add(course);

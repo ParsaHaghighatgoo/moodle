@@ -10,17 +10,16 @@
 
 <AnchorPane fx:id="page" prefHeight="500.0" prefWidth="483.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.moodle.TeacherCoursePage">
    <children>
-      <ListView layoutX="28.0" layoutY="44.0" prefHeight="410.0" prefWidth="226.0" style="-fx-background-color: orange;" />
-      <Button layoutX="293.0" layoutY="193.0" mnemonicParsing="false" text="ADD" />
-      <Button layoutX="293.0" layoutY="237.0" mnemonicParsing="false" text="DELETE" />
-      <Button layoutX="293.0" layoutY="282.0" mnemonicParsing="false" text="EDIT" />
+      <ListView fx:id="videosList" layoutX="28.0" layoutY="44.0" prefHeight="410.0" prefWidth="226.0" style="-fx-background-color: orange;" />
+      <Button layoutX="293.0" layoutY="193.0" mnemonicParsing="false" onAction="#navigateToInputPanel" text="ADD" />
+      <Button layoutX="293.0" layoutY="237.0" mnemonicParsing="false" onAction="#navigateToDeletedPanel" text="DELETE" />
       <Separator layoutX="367.0" layoutY="65.0" orientation="VERTICAL" prefHeight="343.0" prefWidth="4.0" />
       <Label layoutX="24.0" layoutY="14.0" prefHeight="35.0" prefWidth="81.0" text="Videos" textFill="WHITE">
          <font>
             <Font size="24.0" />
          </font>
       </Label>
-      <ListView layoutX="414.0" layoutY="44.0" prefHeight="124.0" prefWidth="398.0" style="-fx-background-color: orange;" />
+      <ListView fx:id="DocsListView" layoutX="414.0" layoutY="44.0" prefHeight="124.0" prefWidth="398.0" style="-fx-background-color: orange;" />
       <Label layoutX="410.0" layoutY="14.0" prefHeight="35.0" prefWidth="81.0" text="Docs" textFill="WHITE">
          <font>
             <Font size="24.0" />
@@ -41,7 +40,6 @@
       </Label>
       <Button fx:id="add_exam" layoutX="875.0" layoutY="193.0" mnemonicParsing="false" onAction="#handle_add_button" prefHeight="26.0" prefWidth="64.0" text="ADD" />
       <Button layoutX="875.0" layoutY="237.0" mnemonicParsing="false" text="DELETE" />
-      <Button layoutX="875.0" layoutY="282.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="64.0" text="EDIT" />
       <AnchorPane fx:id="create_exam" layoutX="406.0" layoutY="116.0" prefHeight="228.0" prefWidth="325.0" style="-fx-background-color: black;" visible="false">
          <children>
             <TextField fx:id="name" layoutX="82.0" layoutY="51.0" style="-fx-background-color: white;" />
@@ -52,5 +50,7 @@
          </children>
       </AnchorPane>
       <Button fx:id="back" layoutX="28.0" layoutY="467.0" mnemonicParsing="false" onAction="#ShowTeacherCoursesButtonClick" text="back" />
+      <Button layoutX="663.0" layoutY="180.0" mnemonicParsing="false" onAction="#navigateToDocInputPanel" text="ADD" />
+      <Button layoutX="723.0" layoutY="180.0" mnemonicParsing="false" onAction="#navigateToDocDeletedPanel" text="DELETE" />
    </children>
 </AnchorPane>

@@ -39,8 +39,8 @@ public class Course {
         return CourseVideos;
     }
 
-    public void setCourseVideos(ArrayList<String> courseVideos) {
-        CourseVideos = courseVideos;
+    public void setCourseVideos(String courseVideos) {
+        CourseVideos.add(courseVideos);
     }
 
     public ArrayList<String> getCourseDocs() {
@@ -48,8 +48,8 @@ public class Course {
     }
 
 
-    public void setCourseDocs(ArrayList<String> courseDocs) {
-        CourseDocs = courseDocs;
+    public void setCourseDocs(String courseDocs) {
+        CourseDocs.add(courseDocs);
     }
 
     public void setCourseImagePath(String courseImagePath) {

@@ -22,6 +22,8 @@ public class TeacherCoursePage {
     @FXML
     private ListView videosList;
     @FXML
+    private ListView examList;
+    @FXML
     private Button back;
 
     @FXML
@@ -44,10 +46,10 @@ public class TeacherCoursePage {
     private final User logedInUser = Login.logedInUser;
 
     public void initialize(){
-        add_exam.setOnAction(this::add_new_exam);
         create_exam.setVisible(false);
-//        videosList.getItems().addAll(AllCourseList.selectedCourse.CourseVideos);
- //       DocsListView.getItems().addAll(AllCourseList.selectedCourse.CourseDocs);
+        videosList.getItems().addAll(AllCourseList.selectedCourse.CourseVideos);
+        DocsListView.getItems().addAll(AllCourseList.selectedCourse.CourseDocs);
+        examList.getItems().addAll(AllCourseList.selectedCourse.quizzes);
     }
     private Course course;
 

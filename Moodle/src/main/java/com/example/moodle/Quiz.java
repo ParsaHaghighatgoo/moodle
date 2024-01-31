@@ -53,12 +53,12 @@ public class Quiz {
     }
     @Override
     public String toString() {
-        return "Quiz {\n" +
-                "\tquestions=" + questions + ",\n" +
-                "\tcourse=" + course + ",\n" +
-                "\tname='" + name + '\'' + ",\n" +
-                "\ttime='" + time + '\'' + "\n" +
-                "}\n";
+        return "Quiz {" +
+                "\tquestions=" + questions + "," +
+                "\tcourse=" + course + "," +
+                "\tname='" + name + '\'' + "," +
+                "\ttime='" + time + '\'' +
+                "}";
     }
 
 }

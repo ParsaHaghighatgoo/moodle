@@ -83,7 +83,7 @@
          </effect>
       </Label>
       <Separator layoutX="842.0" layoutY="65.0" orientation="VERTICAL" prefHeight="343.0" prefWidth="4.0" />
-      <ListView layoutX="950.0" layoutY="57.0" prefHeight="410.0" prefWidth="226.0" style="-fx-background-color: #8190d6;">
+      <ListView fx:id="examList" layoutX="950.0" layoutY="57.0" prefHeight="410.0" prefWidth="226.0" style="-fx-background-color: #8190d6;">
          <effect>
             <DropShadow>
                <color>
@@ -103,7 +103,7 @@
             </DropShadow>
          </effect>
       </Label>
-      <Button fx:id="add_exam" layoutX="862.0" layoutY="190.0" mnemonicParsing="false" onAction="#handle_add_button" prefHeight="26.0" prefWidth="75.0" style="-fx-background-color: no-color;" text="ADD" textFill="WHITE">
+      <Button fx:id="add_exam" layoutX="862.0" layoutY="190.0" mnemonicParsing="false" onAction="#handle_add_button" onDragDetected="#handle_add_button" prefHeight="26.0" prefWidth="75.0" style="-fx-background-color: no-color;" text="ADD" textFill="WHITE">
          <font>
             <Font name="Times New Roman Bold Italic" size="19.0" />
          </font>
@@ -117,7 +117,7 @@
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
-      <Button layoutX="862.0" layoutY="238.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" style="-fx-background-color: no-color;" text="DELETE" textFill="WHITE">
+      <Button fx:id="delete" layoutX="862.0" layoutY="238.0" mnemonicParsing="false" onAction="#handle_delete_button" prefHeight="25.0" prefWidth="75.0" style="-fx-background-color: no-color;" text="DELETE" textFill="WHITE">
          <font>
             <Font name="Times New Roman Bold Italic" size="14.0" />
          </font>

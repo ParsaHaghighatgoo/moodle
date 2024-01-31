@@ -9,6 +9,8 @@ public class Course {
     ArrayList<String> CourseVideos;
     ArrayList<String> CourseDocs;
 
+    ArrayList<Quiz> quizzes = new ArrayList<>();
+
 
     public Course(String name, String courseImagePath, ArrayList<String> courseVideos, ArrayList<String> courseDocs) {
         this.name = name;
@@ -55,6 +57,7 @@ public class Course {
     public void setCourseImagePath(String courseImagePath) {
         CourseImagePath = courseImagePath;
     }
+
 
     @Override
     public String toString() {

@@ -1,16 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.Glow?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.moodle.SupportPanel">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: linear-gradient(to bottom, #ffffff 0%, #0a1c8f 100%);" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.moodle.SupportPanel">
    <children>
-      <Button layoutX="47.0" layoutY="348.0" mnemonicParsing="false" onAction="#backToUserPage" text="Back" />
-      <Label layoutX="33.0" layoutY="24.0" prefHeight="39.0" prefWidth="190.0" text="If you want to contact with us:" />
-      <Label layoutX="33.0" layoutY="43.0" prefHeight="39.0" prefWidth="252.0" text="Email : blackmoodle@gmail.com" />
-      <Label layoutX="33.0" layoutY="62.0" prefHeight="39.0" prefWidth="354.0" text="Address: Iran-Shiraz-shiraz university-computer since departmant" />
-      <Label layoutX="33.0" layoutY="92.0" prefHeight="18.0" prefWidth="301.0" text="Head Proffessor : Dr. Ali Hamzeh" />
+      <Button layoutX="47.0" layoutY="335.0" mnemonicParsing="false" onAction="#backToUserPage" prefHeight="39.0" prefWidth="90.0" style="-fx-background-color: no-color;" text="BACK" textFill="WHITE">
+         <font>
+            <Font name="Times New Roman Bold Italic" size="18.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <effect>
+            <DropShadow>
+               <color>
+                  <Color red="0.03921568766236305" green="0.7019608020782471" blue="0.9215686321258545" />
+               </color>
+            </DropShadow>
+         </effect></Button>
+      <Label layoutX="33.0" layoutY="24.0" prefHeight="39.0" prefWidth="354.0" text="If you want to contact with us:">
+         <font>
+            <Font name="Times New Roman Bold Italic" size="19.0" />
+         </font>
+         <effect>
+            <Glow level="0.41" />
+         </effect></Label>
+      <Label layoutX="33.0" layoutY="80.0" prefHeight="39.0" prefWidth="264.0" text="Email : blackmoodle@gmail.com">
+         <font>
+            <Font name="Times New Roman Bold Italic" size="19.0" />
+         </font>
+         <effect>
+            <Glow level="0.41" />
+         </effect></Label>
+      <Label layoutX="31.0" layoutY="130.0" prefHeight="39.0" prefWidth="538.0" text="Address: Iran-Shiraz-shiraz university-computer since departmant">
+         <font>
+            <Font name="Times New Roman Bold Italic" size="19.0" />
+         </font>
+         <effect>
+            <Glow level="0.41" />
+         </effect></Label>
+      <Label layoutX="31.0" layoutY="193.0" prefHeight="39.0" prefWidth="380.0" text="Head Proffessor : Dr. Ali Hamzeh">
+         <font>
+            <Font name="Times New Roman Bold Italic" size="19.0" />
+         </font>
+         <effect>
+            <Glow level="0.41" />
+         </effect></Label>
    </children>
 </AnchorPane>

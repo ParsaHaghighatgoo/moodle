@@ -113,7 +113,8 @@ public class DataBase {
             // Read the JSON from the file
             File file = new File(fileName);
             if (file.exists()) {
-                ArrayList<User> loadedUsers = objectMapper.readValue(file, objectMapper.getTypeFactory().constructCollectionType(ArrayList.class, User.class));
+                ArrayList<User> loadedUsers = objectMapper.
+                        readValue(file, objectMapper.getTypeFactory().constructCollectionType(ArrayList.class, User.class));
 
             }
         } catch (IOException e) {

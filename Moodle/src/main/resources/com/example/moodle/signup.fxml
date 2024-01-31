@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
@@ -10,18 +11,25 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" styleClass="backgroundColor" stylesheets="@application.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.moodle.Signup">
    <children>
-      <TextField fx:id="nameField" layoutX="44.0" layoutY="90.0" prefHeight="28.0" prefWidth="150.0" promptText="Name">
+      <TextField fx:id="nameField" layoutX="44.0" layoutY="90.0" prefHeight="28.0" prefWidth="150.0" promptText="Name" style="-fx-background-color: no-color; -fx-border-color: white;">
          <font>
             <Font name="Times New Roman" size="12.0" />
          </font>
          <effect>
-            <DropShadow />
-         </effect></TextField>
-      <Label layoutX="136.0" prefHeight="78.0" prefWidth="328.0" text="Black Moodle Sign up" textAlignment="CENTER" textFill="#666060" textOverrun="CLIP" wrapText="true">
+            <DropShadow>
+               <input>
+                  <Glow />
+               </input></DropShadow>
+         </effect>
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor></TextField>
+      <Label layoutX="136.0" prefHeight="78.0" prefWidth="328.0" text="Black Moodle Sign up" textAlignment="CENTER" textFill="#a19c9c" textOverrun="CLIP" wrapText="true">
          <font>
             <Font name="Times New Roman Bold" size="34.0" />
          </font>
@@ -32,31 +40,55 @@
                </input>
             </Glow>
          </effect></Label>
-      <TextField fx:id="usernameField" layoutX="44.0" layoutY="172.0" prefHeight="28.0" prefWidth="150.0" promptText="Username">
+      <TextField fx:id="usernameField" layoutX="44.0" layoutY="172.0" prefHeight="28.0" prefWidth="150.0" promptText="Username" style="-fx-background-color: no-color; -fx-border-color: white;">
          <font>
             <Font name="Times New Roman" size="12.0" />
          </font>
          <effect>
-            <DropShadow />
-         </effect></TextField>
-      <TextField fx:id="lastNameField" layoutX="44.0" layoutY="129.0" prefHeight="28.0" prefWidth="150.0" promptText="Lastname">
+            <DropShadow>
+               <input>
+                  <Glow />
+               </input></DropShadow>
+         </effect>
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor></TextField>
+      <TextField fx:id="lastNameField" layoutX="44.0" layoutY="129.0" prefHeight="28.0" prefWidth="150.0" promptText="Lastname" style="-fx-background-color: no-color; -fx-border-color: white;">
          <font>
             <Font name="Times New Roman" size="12.0" />
          </font>
          <effect>
-            <DropShadow />
-         </effect></TextField>
-      <TextField fx:id="passwordField" layoutX="44.0" layoutY="214.0" prefHeight="28.0" prefWidth="150.0" promptText="Password">
+            <DropShadow>
+               <input>
+                  <Glow />
+               </input></DropShadow>
+         </effect>
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor></TextField>
+      <TextField fx:id="passwordField" layoutX="44.0" layoutY="214.0" prefHeight="28.0" prefWidth="150.0" promptText="Password" style="-fx-background-color: no-color; -fx-border-color: white;">
          <font>
             <Font name="Times New Roman" size="12.0" />
          </font>
          <effect>
-            <DropShadow />
-         </effect></TextField>
-      <TextField fx:id="emailField" layoutX="44.0" layoutY="254.0" prefHeight="28.0" prefWidth="150.0" promptText="Email(Optional)">
+            <DropShadow>
+               <input>
+                  <Glow />
+               </input></DropShadow>
+         </effect>
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor></TextField>
+      <TextField fx:id="emailField" layoutX="44.0" layoutY="254.0" prefHeight="28.0" prefWidth="150.0" promptText="Email(Optional)" style="-fx-background-color: no-color; -fx-border-color: white;">
          <effect>
-            <DropShadow />
-         </effect></TextField>
+            <DropShadow>
+               <input>
+                  <Glow />
+               </input></DropShadow>
+         </effect>
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor></TextField>
       <Button fx:id="signupButton" layoutX="413.0" layoutY="311.0" mnemonicParsing="false" onAction="#handleSignupButtonAction" prefHeight="26.0" prefWidth="126.0" style="-fx-background-radius: 17px; -fx-background-color: #0f1547; -fx-cursor: hand;" stylesheets="@SignUp.css" text="Sign up" textFill="WHITE">
          <font>
             <Font name="Times New Roman Bold" size="17.0" />
@@ -83,6 +115,19 @@
             <Image url="@../../../icon.png" />
          </image>
       </ImageView>
-      <Button fx:id="Back" layoutX="18.0" layoutY="14.0" mnemonicParsing="false" onAction="#navigateToLogin" prefHeight="18.0" prefWidth="52.0" text="Back" />
+      <Button fx:id="Back" layoutX="18.0" layoutY="14.0" mnemonicParsing="false" onAction="#navigateToLogin" prefHeight="18.0" prefWidth="52.0" style="-fx-background-color: no-color;" text="BACK" textFill="WHITE">
+         <font>
+            <Font name="Times New Roman Bold Italic" size="12.0" />
+         </font>
+         <effect>
+            <DropShadow>
+               <color>
+                  <Color red="0.03921568766236305" green="0.7019608020782471" blue="0.9215686321258545" />
+               </color>
+            </DropShadow>
+         </effect>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
    </children>
 </AnchorPane>

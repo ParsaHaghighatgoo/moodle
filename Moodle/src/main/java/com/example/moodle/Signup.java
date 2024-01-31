@@ -93,7 +93,8 @@ public class Signup {
         ArrayList<Course> teacherCourses = new ArrayList<>();
         ArrayList<Course> stdCourses = new ArrayList<>();
         String personalToken = Security.generateToken();
-        User.addUser(personalToken, username, password, name, lastname, 2, email, null, gender, newlogindates,teacherCourses,stdCourses);
+        String passwordHashed = Encryption.hashPassword(password);
+        User.addUser(personalToken, username, passwordHashed, name, lastname, 2, email, null, gender, newlogindates,teacherCourses,stdCourses);
         System.out.println(":DDD");
         navigateToLoginPage(event);
     }

@@ -53,8 +53,8 @@ public class UserPage {
 
         leftPane.setVisible(true);
         listPane.setVisible(true);
-        profilePane.setVisible(false);
-        profileButton.setText("Profile");
+
+
         ProfCoursesList();
 
     }
@@ -70,7 +70,7 @@ public class UserPage {
             courseListsController.initialize(); // Initialize the CourseLists view
 
             // Get the current stage from the welcomeText label (or any other node in the scene graph)
-            Stage stage = (Stage) profilePane.getScene().getWindow();
+            Stage stage = (Stage) leftPane.getScene().getWindow();
 
             Scene courseListsScene = new Scene(courseListsParent);
 
@@ -93,7 +93,7 @@ public class UserPage {
             courseListsController.initialize2(); // Initialize the CourseLists view
 
             // Get the current stage from the welcomeText label (or any other node in the scene graph)
-            Stage stage = (Stage) profilePane.getScene().getWindow();
+            Stage stage = (Stage) leftPane.getScene().getWindow();
 
             Scene courseListsScene = new Scene(courseListsParent);
 
@@ -117,7 +117,7 @@ public class UserPage {
             courseListsController.initialize3(); // Initialize the CourseLists view
 
             // Get the current stage from the welcomeText label (or any other node in the scene graph)
-            Stage stage = (Stage) profilePane.getScene().getWindow();
+            Stage stage = (Stage) leftPane.getScene().getWindow();
 
             Scene courseListsScene = new Scene(courseListsParent);
 

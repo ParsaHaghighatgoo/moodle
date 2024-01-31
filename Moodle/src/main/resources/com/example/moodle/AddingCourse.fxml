@@ -1,22 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.moodle.AddingCourse">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: linear-gradient(to bottom, #ffffff 0%, #0a1c8f 100%);" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.moodle.AddingCourse">
    <children>
-      <Label layoutX="36.0" layoutY="26.0" prefHeight="46.0" prefWidth="436.0" text="Please Enter the Right Data For adding Course">
+      <Label layoutX="97.0" layoutY="60.0" prefHeight="52.0" prefWidth="406.0" text="Please Enter the Right Data For adding Course">
          <font>
-            <Font size="20.0" />
+            <Font name="Times New Roman Bold Italic" size="20.0" />
          </font>
+         <effect>
+            <DropShadow>
+               <color>
+                  <Color red="0.125490203499794" green="0.2666666805744171" blue="0.9019607901573181" />
+               </color>
+            </DropShadow>
+         </effect>
       </Label>
-      <Button fx:id="BackToAllCoursesPage" layoutX="534.0" layoutY="26.0" mnemonicParsing="false" onAction="#backToUserPage" prefHeight="26.0" prefWidth="51.0" text="Back" />
-      <Button fx:id="Adding" layoutX="534.0" layoutY="361.0" mnemonicParsing="false" onAction="#AddingTheCourse" text="Add" />
-      <TextField fx:id="CourseName" layoutX="43.0" layoutY="114.0" promptText="CourseName" />
-      <TextField fx:id="imagePath" layoutX="43.0" layoutY="147.0" promptText="ImagePath" />
+      <Button fx:id="BackToAllCoursesPage" layoutX="522.0" layoutY="25.0" mnemonicParsing="false" onAction="#backToUserPage" prefHeight="34.0" prefWidth="74.0" style="-fx-background-color: no-color;" text="Back">
+         <font>
+            <Font name="Times New Roman Bold Italic" size="15.0" />
+         </font>
+         <effect>
+            <DropShadow>
+               <color>
+                  <Color red="1.0" green="1.0" blue="1.0" />
+               </color>
+            </DropShadow>
+         </effect>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <Button fx:id="Adding" layoutX="522.0" layoutY="353.0" mnemonicParsing="false" onAction="#AddingTheCourse" prefHeight="34.0" prefWidth="74.0" style="-fx-background-color: no-color;" text="Add" textFill="#181717">
+         <font>
+            <Font name="Times New Roman Bold Italic" size="16.0" />
+         </font>
+         <effect>
+            <DropShadow>
+               <color>
+                  <Color red="1.0" green="1.0" blue="1.0" />
+               </color>
+            </DropShadow>
+         </effect>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <TextField fx:id="CourseName" alignment="CENTER" layoutX="168.0" layoutY="125.0" prefHeight="34.0" prefWidth="253.0" promptText="CourseName">
+         <font>
+            <Font name="Times New Roman Bold Italic" size="14.0" />
+         </font></TextField>
+      <TextField fx:id="imagePath" alignment="CENTER" layoutX="167.0" layoutY="172.0" prefHeight="34.0" prefWidth="254.0" promptText="ImageName">
+         <font>
+            <Font name="Times New Roman Bold Italic" size="14.0" />
+         </font></TextField>
    </children>
 </AnchorPane>

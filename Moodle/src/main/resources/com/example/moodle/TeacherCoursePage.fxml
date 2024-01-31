@@ -1,47 +1,136 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="page" prefHeight="500.0" prefWidth="483.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.moodle.TeacherCoursePage">
+<AnchorPane fx:id="page" prefHeight="500.0" prefWidth="1212.0" style="-fx-background-color: linear-gradient(to bottom, #ffffff 0%, #0a1c8f 100%);" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.moodle.TeacherCoursePage">
    <children>
-      <ListView fx:id="videosList" layoutX="28.0" layoutY="44.0" prefHeight="410.0" prefWidth="226.0" style="-fx-background-color: orange;" />
-      <Button layoutX="293.0" layoutY="193.0" mnemonicParsing="false" onAction="#navigateToInputPanel" text="ADD" />
-      <Button layoutX="293.0" layoutY="237.0" mnemonicParsing="false" onAction="#navigateToDeletedPanel" text="DELETE" />
+      <ListView fx:id="videosList" layoutX="28.0" layoutY="44.0" prefHeight="410.0" prefWidth="226.0" style="-fx-background-color: #8190d6;">
+         <effect>
+            <DropShadow>
+               <color>
+                  <Color red="0.03921568766236305" green="0.7019608020782471" blue="0.9215686321258545" />
+               </color>
+            </DropShadow>
+         </effect></ListView>
+      <Button layoutX="267.0" layoutY="192.0" mnemonicParsing="false" onAction="#navigateToInputPanel" prefHeight="30.0" prefWidth="81.0" style="-fx-background-color: no-color;" text="ADD" textFill="WHITE">
+         <font>
+            <Font name="Times New Roman Bold Italic" size="18.0" />
+         </font>
+         <effect>
+            <DropShadow>
+               <color>
+                  <Color red="0.03921568766236305" green="0.7019608020782471" blue="0.9215686321258545" />
+               </color>
+            </DropShadow>
+         </effect>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <Button layoutX="273.0" layoutY="235.0" mnemonicParsing="false" onAction="#navigateToDeletedPanel" prefHeight="32.0" prefWidth="75.0" style="-fx-background-color: no-color;" text="DELETE" textFill="WHITE">
+         <font>
+            <Font name="Times New Roman Bold Italic" size="14.0" />
+         </font>
+         <effect>
+            <DropShadow>
+               <color>
+                  <Color red="0.03921568766236305" green="0.7019608020782471" blue="0.9215686321258545" />
+               </color>
+            </DropShadow>
+         </effect>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
       <Separator layoutX="367.0" layoutY="65.0" orientation="VERTICAL" prefHeight="343.0" prefWidth="4.0" />
-      <Label layoutX="24.0" layoutY="14.0" prefHeight="35.0" prefWidth="81.0" text="Videos" textFill="WHITE">
+      <Label layoutX="24.0" layoutY="14.0" prefHeight="35.0" prefWidth="81.0" text="Videos" textFill="#0a1c8f">
          <font>
-            <Font size="24.0" />
+            <Font name="Times New Roman Bold Italic" size="24.0" />
          </font>
+         <effect>
+            <DropShadow>
+               <color>
+                  <Color red="0.03921568766236305" green="0.7019608020782471" blue="0.9215686321258545" />
+               </color>
+            </DropShadow>
+         </effect>
       </Label>
-      <ListView fx:id="DocsListView" layoutX="414.0" layoutY="44.0" prefHeight="124.0" prefWidth="398.0" style="-fx-background-color: orange;" />
-      <Label layoutX="410.0" layoutY="14.0" prefHeight="35.0" prefWidth="81.0" text="Docs" textFill="WHITE">
+      <ListView fx:id="DocsListView" layoutX="414.0" layoutY="44.0" prefHeight="124.0" prefWidth="398.0" style="-fx-background-color: #8190d6;">
+         <effect>
+            <DropShadow>
+               <color>
+                  <Color red="0.03921568766236305" green="0.7019608020782471" blue="0.9215686321258545" />
+               </color>
+            </DropShadow>
+         </effect></ListView>
+      <Label layoutX="410.0" layoutY="14.0" prefHeight="35.0" prefWidth="81.0" text="Docs" textFill="#0a1c8f">
          <font>
-            <Font size="24.0" />
+            <Font name="Times New Roman Bold Italic" size="24.0" />
          </font>
-      </Label>
-      <ListView layoutX="414.0" layoutY="230.0" prefHeight="218.0" prefWidth="154.0" style="-fx-background-color: orange;" />
-      <Label layoutX="409.0" layoutY="193.0" prefHeight="35.0" prefWidth="98.0" text="Students" textFill="WHITE">
-         <font>
-            <Font size="24.0" />
-         </font>
+         <effect>
+            <DropShadow>
+               <color>
+                  <Color red="0.03921568766236305" green="0.7019608020782471" blue="0.9215686321258545" />
+               </color>
+            </DropShadow>
+         </effect>
       </Label>
       <Separator layoutX="842.0" layoutY="65.0" orientation="VERTICAL" prefHeight="343.0" prefWidth="4.0" />
-      <ListView layoutX="950.0" layoutY="57.0" prefHeight="410.0" prefWidth="226.0" style="-fx-background-color: orange;" />
-      <Label layoutX="944.0" layoutY="17.0" prefHeight="35.0" prefWidth="81.0" text="Exams" textFill="WHITE">
+      <ListView layoutX="950.0" layoutY="57.0" prefHeight="410.0" prefWidth="226.0" style="-fx-background-color: #8190d6;">
+         <effect>
+            <DropShadow>
+               <color>
+                  <Color red="0.03921568766236305" green="0.7019608020782471" blue="0.9215686321258545" />
+               </color>
+            </DropShadow>
+         </effect></ListView>
+      <Label alignment="CENTER" layoutX="944.0" layoutY="17.0" prefHeight="35.0" prefWidth="81.0" text="Exams" textFill="#0a1c8f">
          <font>
-            <Font size="24.0" />
+            <Font name="Times New Roman Bold Italic" size="24.0" />
          </font>
+         <effect>
+            <DropShadow>
+               <color>
+                  <Color red="0.03921568766236305" green="0.7019608020782471" blue="0.9215686321258545" />
+               </color>
+            </DropShadow>
+         </effect>
       </Label>
-      <Button fx:id="add_exam" layoutX="875.0" layoutY="193.0" mnemonicParsing="false" onAction="#handle_add_button" prefHeight="26.0" prefWidth="64.0" text="ADD" />
-      <Button fx:id="delete" layoutX="875.0" layoutY="237.0" mnemonicParsing="false" onAction="#handle_delete_button" text="DELETE" />
-      <Button layoutX="875.0" layoutY="282.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="64.0" text="EDIT" />
-      <Button layoutX="875.0" layoutY="237.0" mnemonicParsing="false" text="DELETE" />
+      <Button fx:id="add_exam" layoutX="862.0" layoutY="190.0" mnemonicParsing="false" onAction="#handle_add_button" prefHeight="26.0" prefWidth="75.0" style="-fx-background-color: no-color;" text="ADD" textFill="WHITE">
+         <font>
+            <Font name="Times New Roman Bold Italic" size="19.0" />
+         </font>
+         <effect>
+            <DropShadow>
+               <color>
+                  <Color red="0.03921568766236305" green="0.7019608020782471" blue="0.9215686321258545" />
+               </color>
+            </DropShadow>
+         </effect>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <Button layoutX="862.0" layoutY="238.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" style="-fx-background-color: no-color;" text="DELETE" textFill="WHITE">
+         <font>
+            <Font name="Times New Roman Bold Italic" size="14.0" />
+         </font>
+         <effect>
+            <DropShadow>
+               <color>
+                  <Color red="0.03921568766236305" green="0.7019608020782471" blue="0.9215686321258545" />
+               </color>
+            </DropShadow>
+         </effect>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
       <AnchorPane fx:id="create_exam" layoutX="406.0" layoutY="116.0" prefHeight="228.0" prefWidth="325.0" style="-fx-background-color: black;" visible="false">
          <children>
             <TextField fx:id="name" layoutX="82.0" layoutY="51.0" style="-fx-background-color: white;" />
@@ -51,8 +140,47 @@
             <Button fx:id="create" layoutX="119.0" layoutY="158.0" mnemonicParsing="false" onAction="#add_new_exam" prefHeight="30.0" prefWidth="68.0" text="create" />
          </children>
       </AnchorPane>
-      <Button fx:id="back" layoutX="28.0" layoutY="467.0" mnemonicParsing="false" onAction="#ShowTeacherCoursesButtonClick" text="back" />
-      <Button layoutX="663.0" layoutY="180.0" mnemonicParsing="false" onAction="#navigateToDocInputPanel" text="ADD" />
-      <Button layoutX="723.0" layoutY="180.0" mnemonicParsing="false" onAction="#navigateToDocDeletedPanel" text="DELETE" />
+      <Button fx:id="back" layoutX="14.0" layoutY="467.0" mnemonicParsing="false" onAction="#ShowTeacherCoursesButtonClick" prefHeight="25.0" prefWidth="81.0" style="-fx-background-color: no-color;" text="BACK" textFill="#f8f8f8">
+         <font>
+            <Font name="Times New Roman Bold Italic" size="18.0" />
+         </font>
+         <effect>
+            <DropShadow>
+               <color>
+                  <Color red="0.03921568766236305" green="0.7019608020782471" blue="0.9215686321258545" />
+               </color>
+            </DropShadow>
+         </effect>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <Button layoutX="663.0" layoutY="180.0" mnemonicParsing="false" onAction="#navigateToDocInputPanel" prefHeight="25.0" prefWidth="55.0" style="-fx-background-color: no-color;" text="ADD" textFill="WHITE">
+         <font>
+            <Font name="Times New Roman Bold Italic" size="15.0" />
+         </font>
+         <effect>
+            <DropShadow>
+               <color>
+                  <Color red="0.03921568766236305" green="0.7019608020782471" blue="0.9215686321258545" />
+               </color>
+            </DropShadow>
+         </effect>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <Button layoutX="723.0" layoutY="180.0" mnemonicParsing="false" onAction="#navigateToDocDeletedPanel" style="-fx-background-color: no-color;" text="DELETE" textFill="WHITE">
+         <font>
+            <Font name="Times New Roman Bold Italic" size="14.0" />
+         </font>
+         <effect>
+            <DropShadow>
+               <color>
+                  <Color red="0.03921568766236305" green="0.7019608020782471" blue="0.9215686321258545" />
+               </color>
+            </DropShadow>
+         </effect>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
    </children>
 </AnchorPane>

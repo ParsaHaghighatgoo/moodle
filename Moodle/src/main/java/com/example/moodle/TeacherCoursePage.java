@@ -3,6 +3,7 @@ package com.example.moodle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -16,6 +17,10 @@ public class TeacherCoursePage {
     @FXML
     private Button delete;
 
+    @FXML
+    private ListView DocsListView;
+    @FXML
+    private ListView videosList;
     @FXML
     private Button back;
 
@@ -33,13 +38,16 @@ public class TeacherCoursePage {
 
     @FXML
     private Button add_exam;
+    Course selectedCourse;
 
 
     private final User logedInUser = Login.logedInUser;
 
-    private void initialize(){
+    public void initialize(){
         add_exam.setOnAction(this::add_new_exam);
         create_exam.setVisible(false);
+//        videosList.getItems().addAll(AllCourseList.selectedCourse.CourseVideos);
+ //       DocsListView.getItems().addAll(AllCourseList.selectedCourse.CourseDocs);
     }
     private Course course;
 
@@ -59,6 +67,7 @@ public class TeacherCoursePage {
             showAlert(Alert.AlertType.ERROR, "Input Error", "Please fill in all the required fields.");
             return;
         }
+
         Quiz quiz = new Quiz(name.getText(), course, time.getText());
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("newExam.fxml"));
         try {
@@ -157,6 +166,70 @@ public class TeacherCoursePage {
             stage.show();
         } catch (IOException e) {
             throw new RuntimeException(e);
+        }
+    }
+    @FXML
+    private void navigateToInputPanel(ActionEvent event) {
+        Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(Signup.class.getResource("InputPane.fxml"));
+            Parent root = fxmlLoader.load();
+
+            // Create a new stage
+            currentStage.setScene(new Scene(root));
+            currentStage.setTitle("Input Panel");
+            currentStage.show();
+
+        } catch (IOException e) {
+            System.err.println("Error loading the signup page: " + e.getMessage());
+        }
+    }
+    @FXML
+    private void navigateToDeletedPanel(ActionEvent event) {
+        Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(Signup.class.getResource("DeletePanel.fxml"));
+            Parent root = fxmlLoader.load();
+
+            // Create a new stage
+            currentStage.setScene(new Scene(root));
+            currentStage.setTitle("Input Panel");
+            currentStage.show();
+
+        } catch (IOException e) {
+            System.err.println("Error loading the signup page: " + e.getMessage());
+        }
+    }
+    @FXML
+    private void navigateToDocInputPanel(ActionEvent event) {
+        Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(Signup.class.getResource("DocInputPanel.fxml"));
+            Parent root = fxmlLoader.load();
+
+            // Create a new stage
+            currentStage.setScene(new Scene(root));
+            currentStage.setTitle("Input Panel");
+            currentStage.show();
+
+        } catch (IOException e) {
+            System.err.println("Error loading the signup page: " + e.getMessage());
+        }
+    }
+    @FXML
+    private void navigateToDocDeletedPanel(ActionEvent event) {
+        Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(Signup.class.getResource("DocDeletePanel.fxml"));
+            Parent root = fxmlLoader.load();
+
+            // Create a new stage
+            currentStage.setScene(new Scene(root));
+            currentStage.setTitle("Input Panel");
+            currentStage.show();
+
+        } catch (IOException e) {
+            System.err.println("Error loading the signup page: " + e.getMessage());
         }
     }
 }

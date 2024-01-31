@@ -162,6 +162,22 @@ public class UserPage {
     }
 
     @FXML
+    private void navigateToSupportPanel(ActionEvent event) {
+        Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(Signup.class.getResource("SupportPanel.fxml"));
+            Parent root = fxmlLoader.load();
+
+            // Create a new stage
+            currentStage.setScene(new Scene(root));
+            currentStage.setTitle("Support Panel");
+            currentStage.show();
+
+        } catch (IOException e) {
+            System.err.println("Error loading the signup page: " + e.getMessage());
+        }
+    }
+    @FXML
     private void handleExamButton(){
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Exam.fxml"));
         try {

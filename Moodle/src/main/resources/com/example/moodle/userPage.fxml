@@ -33,6 +33,7 @@
             <Button layoutX="88.0" layoutY="253.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="187.0" text="notifications" />
             <TextArea fx:id="tokenLabel" layoutX="88.0" layoutY="296.0" prefHeight="90.0" prefWidth="187.0" />
             <Button layoutX="71.0" layoutY="565.0" mnemonicParsing="false" onAction="#handleSignoutButton" text="signout" />
+            <Button layoutX="144.0" layoutY="565.0" mnemonicParsing="false" onAction="#navigateToSupportPanel" text="Support Phase" />
          </children>
       </AnchorPane>
       <AnchorPane fx:id="listPane" layoutX="236.0" prefHeight="612.0" prefWidth="614.0">

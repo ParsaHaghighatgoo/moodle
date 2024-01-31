@@ -14,13 +14,27 @@ public class DataBase {
     public void initializeDataBase() {
         // Your existing initialization code
         ArrayList<String> newLoginDates = new ArrayList<>();
-        Course course = new Course("first", "firstCourse.png", null, null);
-        Course course2 = new Course("second", "secondCourse.png", null, null);
-        Course course3 = new Course("third", "thirdCourse.png", null, null);
-        Course course4 = new Course("fourth", "fourseCourse.png", null, null);
-        Course course5 = new Course("Fifth", "fourseCourse.png", null, null);
-        Course course6 = new Course("Sixth", "fourseCourse.png", null, null);
-        Course course7 = new Course("Seventh", "fourseCourse.png", null, null);
+        ArrayList<String> courseVideo = new ArrayList<>();
+        ArrayList<String> courseDoc = new ArrayList<>();
+        ArrayList<String> course2Video = new ArrayList<>();
+        ArrayList<String> course2Doc = new ArrayList<>();
+        ArrayList<String> course3Video = new ArrayList<>();
+        ArrayList<String> course3Doc = new ArrayList<>();
+        ArrayList<String> course4Video = new ArrayList<>();
+        ArrayList<String> course4Doc = new ArrayList<>();
+        ArrayList<String> course5Video = new ArrayList<>();
+        ArrayList<String> course5Doc = new ArrayList<>();
+        ArrayList<String> course6Video = new ArrayList<>();
+        ArrayList<String> course6Doc = new ArrayList<>();
+        ArrayList<String> course7Video = new ArrayList<>();
+        ArrayList<String> course7Doc = new ArrayList<>();
+        Course course = new Course("first", "firstCourse.png", courseVideo, courseDoc);
+        Course course2 = new Course("second", "secondCourse.png", course2Video, course2Doc);
+        Course course3 = new Course("third", "thirdCourse.png", course3Video, course3Doc);
+        Course course4 = new Course("fourth", "fourseCourse.png", course4Video, course4Doc);
+        Course course5 = new Course("Fifth", "fourseCourse.png", course5Video, course5Doc);
+        Course course6 = new Course("Sixth", "fourseCourse.png", course6Video, course6Doc);
+        Course course7 = new Course("Seventh", "fourseCourse.png", course7Video, course7Doc);
 
         courses.add(course);
         courses.add(course2);
@@ -36,7 +50,8 @@ public class DataBase {
         ArrayList<Course> adminStdCourse= new ArrayList<>();
         //String adminPersonalToken = Security.generateToken();
         String adminPersonalToken = "E0eCjZqSVzU=";
-        User admin = new User(adminPersonalToken, "admin", "admin", "admin", "admin", 2,"admin@gmail.com", Gender.OTHERS, newLoginDates,adminTeacherCourse
+        String adminPassHash = Encryption.hashPassword("admin");
+        User admin = new User(adminPersonalToken, "admin", adminPassHash, "admin", "admin", 2,"admin@gmail.com", Gender.OTHERS, newLoginDates,adminTeacherCourse
         ,adminStdCourse);
 
         admin.teacherCourses.add(course);
@@ -44,7 +59,9 @@ public class DataBase {
         admin.stdCourses.add(course3);
         admin.stdCourses.add(course4);
 
-        User admin2 = new User(adminPersonalToken, "admin2", "admin2", "admin2", "admin2", 2,"admin2@gmail.com", Gender.OTHERS, newLoginDates,adminTeacherCourse,adminStdCourse);
+        String adminPersonalToken2 = "E4eokTqSo9U=";
+        String admin2PassHash = Encryption.hashPassword("admin2");
+        User admin2 = new User(adminPersonalToken2, "admin2", admin2PassHash, "admin2", "admin2", 2,"admin2@gmail.com", Gender.OTHERS, newLoginDates,adminTeacherCourse,adminStdCourse);
         admin2.teacherCourses.add(course3);
         admin2.teacherCourses.add(course2);
         admin2.stdCourses.add(course);

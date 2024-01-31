@@ -11,6 +11,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ListView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
@@ -19,6 +20,10 @@ import java.io.IOException;
 public class StudentCoursePage {
 
 
+    @FXML
+    private ListView listDocs;
+    @FXML
+    private ListView listVideos;
     @FXML
     private AnchorPane page;
 
@@ -29,6 +34,10 @@ public class StudentCoursePage {
     private Button show_exams;
 
     private final User logedInUser = Login.logedInUser;
+    public void initialize(){
+        listDocs.getItems().addAll(AllCourseList.selectedCourse.CourseVideos);
+        listVideos.getItems().addAll(AllCourseList.selectedCourse.CourseDocs);
+    }
     @FXML
     private void handle_show_all_exam (){
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Exam.fxml"));

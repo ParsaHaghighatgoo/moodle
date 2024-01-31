@@ -32,6 +32,7 @@ public class AllCourseList {
     private User logedInUser = Login.logedInUser;
     @FXML
     private ScrollPane scrollPane;
+    static Course selectedCourse;
 
     public static Course selected_course;
 
@@ -54,6 +55,7 @@ public void initialize() throws IOException {
         anchorPane.setOnMouseClicked(event -> {
             // Handle the course selection here
             System.out.println("Selected course: " + course);
+            selectedCourse = course;
             // TODO: Implement the selection logic
             Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             selected_course = course;

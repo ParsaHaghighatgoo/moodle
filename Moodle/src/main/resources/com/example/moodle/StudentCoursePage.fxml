@@ -1,22 +1,82 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.Separator?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="page" prefHeight="400.0" prefWidth="800.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.moodle.StudentCoursePage">
+<AnchorPane fx:id="page" prefHeight="400.0" prefWidth="800.0" style="-fx-background-color: linear-gradient(to bottom, #ffffff 0%, #0a1c8f 100%);" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.moodle.StudentCoursePage">
     <children>
-        <ListView fx:id="listVideos" layoutX="36.0" layoutY="49.0" prefHeight="287.0" prefWidth="200.0" style="-fx-background-color: yellow;" />
+        <ListView fx:id="listVideos" layoutX="36.0" layoutY="49.0" prefHeight="287.0" prefWidth="200.0" style="-fx-background-color: #8190d6;" />
         <Separator layoutX="263.0" layoutY="100.0" orientation="VERTICAL" prefHeight="200.0" />
-        <Label layoutX="36.0" layoutY="23.0" prefHeight="17.0" prefWidth="79.0" text="list of videos" textFill="WHITE" />
-        <ListView layoutX="294.0" layoutY="49.0" prefHeight="287.0" prefWidth="200.0" style="-fx-background-color: yellow;" />
-        <Label layoutX="308.0" layoutY="23.0" prefHeight="17.0" prefWidth="79.0" text="list of exam" textFill="WHITE" />
+        <Label layoutX="36.0" layoutY="23.0" prefHeight="18.0" prefWidth="113.0" text="LIST OF VIDEOS" textFill="#0a1c8f">
+         <font>
+            <Font name="Times New Roman Bold Italic" size="13.0" />
+         </font>
+         <effect>
+            <DropShadow>
+               <color>
+                  <Color red="0.03921568766236305" green="0.7019608020782471" blue="0.9215686321258545" />
+               </color>
+            </DropShadow>
+         </effect></Label>
+        <ListView layoutX="294.0" layoutY="49.0" prefHeight="287.0" prefWidth="200.0" style="-fx-background-color: #8190d6;" />
+        <Label layoutX="308.0" layoutY="23.0" prefHeight="18.0" prefWidth="120.0" text="LIST OF EXAMS" textFill="#0a1c8f">
+         <font>
+            <Font name="Times New Roman Bold Italic" size="14.0" />
+         </font>
+         <effect>
+            <DropShadow>
+               <color>
+                  <Color red="0.03921568766236305" green="0.7019608020782471" blue="0.9215686321258545" />
+               </color>
+            </DropShadow>
+         </effect></Label>
         <Separator layoutX="524.0" layoutY="92.0" orientation="VERTICAL" prefHeight="200.0" />
-        <ListView fx:id="listDocs" layoutX="552.0" layoutY="49.0" prefHeight="287.0" prefWidth="200.0" style="-fx-background-color: yellow;" />
-        <Label layoutX="564.0" layoutY="23.0" prefHeight="17.0" prefWidth="79.0" style="-fx-background-color: black;" text="docs" textFill="WHITE" />
-        <Button fx:id="back" layoutX="24.0" layoutY="361.0" mnemonicParsing="false" onAction="#ShowStudentCoursesButtonClick" text="Back" />
-      <Button fx:id="show_exams" layoutX="357.0" layoutY="336.0" mnemonicParsing="false" onAction="#handle_show_all_exam" text="show all" />
+        <ListView fx:id="listDocs" layoutX="552.0" layoutY="49.0" prefHeight="287.0" prefWidth="200.0" style="-fx-background-color: #8190d6;" />
+        <Label layoutX="564.0" layoutY="23.0" prefHeight="17.0" prefWidth="79.0" text="DOCS" textFill="#0a1c8f">
+         <font>
+            <Font name="Times New Roman Bold Italic" size="14.0" />
+         </font>
+         <effect>
+            <DropShadow>
+               <color>
+                  <Color red="0.03921568766236305" green="0.7019608020782471" blue="0.9215686321258545" />
+               </color>
+            </DropShadow>
+         </effect></Label>
+        <Button fx:id="back" layoutX="24.0" layoutY="353.0" mnemonicParsing="false" onAction="#ShowStudentCoursesButtonClick" prefHeight="34.0" prefWidth="66.0" style="-fx-background-color: no-color;" text="BACK" textFill="WHITE">
+         <font>
+            <Font name="Times New Roman Bold Italic" size="16.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <effect>
+            <DropShadow>
+               <color>
+                  <Color red="0.03921568766236305" green="0.7019608020782471" blue="0.9215686321258545" />
+               </color>
+            </DropShadow>
+         </effect></Button>
+      <Button fx:id="show_exams" layoutX="357.0" layoutY="353.0" mnemonicParsing="false" onAction="#handle_show_all_exam" prefHeight="34.0" prefWidth="91.0" style="-fx-background-color: no-color;" text="SHOW ALL" textFill="WHITE">
+         <font>
+            <Font name="Times New Roman Bold Italic" size="14.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <effect>
+            <DropShadow>
+               <color>
+                  <Color red="0.03921568766236305" green="0.7019608020782471" blue="0.9215686321258545" />
+               </color>
+            </DropShadow>
+         </effect></Button>
     </children>
 </AnchorPane>

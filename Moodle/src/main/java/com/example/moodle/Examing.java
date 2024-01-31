@@ -163,10 +163,6 @@ public class Examing {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(Signup.class.getResource("ExamReasult.fxml"));
             Parent root = fxmlLoader.load();
-
-
-
-
             currentStage.setScene(new Scene(root));
             currentStage.setTitle("Exam Result Page");
             currentStage.show();

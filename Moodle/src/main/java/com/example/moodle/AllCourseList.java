@@ -34,6 +34,8 @@ public class AllCourseList {
     private ScrollPane scrollPane;
     static Course selectedCourse;
 
+    public static Course selected_course;
+
     public void setLogedInUser(User logedInUser) {
         this.logedInUser = logedInUser;
     }
@@ -56,10 +58,10 @@ public void initialize() throws IOException {
             selectedCourse = course;
             // TODO: Implement the selection logic
             Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            selected_course = course;
             try {
                 FXMLLoader fxmlLoader2 = new FXMLLoader(Signup.class.getResource("TeacherCoursePage.fxml"));
                 Parent root = fxmlLoader2.load();
-
                 TeacherCoursePage teacherCoursePage = fxmlLoader2.getController();
                 teacherCoursePage.setCourse(course);
                 //Create a new stage
@@ -94,6 +96,7 @@ public void initialize() throws IOException {
                 System.out.println("Selected course: " + course);
                 // TODO: Implement the selection logic
                 Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                selected_course = course;
                 try {
                     FXMLLoader fxmlLoader2 = new FXMLLoader(Signup.class.getResource("StudentCoursePage.fxml"));
                     Parent root = fxmlLoader2.load();

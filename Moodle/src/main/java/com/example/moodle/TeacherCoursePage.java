@@ -15,9 +15,14 @@ import java.io.IOException;
 public class TeacherCoursePage {
 
     @FXML
+    private Button delete;
+
+    @FXML
     private ListView DocsListView;
     @FXML
     private ListView videosList;
+    @FXML
+    private ListView examList;
     @FXML
     private Button back;
 
@@ -41,10 +46,10 @@ public class TeacherCoursePage {
     private final User logedInUser = Login.logedInUser;
 
     public void initialize(){
-        add_exam.setOnAction(this::add_new_exam);
         create_exam.setVisible(false);
         videosList.getItems().addAll(AllCourseList.selectedCourse.CourseVideos);
         DocsListView.getItems().addAll(AllCourseList.selectedCourse.CourseDocs);
+        examList.getItems().addAll(AllCourseList.selectedCourse.quizzes);
     }
     private Course course;
 
@@ -149,6 +154,20 @@ public class TeacherCoursePage {
         } catch (IOException e) {
             System.err.println("Error loading the CourseLists page: " + e.getMessage());
             e.printStackTrace(); // Print the stack trace for detailed error logging
+        }
+    }
+    @FXML
+    private void handle_delete_button(){
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("delete_exam.fxml"));
+        try {
+            Parent new_exam = fxmlLoader.load();
+            Stage stage = (Stage) delete.getScene().getWindow();
+            Scene newPage = new Scene(new_exam);
+            stage.setScene(newPage);
+            stage.setTitle("deleting");
+            stage.show();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
     }
     @FXML

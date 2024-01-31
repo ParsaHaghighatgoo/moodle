@@ -2,14 +2,42 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.moodle.DocDeletePanel">
+<AnchorPane prefHeight="306.0" prefWidth="258.0" style="-fx-background-color: linear-gradient(to bottom, #ffffff 0%, #0a1c8f 100%);" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.moodle.DocDeletePanel">
    <children>
-      <Button layoutX="81.0" layoutY="275.0" mnemonicParsing="false" onAction="#navigateToTeacherCoursePane" text="back" />
-      <Button layoutX="76.0" layoutY="147.0" mnemonicParsing="false" onAction="#delete" text="delete" />
-      <TextField fx:id="courseName" layoutX="40.0" layoutY="41.0" promptText="enter course name" />
-      <TextField fx:id="deleteLink" layoutX="41.0" layoutY="75.0" promptText="enter delete link" />
+      <Button layoutX="19.0" layoutY="265.0" mnemonicParsing="false" onAction="#navigateToTeacherCoursePane" style="-fx-background-color: no-color;" text="BACK" textFill="WHITE">
+         <font>
+            <Font name="Times New Roman Bold Italic" size="15.0" />
+         </font>
+         <effect>
+            <DropShadow>
+               <color>
+                  <Color red="0.18292397260665894" green="0.6358596682548523" blue="0.7157894968986511" />
+               </color>
+            </DropShadow>
+         </effect></Button>
+      <Button layoutX="90.0" layoutY="189.0" mnemonicParsing="false" onAction="#delete" style="-fx-background-color: no-color;" text="DELETE" textFill="WHITE">
+         <font>
+            <Font name="Times New Roman Bold Italic" size="17.0" />
+         </font>
+         <effect>
+            <DropShadow>
+               <color>
+                  <Color red="0.17715398967266083" green="0.6618362665176392" blue="0.7473683953285217" />
+               </color>
+            </DropShadow>
+         </effect></Button>
+      <TextField fx:id="courseName" layoutX="39.0" layoutY="78.0" promptText="ENTER COURSE NAME">
+         <font>
+            <Font name="Times New Roman Bold Italic" size="16.0" />
+         </font></TextField>
+      <TextField fx:id="deleteLink" layoutX="39.0" layoutY="122.0" promptText="ENTER DELETE LINK">
+         <font>
+            <Font name="Times New Roman Bold Italic" size="16.0" />
+         </font></TextField>
    </children>
 </AnchorPane>

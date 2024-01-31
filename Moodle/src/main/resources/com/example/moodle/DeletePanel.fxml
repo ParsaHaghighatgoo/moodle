@@ -2,14 +2,41 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.moodle.DeletePanel">
+<AnchorPane prefHeight="274.0" prefWidth="377.0" style="-fx-background-color: linear-gradient(to bottom, #ffffff 0%, #0a1c8f 100%);" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.moodle.DeletePanel">
    <children>
-      <Button layoutX="101.0" layoutY="295.0" mnemonicParsing="false" onAction="#navigateToTeacherCoursePane" text="back" />
-      <TextField fx:id="courseNameDelete" layoutX="47.0" layoutY="45.0" promptText="enter course name" />
-      <TextField fx:id="deletelink" layoutX="48.0" layoutY="82.0" promptText="enter the link" />
-      <Button layoutX="240.0" layoutY="82.0" mnemonicParsing="false" onAction="#delete" text="delete" />
+      <Button alignment="CENTER" layoutX="14.0" layoutY="234.0" mnemonicParsing="false" onAction="#navigateToTeacherCoursePane" style="-fx-background-color: no-color;" text="BACK" textFill="WHITE">
+         <font>
+            <Font name="Times New Roman Bold Italic" size="14.0" />
+         </font></Button>
+      <TextField fx:id="courseNameDelete" alignment="CENTER" layoutX="92.0" layoutY="71.0" prefHeight="28.0" prefWidth="187.0" promptText="ENTER COURSE NAME" style="-fx-background-color: no-color; -fx-border-color: black;">
+         <font>
+            <Font name="Times New Roman Bold Italic" size="15.0" />
+         </font>
+         <effect>
+            <DropShadow />
+         </effect></TextField>
+      <TextField fx:id="deletelink" alignment="CENTER" layoutX="92.0" layoutY="111.0" prefHeight="28.0" prefWidth="187.0" promptText="ENTER THE LINK" style="-fx-background-color: no-color; -fx-border-color: black;">
+         <font>
+            <Font name="Times New Roman Bold Italic" size="15.0" />
+         </font>
+         <effect>
+            <DropShadow />
+         </effect></TextField>
+      <Button layoutX="154.0" layoutY="159.0" mnemonicParsing="false" onAction="#delete" prefHeight="28.0" prefWidth="79.0" style="-fx-background-color: no-color;" text="DELETE" textFill="WHITE">
+         <font>
+            <Font name="Times New Roman Bold Italic" size="13.0" />
+         </font>
+         <effect>
+            <DropShadow>
+               <color>
+                  <Color red="0.03921568766236305" green="0.7019608020782471" blue="0.9215686321258545" />
+               </color>
+            </DropShadow>
+         </effect></Button>
    </children>
 </AnchorPane>

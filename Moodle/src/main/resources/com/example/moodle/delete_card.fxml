@@ -4,31 +4,33 @@
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="157.0" prefWidth="467.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.moodle.DeleteCard">
+<AnchorPane prefHeight="157.0" prefWidth="467.0" style="-fx-background-color: linear-gradient(to bottom, #ffffff 0%, #0a1c8f 100%);" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.moodle.DeleteCard">
    <children>
-      <AnchorPane fx:id="corseCard" layoutX="10.0" layoutY="10.0" prefHeight="167.0" prefWidth="239.0">
+      <AnchorPane fx:id="corseCard" layoutX="10.0" layoutY="10.0" prefHeight="167.0" prefWidth="239.0" style="-fx-background-color: linear-gradient(to bottom, #ffffff 0%, #0a1c8f 100%);">
          <children>
-            <VBox alignment="TOP_CENTER" layoutX="-14.0" layoutY="-14.0" prefHeight="186.0" prefWidth="476.0" style="-fx-background-color: #1E90FF;">
+            <VBox alignment="TOP_CENTER" layoutX="-14.0" layoutY="-14.0" prefHeight="186.0" prefWidth="476.0" style="-fx-background-color: linear-gradient(to bottom, #ffffff 0%, #0a1c8f 100%);">
                <children>
-                  <Label fx:id="name" alignment="CENTER" prefHeight="60.0" prefWidth="150.0" text="exam name">
+                  <Label fx:id="name" alignment="CENTER" prefHeight="59.0" prefWidth="177.0" text="EXAM NAME">
                      <VBox.margin>
                         <Insets top="10.0" />
                      </VBox.margin>
                      <font>
-                        <Font size="18.0" />
+                        <Font name="Times New Roman Bold Italic" size="22.0" />
                      </font>
                   </Label>
-                  <Label fx:id="course" alignment="TOP_CENTER" minWidth="-Infinity" prefHeight="32.0" prefWidth="135.0" style="-fx-background-color: #1E90FF;" text="course:" textAlignment="CENTER" VBox.vgrow="SOMETIMES">
+                  <Label fx:id="course" alignment="TOP_CENTER" minWidth="-Infinity" prefHeight="32.0" prefWidth="135.0" style="-fx-background-color: no-color;" text="COURSE:" textAlignment="CENTER" VBox.vgrow="SOMETIMES">
                      <VBox.margin>
                         <Insets top="10.0" />
                      </VBox.margin>
                      <font>
-                        <Font name="Khmer OS System" size="16.0" />
+                        <Font name="Times New Roman Bold Italic" size="16.0" />
                      </font>
                   </Label>
                   <FlowPane alignment="CENTER" prefHeight="65.0" prefWidth="260.0">
@@ -36,11 +38,21 @@
                         <Insets top="20.0" />
                      </VBox.margin>
                      <children>
-                        <Button fx:id="start" mnemonicParsing="false" onAction="#deleting_exam" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: green;" text="delete">
+                        <Button fx:id="start" mnemonicParsing="false" onAction="#deleting_exam" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: no-color;" text="DELETE" textFill="WHITE">
                             <ellipsisString>%key.unspecified</ellipsisString>
                             <cursor>
-                              <Cursor fx:constant="DEFAULT" />
+                              <Cursor fx:constant="HAND" />
                            </cursor>
+                           <font>
+                              <Font name="Times New Roman Bold Italic" size="16.0" />
+                           </font>
+                           <effect>
+                              <DropShadow>
+                                 <color>
+                                    <Color red="0.15933723747730255" green="0.6233742833137512" blue="0.7052631378173828" />
+                                 </color>
+                              </DropShadow>
+                           </effect>
                         </Button>
                      </children>
                   </FlowPane>

@@ -131,13 +131,35 @@
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
-      <AnchorPane fx:id="create_exam" layoutX="406.0" layoutY="116.0" prefHeight="228.0" prefWidth="325.0" style="-fx-background-color: black;" visible="false">
+      <AnchorPane fx:id="create_exam" layoutX="406.0" layoutY="220.0" prefHeight="230.0" prefWidth="309.0" style="-fx-background-color: linear-gradient( #8190d6,#ffffff);" visible="false">
          <children>
-            <TextField fx:id="name" layoutX="82.0" layoutY="51.0" style="-fx-background-color: white;" />
-            <TextField fx:id="time" layoutX="82.0" layoutY="109.0" style="-fx-background-color: white;" />
-            <Label layoutX="82.0" layoutY="33.0" text="name of the exam:" textFill="#ffffffe3" />
-            <Label layoutX="82.0" layoutY="91.0" text="time of the exam" textFill="WHITE" />
-            <Button fx:id="create" layoutX="119.0" layoutY="158.0" mnemonicParsing="false" onAction="#add_new_exam" prefHeight="30.0" prefWidth="68.0" text="create" />
+            <TextField fx:id="name" layoutX="78.0" layoutY="58.0" style="-fx-background-color: no-color; -fx-border-color: black;">
+               <font>
+                  <Font name="Times New Roman Bold Italic" size="14.0" />
+               </font></TextField>
+            <TextField fx:id="time" layoutX="78.0" layoutY="115.0" style="-fx-background-color: no-color; -fx-border-color: black;">
+               <font>
+                  <Font name="Times New Roman Bold Italic" size="14.0" />
+               </font></TextField>
+            <Label layoutX="82.0" layoutY="33.0" text="NAME OF EXAM" textFill="#000000e3">
+               <font>
+                  <Font name="Times New Roman Bold Italic" size="16.0" />
+               </font></Label>
+            <Label layoutX="82.0" layoutY="91.0" text="TIME OF EXAM">
+               <font>
+                  <Font name="Times New Roman Bold Italic" size="16.0" />
+               </font></Label>
+            <Button fx:id="create" layoutX="119.0" layoutY="160.0" mnemonicParsing="false" onAction="#add_new_exam" prefHeight="30.0" prefWidth="68.0" style="-fx-background-color: no-color;" text="CREAT">
+               <font>
+                  <Font name="Times New Roman Bold Italic" size="13.0" />
+               </font>
+               <effect>
+                  <DropShadow>
+                     <color>
+                        <Color red="0.125490203499794" green="0.2666666805744171" blue="0.9019607901573181" />
+                     </color>
+                  </DropShadow>
+               </effect></Button>
          </children>
       </AnchorPane>
       <Button fx:id="back" layoutX="14.0" layoutY="467.0" mnemonicParsing="false" onAction="#ShowTeacherCoursesButtonClick" prefHeight="25.0" prefWidth="81.0" style="-fx-background-color: no-color;" text="BACK" textFill="#f8f8f8">

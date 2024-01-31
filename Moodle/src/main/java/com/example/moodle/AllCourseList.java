@@ -33,6 +33,8 @@ public class AllCourseList {
     @FXML
     private ScrollPane scrollPane;
 
+    public static Course selected_course;
+
     public void setLogedInUser(User logedInUser) {
         this.logedInUser = logedInUser;
     }
@@ -54,10 +56,10 @@ public void initialize() throws IOException {
             System.out.println("Selected course: " + course);
             // TODO: Implement the selection logic
             Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            selected_course = course;
             try {
                 FXMLLoader fxmlLoader2 = new FXMLLoader(Signup.class.getResource("TeacherCoursePage.fxml"));
                 Parent root = fxmlLoader2.load();
-
                 TeacherCoursePage teacherCoursePage = fxmlLoader2.getController();
                 teacherCoursePage.setCourse(course);
                 //Create a new stage
@@ -92,6 +94,7 @@ public void initialize() throws IOException {
                 System.out.println("Selected course: " + course);
                 // TODO: Implement the selection logic
                 Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                selected_course = course;
                 try {
                     FXMLLoader fxmlLoader2 = new FXMLLoader(Signup.class.getResource("StudentCoursePage.fxml"));
                     Parent root = fxmlLoader2.load();
@@ -114,6 +117,30 @@ public void initialize() throws IOException {
         scrollPane.setContent(hBox1);
     }
 
+    public void initialize3() throws IOException {
+        VBox hBox1 = new VBox();
+
+        for (Course course : DataBase.courses) {
+            if (!logedInUser.stdCourses.contains(course)) {
+                double index1 = 25;
+
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("CourseCard.fxml"));
+                AnchorPane anchorPane = fxmlLoader.load();
+                CourseCard courseCard = fxmlLoader.getController();
+                courseCard.setData(course);
+
+                anchorPane.setOnMouseClicked(event -> {
+                    logedInUser.stdCourses.add(course);
+                    // Handle the course selection here
+                });
+
+                hBox1.getChildren().add(anchorPane);
+                HBox.setMargin(anchorPane, new Insets(0, 0, 0, index1));
+            }
+        }
+
+        scrollPane.setContent(hBox1);
+    }
 
     @FXML
     private void backToUserPage(ActionEvent event) {

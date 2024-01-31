@@ -6,9 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
@@ -51,23 +49,68 @@ public class Login {
         String username = usernameField.getText();
         String password = passwordField.getText();
 
+        boolean found = false;
         for (User user : DataBase.users) {
             if (username.equals(user.username) && password.equals(user.password)) {
+                found = true;
                 this.logedInUser = user;
                 DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
                 LocalDateTime now = LocalDateTime.now();
-                //System.out.println(String.valueOf(now).substring(0,19));
                 user.logindates.add(dtf.format(now));
                 personalTokenString = "Personal Token: "+user.personalToken;
                 newLogAct = "your first login is : " + user.logindates.get(0) + "\n"
-                + "your last login is : " +  user.logindates.get(user.logindates.size()-1);
-                //UserPage.updateLoginActivityBoxText(newLogAct);
+                        + "your last login is : " +  user.logindates.get(user.logindates.size()-1);
                 navigateToUserPage(event);
-                return;
+                break;
             }
         }
-        System.out.println("no");
+        if (!found) {
+            showAlert(Alert.AlertType.ERROR, "Login Failed", "Invalid username or password.");
+        }
+        // Add CSS file to the scene
+
     }
+
+    private void showAlert(Alert.AlertType type, String title, String content) {
+        Alert alert = new Alert(type);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(content);
+
+        // Set custom colors directly
+        switch (type) {
+            case ERROR:
+                setAlertColors(alert, "#ced4da", "#9d0208", "#9d0208", "#6c757d");
+                break;
+            // Add cases for other alert types if needed
+
+            default: // Default colors
+                break;
+        }
+
+        alert.showAndWait();
+    }
+
+    private void setAlertColors(Alert alert, String backgroundColor, String headerColor, String contentColor, String buttonColor) {
+        DialogPane dialogPane = alert.getDialogPane();
+        dialogPane.setStyle("-fx-background-color: " + backgroundColor + ";");
+
+        Label titleLabel = (Label) dialogPane.lookup(".alert-header");
+        if (titleLabel != null) {
+            titleLabel.setStyle("-fx-background-color: " + headerColor + "; -fx-text-fill: #000000;");
+        }
+
+        Label contentLabel = (Label) dialogPane.lookup(".alert-content");
+        if (contentLabel != null) {
+            contentLabel.setStyle("-fx-text-fill: " + contentColor + ";");
+        }
+
+        ButtonBar buttonBar = (ButtonBar) dialogPane.lookup(".button-bar");
+        if (buttonBar != null) {
+            buttonBar.getButtons().forEach(button -> button.setStyle("-fx-background-color: " + buttonColor + "; -fx-text-fill: #000000;"));
+        }
+    }
+
 
     @FXML
     private void navigateToSignupPage(ActionEvent event) {
@@ -128,6 +171,7 @@ public class Login {
             System.err.println("Error loading the signup page: " + e.getMessage());
         }
     }
+
 
 
 }

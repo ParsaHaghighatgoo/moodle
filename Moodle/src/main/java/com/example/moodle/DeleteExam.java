@@ -1,59 +1,27 @@
 package com.example.moodle;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.security.PrivateKey;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
-public class Exam {
-
-    @FXML
-    private TextField name;
-    @FXML
-    private TextField course;
-    @FXML
-    private TextField time;
-    private User logedInUser;
-
-    @FXML
-    private Button create;
+public class DeleteExam {
 
     @FXML
     private AnchorPane root;
-
-    @FXML
-    private ScrollPane exam_list;
-
-
     @FXML
     private Button backButton;
+    @FXML
+    private ScrollPane exam_list;
     private Course selected_course = AllCourseList.selected_course;
-
-    private ArrayList<Quiz> allQuizzes;
-
-
-    public Course getCourse() {
-        return selected_course;
-    }
-
-    public void setCourse(Course selected_course) {
-        this.selected_course = selected_course;
-    }
-
-
 
     public void initialize() {
         ScrollPane scrollPane = new ScrollPane();
@@ -75,17 +43,17 @@ public class Exam {
         // Initialize the course cards
         try {
             double topAnchor = 0; // Initial top anchor value
-            allQuizzes = DataBase.quizzes;
+            ArrayList<Quiz> allQuizzes = DataBase.quizzes;
             for (Quiz quiz : allQuizzes) {
                 System.out.println(quiz.course);
                 System.out.println(selected_course);
                 if (quiz.course.equals(selected_course)){
-                    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ExamCard.fxml"));
+                    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("delete_card.fxml"));
                     AnchorPane anchorPane = fxmlLoader.load();
-                    ExamCard examCard = fxmlLoader.getController();
+                    DeleteCard deleteCard = fxmlLoader.getController();
                     AnchorPane.setTopAnchor(anchorPane, topAnchor);
-                    examCard.setData(quiz);
-                    examCard.setQuiz(quiz);
+                    deleteCard.setData(quiz);
+                    deleteCard.setQuiz(quiz);
                     exam_list.setContent(anchorPane);
                     // Update the top anchor value for the next AnchorPane
                     topAnchor += anchorPane.getPrefHeight() + 20; // Assuming a spacing of 30 between AnchorPanes
@@ -125,5 +93,4 @@ public class Exam {
             e.printStackTrace(); // Print the stack trace for detailed error logging
         }
     }
-
 }

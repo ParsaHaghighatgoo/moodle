@@ -51,12 +51,10 @@ public class StudentCoursePage {
             Parent courseListsParent = fxmlLoader.load();
 
             AllCourseList courseListsController = fxmlLoader.getController();
-            courseListsController.setLogedInUser(logedInUser);
             courseListsController.initialize2(); // Initialize the CourseLists view
 
             // Get the current stage from the welcomeText label (or any other node in the scene graph)
-            Stage stage = (Stage) back.getScene().getWindow();
-
+            Stage stage = (Stage) page.getScene().getWindow();
             Scene courseListsScene = new Scene(courseListsParent);
 
             // Set the scene on the current stage

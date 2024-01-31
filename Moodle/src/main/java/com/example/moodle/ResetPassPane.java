@@ -6,8 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
@@ -45,9 +44,11 @@ public class ResetPassPane {
     void handleCheck(ActionEvent event) {
         String usernameText = username.getText();
         String tokenText = token.getText();
+        boolean found = false;
+
         for (User user : DataBase.users) {
             if (usernameText.equals(user.username) && tokenText.equals(user.personalToken)) {
-                System.out.println(user);
+                found = true;
                 this.loggedInUser = user;
                 falsePane.setVisible(true);
                 correctPane.setVisible(true);
@@ -55,11 +56,52 @@ public class ResetPassPane {
                 return;
             }
         }
-        falsePane.setVisible(true);
-        correctPane.setVisible(false);
-        BackPane.setVisible(false);
-        System.out.println("not found!");
+        // Display error if username or token is invalid
+        if (!found) {
+            showAlert(Alert.AlertType.ERROR, "Reset Password Failed", "Invalid username or token.");
+        }
     }
+
+    private void showAlert(Alert.AlertType type, String title, String content) {
+        Alert alert = new Alert(type);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(content);
+
+        // Set custom colors directly
+        switch (type) {
+            case ERROR:
+                setAlertColors(alert, "#ced4da", "#0077b6", "#34495E", "#6c757d");
+                break;
+            // Add cases for other alert types if needed
+
+            default: // Default colors
+                break;
+        }
+
+        alert.showAndWait();
+    }
+
+    private void setAlertColors(Alert alert, String backgroundColor, String headerColor, String contentColor, String buttonColor) {
+        DialogPane dialogPane = alert.getDialogPane();
+        dialogPane.setStyle("-fx-background-color: " + backgroundColor + ";");
+
+        Label titleLabel = (Label) dialogPane.lookup(".alert-header");
+        if (titleLabel != null) {
+            titleLabel.setStyle("-fx-background-color: " + headerColor + "; -fx-text-fill: #000000;");
+        }
+
+        Label contentLabel = (Label) dialogPane.lookup(".alert-content");
+        if (contentLabel != null) {
+            contentLabel.setStyle("-fx-text-fill: " + contentColor + ";");
+        }
+
+        ButtonBar buttonBar = (ButtonBar) dialogPane.lookup(".button-bar");
+        if (buttonBar != null) {
+            buttonBar.getButtons().forEach(button -> button.setStyle("-fx-background-color: " + buttonColor + "; -fx-text-fill: #000000;"));
+        }
+    }
+
     @FXML
     void handleSubmit(ActionEvent event) {
         String newPass = NewPass.getText();
@@ -80,6 +122,22 @@ public class ResetPassPane {
 
         } catch (IOException e) {
             System.err.println("Error loading the signup page: " + e.getMessage());
+        }
+    }
+
+    @FXML
+    private void handleBackButton(ActionEvent event) {
+        Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Login.fxml"));
+            Parent loginPageParent = fxmlLoader.load();
+            Scene loginScene = new Scene(loginPageParent);
+            currentStage.setScene(loginScene);
+            currentStage.setTitle("Login page!");
+            currentStage.show();
+
+        } catch (IOException e) {
+            System.err.println("Error loading login page : " + e.getMessage());
         }
     }
 

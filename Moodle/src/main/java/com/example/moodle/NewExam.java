@@ -60,6 +60,7 @@ public class NewExam {
     @FXML
     private Button prev;
 
+
     public Quiz getSelectedQuiz() {
         return selectedQuiz;
     }
@@ -109,44 +110,101 @@ public class NewExam {
     @FXML
     private void handleNextButton(){
         if(Objects.equals(QtypeFlag, "test")) {
+            // Check for empty fields
+            if (testQuestion1.getText().isEmpty() || A.getText().isEmpty() || B.getText().isEmpty() ||
+                    C.getText().isEmpty() || D.getText().isEmpty() || (!correct_choiceA.isSelected() &&
+                    !correct_choiceB.isSelected() && !correct_choiceC.isSelected() && !correct_choiceD.isSelected())) {
+                showAlert(Alert.AlertType.ERROR, "Input Error", "Please fill in all the required fields and select the correct answer.");
+                return;
+            }
+
+            // Process test question
             String testQ = testQuestion1.getText();
             String a = A.getText();
             String b = B.getText();
             String c = C.getText();
             String d = D.getText();
-            CheckBox correctAnswer = null;
-            if (correct_choiceA.isSelected()) {
-                correctAnswer = correct_choiceA;
-            } else if (correct_choiceB.isSelected()) {
-                correctAnswer = correct_choiceB;
-            } else if (correct_choiceC.isSelected()) {
-                correctAnswer = correct_choiceC;
-            } else if (correct_choiceD.isSelected()) {
-                correctAnswer = correct_choiceD;
-            }
+            CheckBox correctAnswer = correct_choiceA.isSelected() ? correct_choiceA :
+                    correct_choiceB.isSelected() ? correct_choiceB :
+                            correct_choiceC.isSelected() ? correct_choiceC :
+                                    correct_choiceD;
             Question testQuestion = new Question(testQ, a, b, c, d, correctAnswer, QuestionType.TEST);
             selectedQuiz.addQuestion(testQuestion);
-            testQuestion1.clear();
-            A.clear();
-            B.clear();
-            C.clear();
-            D.clear();
-            correct_choiceA.setSelected(false);
-            correct_choiceB.setSelected(false);
-            correct_choiceC.setSelected(false);
-            correct_choiceD.setSelected(false);
+            clearTestFields();
         }
         if(Objects.equals(QtypeFlag, "descriptive")){
+            // Check for empty fields
+            if (descriptiveQuestion.getText().isEmpty() || descriptiveAnswer.getText().isEmpty()) {
+                showAlert(Alert.AlertType.ERROR, "Input Error", "Please fill in all the required fields.");
+                return;
+            }
+
+            // Process descriptive question
             String descriptiveQ = descriptiveQuestion.getText();
             String descriptiveAns = descriptiveAnswer.getText();
             Question DecQuestion = new Question(descriptiveQ, descriptiveAns, QuestionType.DESCRIPTIVE);
             selectedQuiz.addQuestion(DecQuestion);
-            descriptiveAnswer.clear();
-            descriptiveQuestion.clear();
+            clearDescriptiveFields();
+        }
+    }
+
+    private void clearTestFields() {
+        testQuestion1.clear();
+        A.clear();
+        B.clear();
+        C.clear();
+        D.clear();
+        correct_choiceA.setSelected(false);
+        correct_choiceB.setSelected(false);
+        correct_choiceC.setSelected(false);
+        correct_choiceD.setSelected(false);
+    }
+
+    private void clearDescriptiveFields() {
+        descriptiveQuestion.clear();
+        descriptiveAnswer.clear();
+    }
+
+    private void showAlert(Alert.AlertType type, String title, String content) {
+        Alert alert = new Alert(type);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(content);
+
+        // Set custom colors directly
+        switch (type) {
+            case ERROR:
+                setAlertColors(alert, "#ced4da", "#9d0208", "#9d0208", "#6c757d");
+                break;
+            // Add cases for other alert types if needed
+
+            default: // Default colors
+                break;
         }
 
-
+        alert.showAndWait();
     }
+
+    private void setAlertColors(Alert alert, String backgroundColor, String headerColor, String contentColor, String buttonColor) {
+        DialogPane dialogPane = alert.getDialogPane();
+        dialogPane.setStyle("-fx-background-color: " + backgroundColor + ";");
+
+        Label titleLabel = (Label) dialogPane.lookup(".alert-header");
+        if (titleLabel != null) {
+            titleLabel.setStyle("-fx-background-color: " + headerColor + "; -fx-text-fill: #000000;");
+        }
+
+        Label contentLabel = (Label) dialogPane.lookup(".alert-content");
+        if (contentLabel != null) {
+            contentLabel.setStyle("-fx-text-fill: " + contentColor + ";");
+        }
+
+        ButtonBar buttonBar = (ButtonBar) dialogPane.lookup(".button-bar");
+        if (buttonBar != null) {
+            buttonBar.getButtons().forEach(button -> button.setStyle("-fx-background-color: " + buttonColor + "; -fx-text-fill: #000000;"));
+        }
+    }
+
 
     @FXML
     private void handle_cancel_button(ActionEvent event){

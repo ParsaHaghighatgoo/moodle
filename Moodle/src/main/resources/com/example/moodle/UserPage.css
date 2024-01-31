@@ -1,0 +1,26 @@
+/* Button Style */
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    border: 2px solid #1a237e; /* Dark blue border */
+    color: #ffffff; /* White text color */
+    background-color: #1a237e; /* Dark blue background color */
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Hover Effect */
+.button:hover {
+    background-color: #3949ab; /* Darker blue on hover */
+    color: #ffffff; /* White text color on hover */
+}
+
+/* Pressed Effect */
+.button:active {
+    background-color: #0d47a1; /* Even darker blue when pressed */
+    color: #ffffff; /* White text color when pressed */
+}
